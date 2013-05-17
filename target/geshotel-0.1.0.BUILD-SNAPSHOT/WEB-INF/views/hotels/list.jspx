@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_domain_Hotel" items="${hotels}" z="ygEr5PiWJL/OwZfda5BxYYv7KjQ=">
+        <table:table data="${hotels}" id="l_org_adorsys_geshotel_domain_Hotel" path="/hotels" z="Nqqjygni41I+TjdDQ+vvTt5bWps=">
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_Name" property="name" z="iK/ktBnCxLWhKTseZKQzxQTS/T4="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_Address" property="address" z="gfba8/mWr9xqMX/W4RaxX4UKy3o="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_CodePostal" property="codePostal" z="5JnxYVstA3HhHFIZf5dimnv03vo="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_City" property="city" z="fMdOBUebjBFFIyKGvsiKOLuDTBk="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_Email" property="email" z="HvgdyAk+znaYuJ9cYUMusQ3bX7g="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Hotel_PhoneNumber" property="phoneNumber" z="XRE0pRIdY2BY3aZBCqSn+20nvB8="/>
+        </table:table>
+    </page:list>
+</div>

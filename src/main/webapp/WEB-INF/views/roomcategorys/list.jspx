@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_booking_domain_RoomCategory" items="${roomcategorys}" z="kd+7lE3O6CI1BH7rtz3FAmLxnvE=">
+        <table:table data="${roomcategorys}" id="l_org_adorsys_geshotel_booking_domain_RoomCategory" path="/roomcategorys" z="Z9vWFSML1GjNfG9IdybaEMZSSvk=">
+            <table:column id="c_org_adorsys_geshotel_booking_domain_RoomCategory_title" property="title" z="c2JMIELLF8aqonuuGcxvnqfz1p0="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_RoomCategory_description" property="description" z="h/1SoN6vsjLSK/QndL23VWCbvUU="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_RoomCategory_price" property="price" z="J961d7PeXvLrxNSmalOX1v3pQ00="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_RoomCategory_priceMin" property="priceMin" z="CXjWMF9hm2ObgrVfkGNAjjaH4zc="/>
+        </table:table>
+    </page:list>
+</div>

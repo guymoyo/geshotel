@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_InventoryItem" object="${inventoryitem}" path="/inventoryitems" z="AqRULHo5hm+R6DsObuALg+tPs+Y=">
+        <field:display field="designation" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_designation" object="${inventoryitem}" z="C6PfkszNWguTot0usVhWhvlt3q0="/>
+        <field:display field="entry" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_entry" object="${inventoryitem}" z="CQ6RIiMNBBKQjzaf12HlBH+qTG4="/>
+        <field:display field="initialStock" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_initialStock" object="${inventoryitem}" z="ky3hewH3uj/o/OK116ARgkdwVr8="/>
+        <field:display field="finalStock" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_finalStock" object="${inventoryitem}" z="bawio0m4YWUWgWgxkSAzV8/hnns="/>
+        <field:display field="inventory" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_inventory" object="${inventoryitem}" z="Q02a1XxtOM/pjnPmUgDHYQGtMTI="/>
+        <field:display field="product" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_product" object="${inventoryitem}" z="8PMueodIR+/9iIZnJGhzZ8x8E+4="/>
+        <field:display field="sales" id="s_org_adorsys_geshotel_resto_domain_InventoryItem_sales" object="${inventoryitem}" z="23VsQ+WwpnBm7mXyNLZ3xY1Z4K8="/>
+    </page:show>
+</div>

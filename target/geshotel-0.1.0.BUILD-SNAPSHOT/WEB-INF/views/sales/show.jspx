@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_Sale" object="${sale}" path="/sales" z="bJ/qJycxrLPbjyWUAJflqizcx7I=">
+        <field:display field="saleKey" id="s_org_adorsys_geshotel_resto_domain_Sale_saleKey" object="${sale}" z="mFEJDYfjTsvXZH6F7mb08pfgwso="/>
+        <field:display field="saleItem" id="s_org_adorsys_geshotel_resto_domain_Sale_saleItem" object="${sale}" z="7qQuxC08r1XYck0f+laYQNP3Q8Q="/>
+        <field:display field="totalAmount" id="s_org_adorsys_geshotel_resto_domain_Sale_totalAmount" object="${sale}" z="zpQd8Gyz4t3KCUuvAyEqysFxbow="/>
+        <field:display field="tax" id="s_org_adorsys_geshotel_resto_domain_Sale_tax" object="${sale}" z="3bppGMzdxzWJnkGKq5BUgtRAeGs="/>
+        <field:display date="true" dateTimePattern="${sale_recorddate_date_format}" field="recordDate" id="s_org_adorsys_geshotel_resto_domain_Sale_recordDate" object="${sale}" z="IHxD00U3FKZhFtyqFL2KWkjyz+Q="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_resto_domain_Sale_note" object="${sale}" z="rncsasC5NerQvLxpEZ+IBQKrQSo="/>
+        <field:display field="userNameDescription" id="s_org_adorsys_geshotel_resto_domain_Sale_userNameDescription" object="${sale}" z="lNIL7BhpH6X9srrnqcBukzl1+GE="/>
+        <field:display field="brTable" id="s_org_adorsys_geshotel_resto_domain_Sale_brTable" object="${sale}" z="z0JwmwqATX/SUu5ROvK3QJYryFE="/>
+        <field:display field="customer" id="s_org_adorsys_geshotel_resto_domain_Sale_customer" object="${sale}" z="+1kE/yY+RGKvXNRGD0P74E23APE="/>
+        <field:display field="customerType" id="s_org_adorsys_geshotel_resto_domain_Sale_customerType" object="${sale}" z="BMnqyBGss8IK9rccFSF8O8HhQ2M="/>
+        <field:display field="saleState" id="s_org_adorsys_geshotel_resto_domain_Sale_saleState" object="${sale}" z="AAvMQjiKnMChMq4GOqP6OVzg4eM="/>
+        <field:display field="invoice" id="s_org_adorsys_geshotel_resto_domain_Sale_invoice" object="${sale}" z="6NnQHHoyIzYOk5udniJrHpD4sAU="/>
+    </page:show>
+</div>

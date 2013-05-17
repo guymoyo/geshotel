@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_KitchenOrder" object="${kitchenorder}" path="/kitchenorders" z="KidTgbSf+WR8iE4tqo6GlkAq3PM=">
+        <field:display field="kitchenOrderKey" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_kitchenOrderKey" object="${kitchenorder}" z="346fcT7I9vH+Kfe4kbNeiBgtzfk="/>
+        <field:display date="true" dateTimePattern="${kitchenOrder_dateofordering_date_format}" field="dateOfOrdering" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_dateOfOrdering" object="${kitchenorder}" z="j6Wk4RQ3NZ8HD08fwUgOCEoxG7M="/>
+        <field:display field="sale" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_sale" object="${kitchenorder}" z="XuZYW9ttc7YblDSUHK5e10WulIE="/>
+        <field:display field="kitchenOrderItemState" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_kitchenOrderItemState" object="${kitchenorder}" z="NSMRU0OFCblfbwvG/168oqvBwWA="/>
+        <field:display field="sellerAccount" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_sellerAccount" object="${kitchenorder}" z="5x1HmC1hBLTz4pPR/tDHiIbLKho="/>
+        <field:display field="kitchenOrderPath" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_kitchenOrderPath" object="${kitchenorder}" z="6QgrFt9L7QS3BAtK6qyrDzy6Pds="/>
+        <field:display field="kitchenOrderNumber" id="s_org_adorsys_geshotel_resto_domain_KitchenOrder_kitchenOrderNumber" object="${kitchenorder}" z="kl1iJv9ORwKXIyVTzBHkqoWKvjI="/>
+    </page:show>
+</div>

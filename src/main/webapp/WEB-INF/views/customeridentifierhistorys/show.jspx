@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_CustomerIdentifierHistory" object="${customeridentifierhistory}" path="/customeridentifierhistorys" z="k5Hof2p1NIBYjC5fmig7HH8FbG4=">
+        <field:display field="historyKey" id="s_org_adorsys_geshotel_resto_domain_CustomerIdentifierHistory_historyKey" object="${customeridentifierhistory}" z="XRRxs+dIwXSXbKKYE7q0FMMeJPs="/>
+        <field:display field="customer" id="s_org_adorsys_geshotel_resto_domain_CustomerIdentifierHistory_customer" object="${customeridentifierhistory}" z="FofI+QfwHNZ002lnW2GGISbdlcs="/>
+        <field:display field="identifierValue" id="s_org_adorsys_geshotel_resto_domain_CustomerIdentifierHistory_identifierValue" object="${customeridentifierhistory}" z="Pd5m21CSjLLXw7IRskLLXLHE96Y="/>
+        <field:display date="true" dateTimePattern="${customerIdentifierHistory_storingdate_date_format}" field="storingDate" id="s_org_adorsys_geshotel_resto_domain_CustomerIdentifierHistory_storingDate" object="${customeridentifierhistory}" z="vSVHrbHogiXi0tg2Pyc2BOEVN7o="/>
+    </page:show>
+</div>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_Provider" object="${provider}" path="/providers" z="wn0P+ZVPs1/Zes+VKus1xX0KRc4=">
+        <field:display field="providerKey" id="s_org_adorsys_geshotel_resto_domain_Provider_providerKey" object="${provider}" z="pVuKf/NlyB27XA5lN5wEq+RKQlg="/>
+        <field:display field="fullName" id="s_org_adorsys_geshotel_resto_domain_Provider_fullName" object="${provider}" z="DZobnVBq6tvFmOIVld51dqSvOi0="/>
+        <field:display field="identifier" id="s_org_adorsys_geshotel_resto_domain_Provider_identifier" object="${provider}" z="3peT6fGqjDb/M95SxkF61FMrtys="/>
+    </page:show>
+</div>

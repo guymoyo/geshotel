@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="booking" name="payments/list">
+        <put-attribute name="body" value="/WEB-INF/views/payments/list.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/show">
+        <put-attribute name="body" value="/WEB-INF/views/payments/show.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/create">
+        <put-attribute name="body" value="/WEB-INF/views/payments/create.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/update">
+        <put-attribute name="body" value="/WEB-INF/views/payments/update.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/findPaymentsByInvoice">
+        <put-attribute name="body" value="/WEB-INF/views/payments/findPaymentsByInvoice.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/findPaymentsByDatePayemmentBetween">
+        <put-attribute name="body" value="/WEB-INF/views/payments/findPaymentsByDatePayemmentBetween.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/findPaymentsByCasheirAndDatePayemmentBetween">
+        <put-attribute name="body" value="/WEB-INF/views/payments/findPaymentsByCasheirAndDatePayemmentBetween.jspx"/>
+    </definition>
+<definition extends="booking" name="payments/findPaymentsByCasheir">
+        <put-attribute name="body" value="/WEB-INF/views/payments/findPaymentsByCasheir.jspx"/>
+    </definition>
+</tiles-definitions>

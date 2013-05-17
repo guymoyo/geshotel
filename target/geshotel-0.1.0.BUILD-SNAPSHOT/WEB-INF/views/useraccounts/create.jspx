@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_domain_UserAccount" modelAttribute="userAccount" path="/useraccounts" render="${empty dependencies}" z="8dVUVuoS5mo0CxmyNv4ED14x9qk=">
+        <field:input field="identifier" id="c_org_adorsys_geshotel_domain_UserAccount_identifier" min="3" required="true" z="mm+GLmXJZdaAoyL4Hs+64/mHK3I="/>
+        <field:input field="password" id="c_org_adorsys_geshotel_domain_UserAccount_password" min="5" required="true" type="password" z="user-managed"/>
+        <field:datetime dateTimePattern="${userAccount_entrydate_date_format}" field="entryDate" id="c_org_adorsys_geshotel_domain_UserAccount_entryDate" required="true" z="crB8VIYBl3Ir0V6BOe9Mk7D2m60="/>
+        <field:input field="lastName" id="c_org_adorsys_geshotel_domain_UserAccount_lastName" required="true" z="Fotvuwz7hAXqLZL8yzhwm0Vx/Os="/>
+        <field:select field="roleNames" id="c_org_adorsys_geshotel_domain_UserAccount_roleNames" items="${rolenames}" multiple="true" path="rolenames" required="true" z="user-managed"/>
+        <field:datetime dateTimePattern="${userAccount_accountexpiration_date_format}" field="accountExpiration" id="c_org_adorsys_geshotel_domain_UserAccount_accountExpiration" z="scfyE8TDZA1tkCwSuE59Ecs/j7k="/>
+        <field:checkbox field="disableLogin" id="c_org_adorsys_geshotel_domain_UserAccount_disableLogin" z="J8OnHHm/O334gKFSb9AolBrfpLo="/>
+        <field:checkbox field="accountLocked" id="c_org_adorsys_geshotel_domain_UserAccount_accountLocked" z="wSw2lzRtLr8zrvbZVGfYkEpdVCU="/>
+        <field:datetime dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="c_org_adorsys_geshotel_domain_UserAccount_credentialExpiration" z="6YNTlfXbIwT8BWTyHi9Xiz0GZgA="/>
+        <field:select field="periodConf" id="c_org_adorsys_geshotel_domain_UserAccount_periodConf" itemValue="id" items="${periodconfs}" path="/periodconfs" z="U05zJ7UjVGN48BzjDuYcwK6Z1+E="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_domain_UserAccount" render="${not empty dependencies}" z="3CTkGJI6fKf3iZ5mZMSNBe2PnW4="/>
+</div>

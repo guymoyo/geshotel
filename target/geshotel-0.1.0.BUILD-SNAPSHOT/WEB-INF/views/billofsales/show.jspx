@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_BillOfSale" object="${billofsale}" path="/billofsales" z="DBbtPJQxF85B5Oqk5MDezuQl/ck=">
+        <field:display field="sellKey" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_sellKey" object="${billofsale}" z="3GJmrD+2YNZyLolaQ5DPKlBPp7k="/>
+        <field:display field="totalAmount" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_totalAmount" object="${billofsale}" z="eiJS7cg/9o1DwhOmPFUVnLLq8yM="/>
+        <field:display field="tax" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_tax" object="${billofsale}" z="Lm/eNlb7JzPg07aIZvORHZoABXQ="/>
+        <field:display field="discount" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_discount" object="${billofsale}" z="3C9IqGN2t9Pyloj9JX6wuSm5XCs="/>
+        <field:display field="amountDue" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_amountDue" object="${billofsale}" z="mqavDhp/xmkEEue1hP2LHo5Vwfg="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_note" object="${billofsale}" z="As2BE+3rqiML3zTBPoMswJhRnEk="/>
+        <field:display field="restaurantName" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_restaurantName" object="${billofsale}" z="GsXHU86UJJvoTOug0wrwRPBU9hg="/>
+        <field:display field="seller" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_seller" object="${billofsale}" z="Qt6Ya/HEEdV0ke/OAwvpovLR3a4="/>
+        <field:display date="true" dateTimePattern="${billOfSale_dateofsale_date_format}" field="dateOfSale" id="s_org_adorsys_geshotel_resto_domain_BillOfSale_dateOfSale" object="${billofsale}" z="SwqpcxrS2BSvYF0KyJSpTRSA7VI="/>
+        <div>
+            <spring:url value="/billofsales/${billofsale.sellKey }/print" var="print_billofsale"/>
+            <spring:message code="print_billofsale_message_code" var="print_billofsale_message_code_var"/>
+            <span>
+                <a href="${print_billofsale }"> ${print_billofsale_message_code_var } </a>
+            </span>
+        </div>
+    </page:show>
+    <br/>
+    <br/>
+</div>

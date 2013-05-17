@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_ProductGroup" object="${productgroup}" path="/productgroups" z="Wslnm9UC9ODwEXJDNnQ7z9bS2tQ=">
+        <field:display field="productGroupKey" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_productGroupKey" object="${productgroup}" z="buqa5CdYpj+D4D+pdLs+45Pbw4c="/>
+        <field:display field="title" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_title" object="${productgroup}" z="5Ts1ucjY5Kzzn4Opuw/npJ9ZERI="/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_description" object="${productgroup}" z="MB6K652WK2E2oGlFmX97PmuOyVU="/>
+        <field:display field="types" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_types" object="${productgroup}" z="mw92RETS1IPdnC6QC5aOU5L75bc="/>
+        <field:display field="allowedRoles" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_allowedRoles" object="${productgroup}" z="JEj2RiYsxlfwpgn/7hmb2PwRWWw="/>
+    </page:show>
+</div>

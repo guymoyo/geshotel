@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="inventorys/list">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/list.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/show">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/show.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/create">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/create.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/update">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/update.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByInventoryDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByInventoryDateBetween.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByIsClosedNot">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByIsClosedNot.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByPeriodConf">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByPeriodConf.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByTitleEquals">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByTitleEquals.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByInventoryDateBetweenAndIsClosedNot">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByInventoryDateBetweenAndIsClosedNot.jspx"/>
+    </definition>
+<definition extends="default" name="inventorys/findInventorysByUserAccountAndInventoryState">
+        <put-attribute name="body" value="/WEB-INF/views/inventorys/findInventorysByUserAccountAndInventoryState.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_KitchenOrderItem" object="${kitchenorderitem}" path="/kitchenorderitems" z="Lx8urxzUZL2NMGvxPXSkmLlpqgM=">
+        <field:display field="kitchenOrderItemKey" id="s_org_adorsys_geshotel_resto_domain_KitchenOrderItem_kitchenOrderItemKey" object="${kitchenorderitem}" z="ZW0lO/27GOwHCFy+u019cBKTc2A="/>
+        <field:display field="kitchenOrder" id="s_org_adorsys_geshotel_resto_domain_KitchenOrderItem_kitchenOrder" object="${kitchenorderitem}" z="JrogOOK9U6fYxGXs6AkU0dwSasA="/>
+        <field:display field="product" id="s_org_adorsys_geshotel_resto_domain_KitchenOrderItem_product" object="${kitchenorderitem}" z="Jo9eUNgXoo7I0gdvvjK1C7UtfF0="/>
+        <field:display field="qty" id="s_org_adorsys_geshotel_resto_domain_KitchenOrderItem_qty" object="${kitchenorderitem}" z="EFAbl5vNq1PM9q3hKOcyVtfhqew="/>
+        <field:display date="true" dateTimePattern="${kitchenOrderItem_dateofordering_date_format}" field="dateOfOrdering" id="s_org_adorsys_geshotel_resto_domain_KitchenOrderItem_dateOfOrdering" object="${kitchenorderitem}" z="HpI1QbV8U2hEJsJ1QQ9Um6kNr5c="/>
+    </page:show>
+</div>

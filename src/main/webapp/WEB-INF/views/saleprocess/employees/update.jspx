@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_domain_Employee" modelAttribute="employee" path="/employees" versionField="Version" z="mZtb3LBkVRjSYzzFBoV7ZwU6Cus=">
+        <field:input field="fullName" id="c_org_adorsys_geshotel_domain_Employee_fullName" required="true" z="NHUYWy9ObQN7fz6eNEbwWOQqyvs="/>
+        <field:input field="identifier" id="c_org_adorsys_geshotel_domain_Employee_identifier" required="true" z="YteVN+Or9U84pHUWlt9n9VeFJqU="/>
+        <field:select field="service" id="c_org_adorsys_geshotel_domain_Employee_service" itemValue="id" items="${services}" path="/services" required="true" z="XNPp9PzWHqObfCaFuTtmZsa6PGw="/>
+        <field:select field="gender" id="c_org_adorsys_geshotel_domain_Employee_gender" items="${genders}" path="genders" z="5hfo7YC8EZAWAFXhHmzvHaq9rJE="/>
+        <field:datetime dateTimePattern="${employee_borndate_date_format}" field="bornDate" id="c_org_adorsys_geshotel_domain_Employee_bornDate" required="true" z="pJwuH00i0XkN+ohR8Ew4R+k5F5w="/>
+    </form:update>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="kitchenorderitems/list">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorderitems/list.jspx"/>
+    </definition>
+<definition extends="default" name="kitchenorderitems/show">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorderitems/show.jspx"/>
+    </definition>
+<definition extends="default" name="kitchenorderitems/create">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorderitems/create.jspx"/>
+    </definition>
+<definition extends="default" name="kitchenorderitems/update">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorderitems/update.jspx"/>
+    </definition>
+<definition extends="default" name="kitchenorderitems/findKitchenOrderItemsByKitchenOrder">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorderitems/findKitchenOrderItemsByKitchenOrder.jspx"/>
+    </definition>
+</tiles-definitions>

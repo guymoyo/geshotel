@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:custom="urn:jsptagdir:/WEB-INF/tags/form/custom"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<page:show id="ps_org_adorsys_geshotel_resto_domain_SaleItem"
+		object="${saleitem}" path="/billofsales/saleitems" z="user-managed">
+		<field:display field="saleItemKey"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_saleItemKey"
+			object="${saleitem}" z="9156TUBFA4nL1m+hy7Lg86ad2XI=" />
+		<field:display field="customer"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_customer"
+			object="${saleitem}" z="ELA7YTTEwm2v55vzMF9w48BBVsw=" />
+		<field:display field="product"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_product"
+			object="${saleitem}" z="Df81efJJdnsfSgGsU2VCWfRTZa8=" />
+		<field:display field="brTable"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_brTable"
+			object="${saleitem}" z="5uP+FFtDM6/s6dCTT49dSOXc4A4=" />
+		<field:display field="qty"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_qty"
+			object="${saleitem}" z="IqhbInQQ6gqU8lGkZjappXbdP3o=" />
+		<field:display field="unitPrice"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_unitPrice"
+			object="${saleitem}" z="nsdGcA7shaJllux20gW9vD8PbVE=" />
+		<field:display field="amount"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_amount"
+			object="${saleitem}" z="HQDSWtgq6JBEKNKU59rsLRn5hvw=" />
+		<field:display date="true"
+			dateTimePattern="${saleItem_dateofsale_date_format}"
+			field="dateOfSale"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_dateOfSale"
+			object="${saleitem}" z="pmMSYE7zhQr6E8TK0PDzuSl1fTE=" />
+		<field:display field="seller"
+			id="s_org_adorsys_geshotel_resto_domain_SaleItem_seller"
+			object="${saleitem}" z="FSq2jsxhrG4h8yUWEFF9VHMCvOA=" />
+	</page:show>
+
+	<custom:list id="pl_org_adorsys_geshotel_resto_domain_SaleItem"
+		items="${saleitems}" z="Dd/U7HsKXHdtQf8DqJeO/aK073Y=">
+		<table:table data="${saleitems}"
+			id="l_org_adorsys_geshotel_resto_domain_SaleItem"
+			path="/billofsales/saleitems" z="bQWA5BVBdCzuRh96gTY6oiOIIrM=">
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_SaleItem_saleItemKey"
+				property="saleItemKey" z="hZF7PGD/PsSyHLJROJmwoVDQthM=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_SaleItem_customer"
+				property="customer" z="0sV1ptLUG/lNQE31sOwz3JbnIGg=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_SaleItem_product"
+				property="product" z="geeISSOchsr4dEMjueui1dbevhk=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_SaleItem_brTable"
+				property="brTable" z="cY9zORfPNR8GmgjJLraWMmIxDbo=" />
+			<table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_qty"
+				property="qty" z="//H+Xi1tDPUVkan3jGOo0rgDT5w=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_SaleItem_unitPrice"
+				property="unitPrice" z="X+efUg2imfP9ZcimKQhaknOjEQc=" />
+		</table:table>
+	</custom:list>
+</div>

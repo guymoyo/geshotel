@@ -1,0 +1,23 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+	xmlns:spring="http://www.springframework.org/tags" 
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+	   
+	   <div class="print hide" >
+	   	<h2>Lettre de confirmation</h2>
+	   	<p>Objet : Votre réservation </p>
+ 
+Madame / Monsieur, <b>${reservation.customer.fullName}</b><br/>
+ 
+
+Nous accusons réception de la demande de réservation que vous avez effectuée pour la chambre numero <b>${reservation.room.roomNumber}</b>.<br/> 
+Nous avons pris bonne note que votre arrivée est prévue pour le <b> ${reservation.checkInDate}</b>. La réservation a été faite jusqu'au <b> ${reservation.checkOutDate}</b> comme vous l'avez demandé. 
+Concernant les modalités de séjour, il s'agit d'un séjour de <b> ${reservation.numDays}</b> jours. pour <b>${reservation.numOfPeople}</b> personnes. 
+Afin de concrétiser votre réservation, je vous demanderai de bien vouloir me faire parvenir une somme de _____ fcfa a titre de caution.<br/> 
+Veuillez agréer, Madame / Monsieur, l'expression de nos sincères salutations.
+<div><p>by hotel ${hotel}</p></div>
+ </div>
+	   
+</jsp:root>

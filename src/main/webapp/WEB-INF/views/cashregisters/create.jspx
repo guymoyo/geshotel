@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_resto_domain_CashRegister" modelAttribute="cashRegister" path="/cashregisters" render="${empty dependencies}" z="CD2dANeS5Xd+BMnsIh6z5n4wmHw=">
+        <field:input field="cashRegisterKey" id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterKey" z="YEiyN3fe9PTZKwRE1/upkS9LL/k="/>
+        <field:datetime dateTimePattern="${cashRegister_dateofopening_date_format}" field="dateOfOpening" id="c_org_adorsys_geshotel_resto_domain_CashRegister_dateOfOpening" required="true" z="nukvimjgPPeHGLgOcXjmWv4hmUA="/>
+        <field:datetime dateTimePattern="${cashRegister_dateofclosing_date_format}" field="dateOfClosing" id="c_org_adorsys_geshotel_resto_domain_CashRegister_dateOfClosing" z="iV22HVsviIf3mhyKZOQduQIe5mg="/>
+        <field:select field="cashierAccount" id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashierAccount" itemValue="id" items="${useraccounts}" path="/useraccounts" required="true" z="hdtKMWs5m6RO8VNOd9afXdgA6Qg="/>
+        <field:select field="cashRegisterState" id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterState" items="${barrestaustates}" path="barrestaustates" z="RfAai9mNmvUFdslXiIUgAz/AiVk="/>
+        <field:input field="cashFund" id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashFund" required="true" validationMessageCode="field_invalid_number" z="WknGN54r274VWh7T1OpPRN9PB28="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_resto_domain_CashRegister" render="${not empty dependencies}" z="nIHrbEvtRvlZertlIwRAq4mMCiM="/>
+</div>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="sales/list">
+        <put-attribute name="body" value="/WEB-INF/views/sales/list.jspx"/>
+    </definition>
+<definition extends="default" name="sales/show">
+        <put-attribute name="body" value="/WEB-INF/views/sales/show.jspx"/>
+    </definition>
+<definition extends="default" name="sales/create">
+        <put-attribute name="body" value="/WEB-INF/views/sales/create.jspx"/>
+    </definition>
+<definition extends="default" name="sales/update">
+        <put-attribute name="body" value="/WEB-INF/views/sales/update.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesBySaleKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesBySaleKeyEquals.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesByRecordDateBetweenAndSaleState">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesByRecordDateBetweenAndSaleState.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesByRecordDateBetweenAndSaleStateAndCustomerType">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesByRecordDateBetweenAndSaleStateAndCustomerType.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesBySaleState">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesBySaleState.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesBySaleStateAndRecordDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesBySaleStateAndRecordDateBetween.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesByCustomer">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesByCustomer.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesByInvoice">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesByInvoice.jspx"/>
+    </definition>
+<definition extends="default" name="sales/findSalesByCustomerAndInvoice">
+        <put-attribute name="body" value="/WEB-INF/views/sales/findSalesByCustomerAndInvoice.jspx"/>
+    </definition>
+</tiles-definitions>

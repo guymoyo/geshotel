@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+xmlns:spring="http://www.springframework.org/tags"
+xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:message code="sales_menu" var="sales_menu" />
+    	<spring:message code="list_closed_sales"  var="list_closed_sales" />
+    	<spring:message code="merge_sales" var="merge_sales"/>
+    <menu:menu id="_menu">
+    	<menu:category id="c_sale" z="LFqT/mISyLmHFIErXGS0ab7uVTk=" label="${sales_menu }">
+            <menu:item id="i_sale_new" messageCode="global_menu_new" url="/saleprocess?form" z="sS1JJOIMy9ZJtlki7wbKwpDGo/Q="/>
+            <menu:item id="i_sale_list" messageCode="global_menu_list" url="/saleprocess?page=1&amp;size=${empty param.size ? 10 : param.size}" z="szeshiziypSm4t2Cb2YmYPv7nHM="/>
+            <menu:item url="/saleprocess/closed" id="i_sale_closed" label="${list_closed_sales }" />
+            <menu:item url="/saleprocess/merge?init" id="i_sale_merged" label="${merge_sales }" />
+        </menu:category>
+    	<menu:category id="c_salereport" z="user-manged"  render="false">
+    		<menu:item url="/saleprocess/manage/salereport" messageCode="global_menu_list" id="i_salereport_list" z="user-manged" />
+        </menu:category>
+        <spring:message code="others" var="others" />
+        <spring:message code="back_to_top" var="back_to_top" />
+        <menu:category id="category_back_id" label="${others }" >
+        	<menu:item url="/backtotop" id="back_to_top" label="${back_to_top }" />
+        </menu:category>
+    </menu:menu>
+</div>

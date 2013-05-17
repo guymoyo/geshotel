@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page"
+ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" 
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_domain_Payment" items="${payments}" z="user-managed">
+        <table:table create="false" delete="false" update="false" data="${payments}" id="l_org_adorsys_geshotel_domain_Payment" path="/payments" z="user-managed">
+            <table:column date="true" dateTimePattern="${payment_datepayemment_date_format}" id="c_org_adorsys_geshotel_domain_Payment_datePayemment" property="datePayemment" z="oh1ewzYyCqCLrQt0At9MeOd2MT0="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_Amount" property="amount" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_invoice" property="invoice" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_payementType" property="payementType" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_note" property="note" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_casheir" property="casheir" z="user-managed"/>
+        </table:table>
+    </page:list>
+    <c:if test="${not empty montant}">
+        <div style="margin-top: 20px;margin-left: 50px;">
+            <h3>Total Amount: <b style="color: red">${montant}</b>
+            </h3>
+        </div>
+    </c:if>
+</div>

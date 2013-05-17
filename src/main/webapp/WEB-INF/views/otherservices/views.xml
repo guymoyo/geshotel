@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="booking" name="otherservices/list">
+        <put-attribute name="body" value="/WEB-INF/views/otherservices/list.jspx"/>
+    </definition>
+<definition extends="booking" name="otherservices/show">
+        <put-attribute name="body" value="/WEB-INF/views/otherservices/show.jspx"/>
+    </definition>
+<definition extends="booking" name="otherservices/create">
+        <put-attribute name="body" value="/WEB-INF/views/otherservices/create.jspx"/>
+    </definition>
+<definition extends="booking" name="otherservices/update">
+        <put-attribute name="body" value="/WEB-INF/views/otherservices/update.jspx"/>
+    </definition>
+</tiles-definitions>

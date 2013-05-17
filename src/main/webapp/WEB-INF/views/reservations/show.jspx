@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" class="" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <jsp:directive.include file="confirmLetter.jspx"/>
+    <div class="cache">
+        <util:panel id="" title="Reservation : step 3">
+            <spring:url value="/reservations/changeDate" var="changeDate"/>
+            <c:if test="${ not empty error1}">
+                <fieldset style="border-color: orange;">
+                    <legend style="color: red;">error</legend>
+	       		${error1} <br/>
+                </fieldset>
+            </c:if>
+            <c:if test="${ not empty error2}">
+                <fieldset style="border-color: orange;">
+                    <legend style="color: red;">error</legend>
+	       		${error2} <br/>
+                </fieldset>
+            </c:if>
+            <c:if test="${ not empty error3}">
+                <fieldset style="border-color: orange;">
+                    <legend style="color: red;">error</legend>
+	       		${error3} <br/>
+                </fieldset>
+            </c:if>
+            <c:choose>
+								<c:when test="${reservation.reservationState eq'NONCONFIRME'}">
+									<c:set var="class" value="nonconf"></c:set>
+										</c:when>
+									<c:when test="${reservation.reservationState eq'CONFIRME'}">
+										<c:set var="class" value="conf"></c:set>
+									</c:when>
+									<c:when test="${reservation.reservationState eq'OCCUPE'}">
+										<c:set var="class" value="occ"></c:set>
+									</c:when>
+			</c:choose>	
+            <page:show create="false" delete="false" id="ps_org_adorsys_geshotel_booking_domain_Reservation" list="false" object="${reservation}" panel="false" path="/reservations" update="false" z="user-managed">
+                <fieldset>
+                    <legend>periode</legend>
+                    <field:display date="true" dateTimePattern="${reservation_checkindate_date_format}" field="checkInDate" id="s_org_adorsys_geshotel_booking_domain_Reservation_checkInDate" object="${reservation}" z="UTXqcctHVXnmNOiA8l9WpkFqGuo="/>
+                    <field:display date="true" dateTimePattern="${reservation_checkoutdate_date_format}" field="checkOutDate" id="s_org_adorsys_geshotel_booking_domain_Reservation_checkOutDate" object="${reservation}" z="HR8+eWwfb6yPTEQHWlLO1ZdGKx8="/>
+                    <field:display field="numDays" id="s_org_adorsys_geshotel_booking_domain_Reservation_numDays" object="${reservation}" z="TvhRp2fZO3ef+B+rP26Gry1F/aI="/>
+                    <c:if test="${reservation.reservationState eq 'OCCUPE'}">
+                        <c:if test="${reservation.invoice.invoiceState ne 'Ferme' }">
+                            <form:form action="${changeDate}" commandName="reservation">
+                                <label for="_numDays"># of Days : </label>
+                                <form:input constraints="{ min: 1, max: 90, places: 0}" dojoType="dijit.form.NumberSpinner" id="_numDays_id" intermediateChanges="true" path="numDays" smallDelta="1"/>
+                                <form:errors cssClass="errors" path="numDays"/>
+                                <form:hidden path="id"/>
+                                <button dojoType="dijit.form.Button" id="change" type="submit">change</button>
+                            </form:form>
+                        </c:if>
+                    </c:if>
+                </fieldset>
+                <fieldset>
+                    <legend>info chambre</legend>
+                    <field:display field="room" id="s_org_adorsys_geshotel_booking_domain_Reservation_room" object="${reservation}" z="MCFNcKOK3m5cV9MjL6Mn9WDD6RI="/>
+                </fieldset>
+                <fieldset>
+                    <legend>info client</legend>
+                    <field:display field="customer" id="s_org_adorsys_geshotel_booking_domain_Reservation_customer" object="${reservation}" z="cc2cb3U1jHlpBmnAg+xeh8vvTQY="/>
+                </fieldset>
+                <fieldset>
+                    <legend>montant</legend>
+                    <field:display field="amount" id="s_org_adorsys_geshotel_booking_domain_Reservation_amount" object="${reservation}" z="xPGHHzlObuVbRfECOHgPbtRzpVU="/>
+                    <field:display field="reduction" id="s_org_adorsys_geshotel_booking_domain_Reservation_reduction" object="${reservation}" z="F/4H5yKX++TiJEXExK4qeIvLrbk="/>
+                    <field:display field="otherValue" id="s_org_adorsys_geshotel_booking_domain_Reservation_otherValue" object="${reservation}" z="Fyb5TgKIdbTLu7acm78fAc/ytzs="/>
+                    <field:display field="totalAmount" id="s_org_adorsys_geshotel_booking_domain_Reservation_totalAmount" object="${reservation}" z="/PK6WDRNfTwIRgCH5LgFXvR32es="/>
+                </fieldset>
+                <fieldset>
+                    <legend>Etat</legend>
+                    <div class="${class}">
+                    	<field:display field="reservationState" id="s_org_adorsys_geshotel_booking_domain_Reservation_reservationState" object="${reservation}" z="utbObJL0F1USZQAjuR8FXwrYo48="/>
+               		</div>
+                </fieldset>
+                <fieldset>
+                    <legend>autre</legend>
+                    <field:display field="numOfPeople" id="s_org_adorsys_geshotel_booking_domain_Reservation_numOfPeople" object="${reservation}" z="0CneBR1scNKjZCDDmO8H85QHSfQ="/>
+                    <field:display field="complement" id="s_org_adorsys_geshotel_booking_domain_Reservation_complement" object="${reservation}" z="436gKtnUAtQQGTYZwDLjogzgYYg="/>
+                    <field:display date="true" dateTimePattern="${reservation_creationdate_date_format}" field="creationDate" id="s_org_adorsys_geshotel_booking_domain_Reservation_creationDate" object="${reservation}" z="DTsew39PIHzQdsR0c9OtaRV08Lg="/>
+                    <field:display field="receipt" id="s_org_adorsys_geshotel_booking_domain_Reservation_receipt" object="${reservation}" z="SXjajH1FuWnsobncJcsxLTvRKKU="/>
+                </fieldset>
+                <field:display field="invoice" id="s_org_adorsys_geshotel_booking_domain_Reservation_invoice" object="${reservation}" render="false" z="user-managed"/>
+                <field:display field="discount" id="s_org_adorsys_geshotel_booking_domain_Reservation_discount" object="${reservation}" render="false" z="user-managed"/>
+                <div style="color: orange;max-width: 150px;">
+                	<field:display field="deposit" id="s_org_adorsys_geshotel_booking_domain_Reservation_deposit" object="${reservation}" z="N+cf7wCV8CjRS9jDlyljvRBaU5w="/>
+           		</div>
+            </page:show>
+            <spring:url value="/reservations" var="reser"/>
+            <spring:url value="/planning" var="planning"/>
+            <spring:url value="/invoices/facture" var="invoice"/>
+       <script type="text/javascript"> 
+       		
+       		dojo.ready(function(){
+       			
+       			dojo.connect(dojo.byId('conf'), 'onclick', function(evt){dijit.byId('caution').show();return false;});
+       		});
+       
+       </script>  
+       
+            <div style="margin-bottom: 30px;">
+                <c:if test="${reservation.reservationState eq'NONCONFIRME'}">
+                    <form action="${reser}/supprimer" class="submit" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input type="submit" value="Annuler"/>
+                    </form>
+                    <form action="${reser}/modifier" class="submit" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input type="submit" value="Modifier"/>
+                    </form>
+                    <span class="submit" style="float: left;margin-left: 20px;">
+                       
+                        <input type="submit" value="confirmer" id="conf" />
+                    </span>
+     <div data-dojo-type="dijit.Dialog" style="width:600px;display: none;" data-dojo-props="title:'Deposit'" id="caution" class="cache">
+     <form  action="${reser}/confirme" id="form" method="get">
+      	 <input name="reservationId" type="hidden" value="${reservation.id}"/>
+      	 <fmt:formatNumber type="number" var="montant" value="${reservation.deposit}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+      	 <input type="text" name="deposit" dojoType="dijit.form.ValidationTextBox" 
+      		 regExp="[0-9]+" invalidMessage="Invalid." trim="true" id="deposit" value="${montant}" />
+      <button dojoType="dijit.form.Button" type="submit" id="subPay" name="subPay">save</button>
+      </form>
+    </div>
+                </c:if>
+                <c:if test="${reservation.reservationState ne 'OCCUPE'}">
+                    <form action="${reser}/occupe" class="submit" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input type="submit" value="client present"/>
+                    </form>
+                </c:if>
+                <form action="${reser}/imprimer" class="submit" style="float: left;margin-left: 20px;">
+                    <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                    <input onclick="window.print();return false;" type="submit" value="Imprimer"/>
+                </form>
+                <form action="${planning}" class="submit" style="float: left;margin-left: 20px;">
+                    <input class="sub" type="submit" value="Planning"/>
+                </form>
+                <c:if test="${reservation.reservationState eq 'CONFIRME'}">
+                     <form action="${reser}/libere" class="submit" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input type="submit" value="libere" />
+                    </form>
+                </c:if>
+                <c:if test="${reservation.reservationState eq 'OCCUPE'}">
+                    <form action="${invoice}" class="submit" method="get" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input class="sub" type="submit" value="Facture"/>
+                    </form>
+                     <form action="${reser}/libere" class="submit" style="float: left;margin-left: 20px;">
+                        <input name="reservationId" type="hidden" value="${reservation.id}"/>
+                        <input type="submit" value="libere" />
+                    </form>
+                </c:if>
+            </div>
+        </util:panel>
+    </div>
+</div>

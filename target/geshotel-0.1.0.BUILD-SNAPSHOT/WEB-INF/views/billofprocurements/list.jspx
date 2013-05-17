@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_BillOfProcurement" items="${billofprocurements}" z="zr4DJAQTERVMxFWRyVbn2r55KQk=">
+        <table:table data="${billofprocurements}" id="l_org_adorsys_geshotel_resto_domain_BillOfProcurement" path="/billofprocurements" z="xW9hUAL3IC4Cdh5nRQ9wE6TjEo8=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_sellKey" property="sellKey" z="e10AxZRDd0em8BUsqp8Pr3Aqe5A="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_saleItems" property="saleItems" z="JKWGEHONH8egOygWlBpVRBMXbJU="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_totalAmount" property="totalAmount" z="SPicFcaAGKgd/WbUYrZ+H54NzIU="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_tax" property="tax" z="vuGu7xm1ZQsHKmLWqROqbtNSGoQ="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_discount" property="discount" z="dA8mjOFVdM0PVySRbgZmGVMA3CM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_amountDue" property="amountDue" z="Q0JLj/ZZl19VqHfziZsgbGN7iWQ="/>
+        </table:table>
+    </page:list>
+</div>

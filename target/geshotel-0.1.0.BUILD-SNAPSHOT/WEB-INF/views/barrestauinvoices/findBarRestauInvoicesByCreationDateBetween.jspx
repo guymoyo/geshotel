@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByCreationDateBetween" id="ff_org_adorsys_geshotel_resto_domain_BarRestauInvoice" path="/barrestauinvoices" z="N0FT7p8au0DixKAp3bXrkP3Dd3k=">
+        <field:datetime dateTimePattern="${barRestauInvoice_mincreationdate_date_format}" disableFormBinding="true" field="minCreationDate" id="f_org_adorsys_geshotel_resto_domain_BarRestauInvoice_minCreationDate" required="true" z="7DgCmb1QCgWBv9ShrVw1P6XPxMM="/>
+        <field:datetime dateTimePattern="${barRestauInvoice_maxcreationdate_date_format}" disableFormBinding="true" field="maxCreationDate" id="f_org_adorsys_geshotel_resto_domain_BarRestauInvoice_maxCreationDate" required="true" z="ORBwyggA02T2bLUeItaqsLhYHU0="/>
+    </form:find>
+</div>

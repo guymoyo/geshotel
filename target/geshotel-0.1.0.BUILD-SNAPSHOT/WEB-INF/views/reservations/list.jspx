@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <div class="print">
+        <page:list id="pl_org_adorsys_geshotel_booking_domain_Reservation" items="${reservations}" label="Fiche Police" z="user-managed">
+            <table:table create="false" data="${reservations}" delete="false" id="l_org_adorsys_geshotel_booking_domain_Reservation" path="/reservations" update="false" z="user-managed">
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_customer" property="customer" z="user-managed"/>
+                <table:column date="true" dateTimePattern="${reservation_checkindate_date_format}" id="c_org_adorsys_geshotel_booking_domain_Reservation_checkInDate" property="checkInDate" z="FIIsCS7GVj7mAJoVOEti612b+hg="/>
+                <table:column date="true" dateTimePattern="${reservation_checkoutdate_date_format}" id="c_org_adorsys_geshotel_booking_domain_Reservation_checkOutDate" property="checkOutDate" z="vSNzlJ/y83xEmsgNZdLR+S6KHhs="/>
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_room" property="room" z="2pGOXEb8BxhTqlvQGsZ+PwhQtHQ="/>
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_numOfPeople" property="numOfPeople" z="user-managed"/>
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_amount" property="amount" render="false" z="user-managed"/>
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_reduction" property="reduction" render="false" z="user-managed"/>
+                <table:column id="c_org_adorsys_geshotel_booking_domain_Reservation_otherValue" property="otherValue" render="false" z="user-managed"/>
+            </table:table>
+        </page:list>
+    </div>
+    <input onclick="window.print();return false;" type="submit" value="Imprimer"/>
+</div>

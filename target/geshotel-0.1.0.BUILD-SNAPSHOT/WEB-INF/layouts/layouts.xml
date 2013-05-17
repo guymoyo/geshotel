@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="default" template="/WEB-INF/layouts/default.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+		<put-attribute name="menu" value="/WEB-INF/views/menu.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+	</definition>
+
+	<definition name="booking" template="/WEB-INF/layouts/booking.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/headerBooking.jspx" />
+		<put-attribute name="menu" value="/WEB-INF/views/menuBooking.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+	</definition>
+
+	<definition name="resto" template="/WEB-INF/layouts/resto.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+		<put-attribute name="menu" value="/WEB-INF/views/menuResto.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+	</definition>
+	<definition name="sale" template="/WEB-INF/layouts/default.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+		<put-attribute name="menu" value="/WEB-INF/views/saleMenu.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+	</definition>
+
+	<definition name="public" template="/WEB-INF/layouts/default.jspx">
+		<put-attribute name="header" value="/WEB-INF/views/header.jspx" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />
+	</definition>
+	
+	<definition name="layoutLogin" template="/WEB-INF/layouts/layoutLogin.jspx">
+		
+	</definition>
+
+</tiles-definitions>

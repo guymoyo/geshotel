@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_booking_domain_Deposit" object="${deposit}" path="/deposits" z="lkUEHRfrPWCenYWT+76TDD9W4pU=">
+        <field:display field="label" id="s_org_adorsys_geshotel_booking_domain_Deposit_label" object="${deposit}" z="9W9JZwJE6dtDhEjrn3IG6EqLfxI="/>
+        <field:display field="depositvalue" id="s_org_adorsys_geshotel_booking_domain_Deposit_depositvalue" object="${deposit}" z="1MTvFwfodqrYoF6aywgC8Fll8Fo="/>
+        <field:display date="true" dateTimePattern="${deposit_datedeposit_date_format}" field="dateDeposit" id="s_org_adorsys_geshotel_booking_domain_Deposit_dateDeposit" object="${deposit}" z="uGH0ySlGkhpoUbuY+Ov4eO9wD6U="/>
+        <field:display field="userAccount" id="s_org_adorsys_geshotel_booking_domain_Deposit_userAccount" object="${deposit}" z="0aheZjAvfIwrIY7J/Xyfdq2aRwg="/>
+        <field:display field="customer" id="s_org_adorsys_geshotel_booking_domain_Deposit_customer" object="${deposit}" z="115dofYTz/Ya1JaZ3aOe7y3g3WM="/>
+    </page:show>
+</div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="sale" name="saleprocess/sales/list">
+        <put-attribute name="body" value="/WEB-INF/views/saleprocess/sales/list.jspx"/>
+    </definition>
+<definition extends="sale" name="saleprocess/sales/show">
+        <put-attribute name="body" value="/WEB-INF/views/saleprocess/sales/show.jspx"/>
+    </definition>
+<definition extends="sale" name="saleprocess/sales/showClosedSale">
+        <put-attribute name="body" value="/WEB-INF/views/saleprocess/sales/showClosedSale.jspx"/>
+    </definition>
+<definition extends="sale" name="saleprocess/sales/create">
+        <put-attribute name="body" value="/WEB-INF/views/saleprocess/sales/create.jspx"/>
+    </definition>
+<definition extends="sale" name="saleprocess/sales/update">
+        <put-attribute name="body" value="/WEB-INF/views/saleprocess/sales/update.jspx"/>
+    </definition>
+</tiles-definitions>

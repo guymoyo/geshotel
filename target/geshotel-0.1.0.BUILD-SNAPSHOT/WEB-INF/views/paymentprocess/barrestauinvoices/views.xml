@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="paymentprocess/barrestauinvoices/list">
+        <put-attribute name="body" value="/WEB-INF/views/paymentprocess/barrestauinvoices/list.jspx"/>
+    </definition>
+<definition extends="resto" name="paymentprocess/barrestauinvoices/show">
+        <put-attribute name="body" value="/WEB-INF/views/paymentprocess/barrestauinvoices/show.jspx"/>
+    </definition>
+<definition extends="resto" name="paymentprocess/barrestauinvoices/create">
+        <put-attribute name="body" value="/WEB-INF/views/paymentprocess/barrestauinvoices/create.jspx"/>
+    </definition>
+<definition extends="resto" name="barrestauinvoices/update">
+        <put-attribute name="body" value="/WEB-INF/views/paymentprocess/barrestauinvoices/update.jspx"/>
+    </definition>
+<definition extends="resto" name="paymentprocess/barrestauinvoices/findBarRestauInvoicesByInvoiceNumberEquals">
+        <put-attribute name="body" value="/WEB-INF/views/paymentprocess/barrestauinvoices/findBarRestauInvoicesByInvoiceNumberEquals.jspx"/>
+    </definition>
+</tiles-definitions>

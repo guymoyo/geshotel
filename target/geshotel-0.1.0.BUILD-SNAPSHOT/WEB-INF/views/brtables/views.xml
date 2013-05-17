@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="brtables/list">
+        <put-attribute name="body" value="/WEB-INF/views/brtables/list.jspx"/>
+    </definition>
+<definition extends="resto" name="brtables/show">
+        <put-attribute name="body" value="/WEB-INF/views/brtables/show.jspx"/>
+    </definition>
+<definition extends="resto" name="brtables/create">
+        <put-attribute name="body" value="/WEB-INF/views/brtables/create.jspx"/>
+    </definition>
+<definition extends="resto" name="brtables/update">
+        <put-attribute name="body" value="/WEB-INF/views/brtables/update.jspx"/>
+    </definition>
+</tiles-definitions>

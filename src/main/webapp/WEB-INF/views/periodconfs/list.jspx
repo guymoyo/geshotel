@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_PeriodConf" items="${periodconfs}" z="IOhN8MA9jdauJKA4p+D8tP5KSWg=">
+        <table:table data="${periodconfs}" id="l_org_adorsys_geshotel_resto_domain_PeriodConf" path="/periodconfs" z="wIFs30bLqD7icWdpktCdfgWOaUI=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_PeriodConf_title" property="title" z="qjyiJRqmVL9ftsu7AzXLdbKEazQ="/>
+            <table:column date="true" dateTimePattern="${periodConf_validfrom_date_format}" id="c_org_adorsys_geshotel_resto_domain_PeriodConf_validFrom" property="validFrom" z="QW9el4+I/LmraER6kVGloNXUymk="/>
+            <table:column date="true" dateTimePattern="${periodConf_validto_date_format}" id="c_org_adorsys_geshotel_resto_domain_PeriodConf_validTo" property="validTo" z="VveR3O5xbDl1DwZhfvg48UHfIWI="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_PeriodConf_openingTime" property="openingTime" z="1cjBP4QQA+0bvOD22VBYV2VmibE="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_PeriodConf_closingTime" property="closingTime" z="/IQnBKHzq55moVAO7QGgXH+/QKU="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_PeriodConf_description" property="description" z="G2f1Ri6EPG+nZPNpas5r7oTiu9Y="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" 
+xmlns:spring="http://www.springframework.org/tags"
+xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_BarRestauInvoice" object="${barrestauinvoice}" path="/barrestauinvoices" z="mKTlCqwhjpnqlyiSC0eU70Wuq/8=">
+        <field:display field="barRestauInvoiceKey" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_barRestauInvoiceKey" object="${barrestauinvoice}" z="YllZbljYJcIpzluvte3HfEb211o="/>
+        <field:display field="sale" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_sale" object="${barrestauinvoice}" z="XJrqDP8ck3gq78Rhu8mDFBxH+WY="/>
+        <field:display date="true" dateTimePattern="${barRestauInvoice_creationdate_date_format}" field="creationDate" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_creationDate" object="${barrestauinvoice}" z="rNAy87ZUv26ftYWPZ9X7SvdMeIw="/>
+        <field:display field="invoicePath" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoicePath" object="${barrestauinvoice}" z="FhlrWED6lhfHTaV8NNWPu0/M1wg="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_note" object="${barrestauinvoice}" z="o5UmtdaypaCwhZveVlQi9/tak8g="/>
+        <field:display field="customerType" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_customerType" object="${barrestauinvoice}" z="4jdTuxUXLDR+1rXznO+OJhg1xJI="/>
+        <field:display field="invoiceState" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoiceState" object="${barrestauinvoice}" z="K8yR2b8GdeFQFbjWLdVXqvl1qiY="/>
+        <field:display field="invoiceNumber" id="s_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoiceNumber" object="${barrestauinvoice}" z="LWaowqvUCgc4/Xzyv7ge0gfNuvo="/>
+    </page:show>
+    <div>
+    	<spring:url value="/pdf/invoices/${barrestauinvoice.invoiceNumber }.pdf" var="invoice_file_link" />
+    	<a href="${invoice_file_link }" >Download The File</a>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_domain_Customer" modelAttribute="customer" path="/customers" versionField="Version" z="wAlons8SwRwE/IRY18bwKSEYXAU=">
+        <field:input field="firstName" id="c_org_adorsys_geshotel_domain_Customer_firstName" z="uuyxtkQPf86GYlJNnCgp99kD7HU="/>
+        <field:input field="lastName" id="c_org_adorsys_geshotel_domain_Customer_lastName" required="true" z="KcvaJsEhTFeZtg+syKrEKZIepBY="/>
+        <field:input field="fullName" id="c_org_adorsys_geshotel_domain_Customer_fullName" z="8TJhHGhZJsFl0TLHU27CfW1GzDU="/>
+        <field:select field="gender" id="c_org_adorsys_geshotel_domain_Customer_gender" items="${genders}" path="genders" z="IqUT+tPIeyH9X+/X2LaVHRADwjg="/>
+        <field:input field="identityNumber" id="c_org_adorsys_geshotel_domain_Customer_identityNumber" z="E45oyekTj/V+KfbP1ROerwP9mmk="/>
+        <field:datetime dateTimePattern="${customer_borndate_date_format}" field="bornDate" id="c_org_adorsys_geshotel_domain_Customer_bornDate" z="GbkdV5bX/jZgv8SsZPZsvf8qyq0="/>
+        <field:input field="bornPlace" id="c_org_adorsys_geshotel_domain_Customer_bornPlace" z="OpmMfpSoga/uOZz4qwaHOo2UVhQ="/>
+        <field:input field="phoneNumber" id="c_org_adorsys_geshotel_domain_Customer_phoneNumber" z="YRXwcGRCEwVUzK6NiFL/nTG/ZXQ="/>
+        <field:input field="email" id="c_org_adorsys_geshotel_domain_Customer_email" validationMessageCode="field_invalid_email" z="NFQGscZsdhPRNTF1Jv+NXA8MlNg="/>
+        <field:input field="nationality" id="c_org_adorsys_geshotel_domain_Customer_nationality" z="rkeNUDe0XxeFkl5GQ6FK1Bku+3E="/>
+        <field:input field="profession" id="c_org_adorsys_geshotel_domain_Customer_profession" z="GEjVQRm3nTpa3yP2m3ox0oOczB8="/>
+        <field:checkbox field="blackList" id="c_org_adorsys_geshotel_domain_Customer_blackList" z="a5VKJFwDjrR0hkb+Gf7u8DYHyEk="/>
+        <field:select field="discounts" id="c_org_adorsys_geshotel_domain_Customer_discounts" itemValue="id" items="${discounts}" multiple="true" path="/discounts" z="BebMYPGjaIqUcfg5Xl6YpwWeb0c="/>
+        <field:input field="account" id="c_org_adorsys_geshotel_domain_Customer_account" validationMessageCode="field_invalid_number" z="stp9gPyBTjwofkw/L2KBUXi5pCU="/>
+        <field:input field="maidenName" id="c_org_adorsys_geshotel_domain_Customer_maidenName" z="wTz3UjQ+ofMoBpjNs8URl4hDl8E="/>
+        <field:datetime dateTimePattern="${customer_delivreddate_date_format}" field="delivredDate" id="c_org_adorsys_geshotel_domain_Customer_delivredDate" z="B6SW39+f1xC0UXJECS9KtnG/x7I="/>
+        <field:input field="residenceCountry" id="c_org_adorsys_geshotel_domain_Customer_residenceCountry" z="rgltLwQoydM5A0IPVUK0YxiYbZ4="/>
+        <field:input field="address" id="c_org_adorsys_geshotel_domain_Customer_address" z="2a8PhCpEffQeP5zr29dNXhbb6is="/>
+        <field:input field="comeFrom" id="c_org_adorsys_geshotel_domain_Customer_comeFrom" z="sE96z352v3P9ojE+LuRJ6De0xIw="/>
+        <field:input field="goTo" id="c_org_adorsys_geshotel_domain_Customer_goTo" z="ueaH6FTNr7YvA11q7D7rXBluTTI="/>
+        <field:input field="transportMode" id="c_org_adorsys_geshotel_domain_Customer_transportMode" z="sJ5rWZAHPoTRP5vSsmSpD+dDRZQ="/>
+        <field:input field="carNumber" id="c_org_adorsys_geshotel_domain_Customer_carNumber" z="xz3YAkHvMhMICmenc3wYSIrBa/0="/>
+    </form:update>
+</div>

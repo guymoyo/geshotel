@@ -1,0 +1,47 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+
+  <jsp:output omit-xml-declaration="yes" />
+
+  <spring:theme code="styleSheet" var="roo_css" />
+  <spring:url value="/resources" var="resource" ></spring:url>
+  <spring:url value="/${roo_css}" var="roo_css_url" />
+  <spring:url value="/resources/dojo-release-1.6.1/dojo/dojo.js" var="dojo_url" />
+  <spring:url value="/resources/dojo-release-1.6.1/dijit/themes/tundra/tundra.css" var="tundra_url" />
+  <spring:url value="/resources/spring/Spring.js" var="spring_url" />
+  <spring:url value="/resources/spring/Spring-Dojo.js" var="spring_dojo_url" />
+  <spring:url value="/resources/images/favicon.ico" var="favicon" />
+  <link rel="stylesheet" type="text/css" href="${tundra_url}"><!-- required for FF3 and Opera --></link>
+  <link rel="stylesheet" type="text/css" media="screen" href="${roo_css_url}"><!-- required for FF3 and Opera --></link>
+  <link rel="stylesheet" type="text/css" media="print" href="${resource}/style/print.css"><!-- required for FF3 and Opera --></link>
+  <link rel="SHORTCUT ICON" href="${favicon}" />
+
+  <!-- Get the user local from the page context (it was set by Spring MVC's locale resolver) -->
+  <c:set var="userLocale">
+    <c:out value="${fn:replace(pageContext.response.locale, '_', '-')}" default="fr" />
+  </c:set>
+
+  <script type="text/javascript">var djConfig = {parseOnLoad: true, isDebug: true, locale: '${fn:toLowerCase(userLocale)}'};</script>
+
+  <script src="${dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+  <script src="${spring_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${spring_dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+  <script language="JavaScript" type="text/javascript">dojo.require("dojo.parser");</script>
+  <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.DateTextBox");</script>
+  <script language="JavaScript" type="text/javascript">dojo.require("dojo.date");</script>
+  <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.NumberSpinner");</script>
+      <script language="JavaScript" type="text/javascript">dojo.require("dojo.fx");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.Select");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.Dialog");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.Button");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.TextBox");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.ValidationTextBox");</script>
+   <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.FilteringSelect");</script>
+   
+    <script src="${resource}/moyoJS/planning.js" type="text/javascript"><!-- required for FF3 and Opera --></script> 
+     <script src="${resource}/moyoJS/menu.js" type="text/javascript"><!-- required for FF3 and Opera --></script>
+     <script src="${resource}/moyoJS/payment.js" type="text/javascript"><!-- required for FF3 and Opera --></script>
+      <script src="${resource}/moyoJS/searchCustomer.js" type="text/javascript"><!-- required for FF3 and Opera --></script>
+     
+     <script src="${resource}/jquery/jquery-1.3.2.min.js" type="text/javascript"><!-- required for FF3 and Opera --></script>
+     <script src="${resource}/jquery/jquery-barcode-2.0.2.min.js" type="text/javascript"><!-- required for FF3 and Opera --></script>
+</jsp:root>

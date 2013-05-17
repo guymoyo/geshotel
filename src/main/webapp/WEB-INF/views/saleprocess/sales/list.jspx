@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:spring="http://www.springframework.org/tags"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<script language="JavaScript" type="text/javascript">
+		dojo.require("dijit.form.FilteringSelect");
+	</script>
+	<jsp:include page="/WEB-INF/views/exception.jspx" />
+	<spring:url value="/resources/styles/geshotel.css" var="geshotel_css" />
+	<link rel="stylesheet" type="text/css" href="${geshotel_css}">
+		<!-- required for FF3 and Opera --></link>
+	<!--     <script language="JavaScript" type="text/javascript">dojo.require("dijit.form.Form");</script> -->
+	<spring:url value="/saleprocess/add" var="add_command_line" />
+					<spring:message code="product" var="product" />
+					<spring:message code="qty" var="qty" />
+					<spring:message code="unit_price" var="unit_price" />
+					<spring:message code="total" var="total" /> 
+	<div class="super">
+		<div class="test">
+			<div class="div1">
+				<form:form action="${add_command_line }"
+					commandName="saleItemCommand">
+					<table>
+						<tbody>
+							<tr style="background: white; border: none;">
+							<spring:message code="select_sale" var="select_sale" />
+								<td> ${select_sale } </td>
+								<td>
+									<div>
+										<form:select dojoType="dijit.form.FilteringSelect"
+											id="saleKeyForm" path="saleKey">
+											<form:options items="${saleEntries }" path="sale"
+												id="saleKey" itemValue="saleKey" itemLabel="note" />
+										</form:select>
+									</div>
+								</td>
+							</tr>
+							<tr style="background: white; border: none;">
+							
+								<td> ${product } </td>
+								<td>
+									<div>
+										<form:select dojoType="dijit.form.FilteringSelect"
+											path="productKey">
+											<form:options path="productKey" items="${products }"
+												id="designations" itemValue="productKey" itemLabel="title" />
+										</form:select>
+									</div>
+								</td>
+							</tr>
+							<tr style="background: white;">
+								<td> ${qty } </td>
+								<td>
+									<div>
+										<form:errors path="qty" cssClass="errors" />
+										<form:input path="qty" />
+									</div>
+								</td>
+							</tr>
+							<!-- 				<tr style="background: white; border: none;" >
+					<td>unit price</td>
+					<td>
+						<div>
+							<form:input path="unitPrice" />
+						</div>
+					</td>
+				</tr> -->
+							<tr style="background: white; border: none;">
+								<td></td>
+								<td>
+									<div>
+										<span> <input type="submit" value="SUBMIT" /> <input
+											type="reset" value="RESET" />
+										</span>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form:form>
+			</div>
+
+			<div class="div2" id="saleDetail">
+				<spring:message code="quick_view" var="quick_view" />
+				${quick_view }
+				<div>
+			<table>
+				<thead>
+					<th> ${product } </th>
+					<th> ${qty } </th>
+					<th> ${unit_price } </th>
+					<th> ${total } </th>
+					<th><span></span></th>
+				</thead>
+				<tbody id="result">
+					<div>
+						<tr>
+							<td > <c:out value="" /> </td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>	
+			</div>
+		</div>
+		<div style="visibility:  hidden;" id="kitchen_order_details">
+				<table>
+				<thead>
+					<th> ${product } </th>
+					<th>${qty }</th>
+					<th>Date </th>
+				</thead>
+				<tbody id="result">
+					<div>
+						<tr>
+							<td > <c:out value="" /> </td>
+						</tr>
+					</div>
+				</tbody>
+			</table>
+		</div>
+		<div class="div3">
+
+			<page:list id="pl_org_adorsys_geshotel_resto_domain_Sale" 
+				items="${sales}" z="W1CMh0AhyAKuPiuaqEY9ub5Ca0A=">
+				<table:table data="${sales}" update="false" delete="false"
+					id="l_org_adorsys_geshotel_resto_domain_Sale"
+					path="/saleprocess/sales" z="dB5M+nlJiAJuiIYRQlOp+oFu/FA=">
+					<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_saleKey"
+						property="saleKey" z="jBJydEKfGiusZfqxMAPeJNmy6mI=" />
+
+					<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_note"
+						property="note" z="user-managed" />
+					<!-- <table:column id="c_org_adorsys_geshotel_resto_domain_Sale_saleItem"
+				property="saleItem" z="7OGuksYYp9389R2Vpq/cfPVKs/0=" /> -->
+					<table:column
+						id="c_org_adorsys_geshotel_resto_domain_Sale_totalAmount"
+						property="totalAmount" z="j6VQe4/foXRuZI37/HqZ/xFq4fA=" />
+					<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_tax"
+						property="tax" z="qFtvFC2nNA998mOfTy3LA9iApEM=" />
+					<table:column date="true"
+						dateTimePattern="${sale_recorddate_date_format}"
+						id="c_org_adorsys_geshotel_resto_domain_Sale_recordDate"
+						property="recordDate" z="+lVIed1sYn1iLaV4isDwqd+UBUs=" />
+					<table:column
+						id="c_org_adorsys_geshotel_resto_domain_Sale_userNameDescription"
+						property="userNameDescription" z="FNFjdwWQjR+zFTzVzyalkVsMF0s=" />
+				</table:table>
+			</page:list>
+		</div>
+		<spring:url value="/saleprocess/checkKithenOrderAjax?saleKey=" var="checkKitchenOrderUrl" />
+	</div>
+	<script type="text/javascript">
+		var message = "Done...";
+		function loadKitchenOrderItems(inputKitchenOrder){
+			console.log("preparing kitchen order items ...");
+			dojo.xhrGet({
+				url : inputKitchenOrder.value,
+				handleAs : "json",
+				load: function(result){
+					console.log(result);
+					var htmlResult ="";
+					for(data in result) {
+						htmlResult += '<div> <tr> <td>'+ result[data].product.title + '  </td> <td>  '
+							+ result[data].qty +' </td> </tr> </div>';
+					}
+					var kitchen_order_details = document.getElementById("kitchen_order_details") ;
+					kitchen_order_details.innerHTML = ' <br /> <div> ' + htmlResult+'</div>';
+					kitchen_order_details.style.visibility = 'visible'	;
+				},
+				error : function(error){
+					console.log("Ooups, an error occured");
+					console.log(error);
+				}
+			});
+		}
+		function checkKitchenOrder(sale){
+			console.log("checking kitchen orders...");
+			var checkKitchenOrderUrl = "${checkKitchenOrderUrl}"+sale.get('value');
+			dojo.xhrGet({
+				url : checkKitchenOrderUrl,
+				handleAs : "json",
+				load : function(result){
+					console.log("result returned : "+result.kitchenOrderKey);
+						document.getElementById("checkKitchenOrderNode").innerHTML = ' <input hidden="true" id="kitchen_order_details_link" type="text" value="/saleprocess/viewKitchenOrder?kitchenOrderKey='+result.kitchenOrderKey+'" />'
+											+'<br /> <input type="submit" value="show Kitchen order" id="show_kitchen_order" />';
+						var kitchenOrderLink = dojo.byId("show_kitchen_order");
+						console.log("Link   : "+kitchenOrderLink);
+						dojo.connect(kitchenOrderLink,"onclick",function(evt){
+							if(document.getElementById("kitchen_order_details").style.visibility == 'hidden'){
+								var inputKitchenOrder = document.getElementById("kitchen_order_details_link");
+								console.log("click on the link kitchen_order_details_link"+inputKitchenOrder.value);
+								loadKitchenOrderItems(inputKitchenOrder);
+							} else {
+								document.getElementById("kitchen_order_details").style.visibility = 'hidden';
+							}
+						});
+				},
+				error : function(error){
+					console.log("An error occured !");
+					console.log(error);
+				}
+			});
+		}
+		function loadSaleItems(sale) {
+			console.log("connected" + sale.get('value'));
+			var saleItemUrl = "/saleprocess/findSaleAjax?saleKey="
+					+ sale.get('value');
+			dojo.xhrGet({
+				url : saleItemUrl,
+				handleAs : "json",
+				load : function(result) {
+					// 				    	var saleDetail = dojo.byId("saleDetail");
+					console.log(result);
+					
+					var htmlResult = "";
+					var totalAmount=0;
+					 for (data in result) {
+						console.log('data  :' + data);
+						htmlResult += '<div> <tr> <td>'
+								+ result[data].product.title + '  </td> <td>  '
+								+ result[data].qty +' </td>    <td>   '+result[data].unitPrice+ '</td> <td> '+
+								+ result[data].amount+' </td>  <td> <a href="/saleprocess/removesaleitem?saleItemKey='+result[data].saleItemKey+'"> remove</a> </td> </tr> </div>';
+						totalAmount += result[data].amount;
+					} 
+					 htmlResult += '<div> <tr> <td colspan="1" > <b> Total </b> </td> <td colspan="3">'+
+					 			+ totalAmount+'</td> </tr>  </div>';
+					 htmlResult +='<div id="checkKitchenOrderNode" > No Kitchen Order </div>'; 
+					document.getElementById('result').innerHTML = ' <br /> <div> '
+							+ htmlResult + '</div>';
+					 checkKitchenOrder(sale);
+							console.log(message);
+				},
+				error : function(error) {
+					console.log("no good");
+					console.log(error);
+				}
+			});
+		}
+		
+		dojo.ready(function() {
+			var sale = dijit.byId("saleKeyForm");
+			loadSaleItems(sale);
+			dojo.connect(sale, "onChange", function(evt) {
+				loadSaleItems(sale);
+			});
+		});
+	</script>
+</div>

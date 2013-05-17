@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show create="false" delete="false" id="ps_org_adorsys_geshotel_domain_Payment" list="false" object="${payment}" path="/payments" update="false" z="user-managed">
+        <field:display date="true" dateTimePattern="${payment_datepayemment_date_format}" field="datePayemment" id="s_org_adorsys_geshotel_domain_Payment_datePayemment" object="${payment}" z="5nMOOlm9tP8lbKgngjCXWTF2K38="/>
+        <field:display field="amount" id="s_org_adorsys_geshotel_domain_Payment_Amount" object="${payment}" z="hltKAG4cNlK5FXzMTrR1Pm24vrU="/>
+        <field:display field="invoice" id="s_org_adorsys_geshotel_domain_Payment_invoice" object="${payment}" z="2nblCz7IOZs6/hGkUmDAGkKJrd8="/>
+        <field:display field="payementType" id="s_org_adorsys_geshotel_domain_Payment_payementType" object="${payment}" z="aDewp9gTCZryK16PARW0wGL32ks="/>
+        <field:display field="casheir" id="s_org_adorsys_geshotel_domain_Payment_casheir" object="${payment}" z="How5POdsZx3/uQj6eythiwSgco4="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_domain_Payment_note" object="${payment}" z="E87t5iJbwMVQij4IbSvqN5KrsDc="/>
+    </page:show>
+</div>

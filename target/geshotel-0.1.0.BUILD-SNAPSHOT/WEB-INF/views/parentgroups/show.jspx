@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_ParentGroup" object="${parentgroup}" path="/parentgroups" z="oaHm5imqhK37p2DBQmjv0U105oM=">
+        <field:display field="parentGroupKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_parentGroupKey" object="${parentgroup}" z="fZGmIzF1L8WUuj8dxOtZFt0E28g="/>
+        <field:display field="productGroupKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupKey" object="${parentgroup}" z="bLx0SaS0FR3a2LevJgm62R80jeI="/>
+        <field:display field="productGroupParentKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupParentKey" object="${parentgroup}" z="afirv/Cixr4wkAR3doQNGY/na00="/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_description" object="${parentgroup}" z="6RzBqmffu4OEanBBvvwYID86U3E="/>
+    </page:show>
+</div>

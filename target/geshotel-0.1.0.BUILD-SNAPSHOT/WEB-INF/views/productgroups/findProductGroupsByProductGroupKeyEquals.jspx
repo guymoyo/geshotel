@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByProductGroupKeyEquals" id="ff_org_adorsys_geshotel_resto_domain_ProductGroup" path="/productgroups" z="6Y9dfBbTUnv7JqIfTfggfjBrk+4=">
+        <field:input disableFormBinding="true" field="productGroupKey" id="f_org_adorsys_geshotel_resto_domain_ProductGroup_productGroupKey" required="true" z="qr05g7KI7yYDEaLh/eyJ+ru0+Xo="/>
+    </form:find>
+</div>

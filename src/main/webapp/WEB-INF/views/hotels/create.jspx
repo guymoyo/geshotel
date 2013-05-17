@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_domain_Hotel" modelAttribute="hotel" path="/hotels" render="${empty dependencies}" z="rDElPml+1zrEG6Ew8NC+yxooOCY=">
+        <field:input field="Name" id="c_org_adorsys_geshotel_domain_Hotel_Name" z="GQAGLVu+moLqBo7L0C0jIdJQQ6E="/>
+        <field:input field="Address" id="c_org_adorsys_geshotel_domain_Hotel_Address" z="H/KQohryzbL0vB+UJpIXL/MAqmE="/>
+        <field:input field="CodePostal" id="c_org_adorsys_geshotel_domain_Hotel_CodePostal" z="bFzf67lFYgHSHVV/3ThWnm4a3O8="/>
+        <field:input field="City" id="c_org_adorsys_geshotel_domain_Hotel_City" z="H/7pWPe9U8gcLOo/PeUayQAMiyk="/>
+        <field:input field="Email" id="c_org_adorsys_geshotel_domain_Hotel_Email" validationMessageCode="field_invalid_email" z="jkC5C5wGEIGrzZbKw9HJboRzNr0="/>
+        <field:input field="PhoneNumber" id="c_org_adorsys_geshotel_domain_Hotel_PhoneNumber" z="NeSVwRKsS/1q5arYKqI17jSHptE="/>
+        <field:input field="Fax" id="c_org_adorsys_geshotel_domain_Hotel_Fax" z="keAXg/1emzrK4JwxFOuhjEjXkWc="/>
+        <field:input field="WebPage" id="c_org_adorsys_geshotel_domain_Hotel_WebPage" z="l46XUH9NuZ8J+hPe/kLaJFjsfk8="/>
+        <field:input field="TVA" id="c_org_adorsys_geshotel_domain_Hotel_TVA" validationMessageCode="field_invalid_number" z="vZQGcgCd1hzl0z9n+MeKDRphg8E="/>
+        <field:input field="logo" render="false"  id="c_org_adorsys_geshotel_domain_Hotel_logo" z="user-managed"/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_domain_Hotel" render="${not empty dependencies}" z="ilzq0Pb0EYiuoF1so7rXysxenz4="/>
+</div>

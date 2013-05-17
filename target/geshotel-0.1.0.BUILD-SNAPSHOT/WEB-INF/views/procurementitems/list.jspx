@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_ProcurementItem" items="${procurementitems}" z="mlTBzmWcYeewLipLYv3e3jZ6AWo=">
+        <table:table data="${procurementitems}" id="l_org_adorsys_geshotel_resto_domain_ProcurementItem" path="/procurementitems" z="fZE2eTSwxpgHAGkeSUTRRFodwsw=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_procurementItemKey" property="procurementItemKey" z="DebA/ispZO71bu3WAdEJGYMpjkk="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_customer" property="customer" z="VcY1QS8SPpRDcQ8AC8/cj17/Lt4="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_product" property="product" z="5dfYU65xv6cSUpiJarAM6vmCas8="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_qty" property="qty" z="Slg4zRRe9eNeBXZjvZS0l6rdvwk="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_unitPrice" property="unitPrice" z="hnc70MGW/Zlu9K4V/gDu/RjKQgA="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_amount" property="amount" z="nJrHuO1wQbYKToluo8XdxYjQaxI="/>
+        </table:table>
+    </page:list>
+</div>

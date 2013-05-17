@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_BarRestauInvoice" items="${barrestauinvoices}" z="uNLJ5eBG45LWMDlR1mvJhULYXEM=">
+        <table:table data="${barrestauinvoices}" id="l_org_adorsys_geshotel_resto_domain_BarRestauInvoice" path="/barrestauinvoices" z="pfjr6XlBDEy4CZLE2+jUE2WGZ+0=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_barRestauInvoiceKey" property="barRestauInvoiceKey" z="yrft5u7UMq/KADyeZ10ee3+ba9Q="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_sale" property="sale" z="OzM361GSqOZNJZcOhcZzgHm3+Dg="/>
+            <table:column date="true" dateTimePattern="${barRestauInvoice_creationdate_date_format}" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_creationDate" property="creationDate" z="3npsaf9TiSZO+DzetgxeJ8A+RAQ="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoicePath" property="invoicePath" z="DrCNiCdvBKXyHTUjm93n51GwIxk="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_note" property="note" z="a2r60JfakQzknDvWcusH+uIJVAA="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_customerType" property="customerType" z="rAE9RlOnSZBFM5Dff8MJSY2al3M="/>
+        </table:table>
+    </page:list>
+</div>

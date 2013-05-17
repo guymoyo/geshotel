@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_resto_domain_BarRestauPayment" modelAttribute="barRestauPayment" path="/barrestaupayments" versionField="Version" z="JjY3NUvEHOOBbxP1v+uAbEDuPtE=">
+        <field:select field="sale" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_sale" itemValue="id" items="${sales}" path="/sales" z="LvwOThq91gSyH23wWoL28VJYZ3Y="/>
+        <field:input field="amountDue" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountDue" validationMessageCode="field_invalid_number" z="IcI2RYD2XS+FQo1Ne/sakIVyioM="/>
+        <field:input field="amountIn" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountIn" validationMessageCode="field_invalid_number" z="7n91466Or0RQ9M1uwNmQgX6tLBE="/>
+        <field:input field="amountOut" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountOut" validationMessageCode="field_invalid_number" z="GJTEughxEGhU5hfO9DhcfM7X5lc="/>
+        <field:input field="note" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_note" z="9sVtqVrfhEGvbqx1pMzpw1jYdxc="/>
+        <field:select field="cashRegister" id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_cashRegister" itemValue="id" items="${cashregisters}" path="/cashregisters" required="true" z="jXZdYbYda+EnXKRYcwC761PkpRQ="/>
+    </form:update>
+</div>

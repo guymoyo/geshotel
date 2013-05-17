@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_BillOfProcurement" object="${billofprocurement}" path="/billofprocurements" z="cqnZI5C83upeyouvxr+CyOCd3OI=">
+        <field:display field="sellKey" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_sellKey" object="${billofprocurement}" z="qbikF2xgSwZuJmTMB2jue2KeJnY="/>
+        <field:display field="totalAmount" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_totalAmount" object="${billofprocurement}" z="m+VD1qJLRDFkdoivW8BcKgvtGG4="/>
+        <field:display field="tax" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_tax" object="${billofprocurement}" z="k84nYugb8YWUOhRUJrwk4YivnJ0="/>
+        <field:display field="discount" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_discount" object="${billofprocurement}" z="1Zx4+RXLBy/7ww54ET+rZB7+39A="/>
+        <field:display field="amountDue" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_amountDue" object="${billofprocurement}" z="0QgsCMcaT0af+vFDF/21Avj68fg="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_note" object="${billofprocurement}" z="Vk9aKAQESK4mfxr9+iaQdtlP4zQ="/>
+        <field:display field="restaurantName" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_restaurantName" object="${billofprocurement}" z="xcDfUIQSzi4DuI7MQcx07d/KMm0="/>
+        <field:display field="broker" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_broker" object="${billofprocurement}" z="7ytReMgPVW81z7kaU89iVWtG7IM="/>
+        <field:display date="true" dateTimePattern="${billOfProcurement_dateofprocurement_date_format}" field="dateOfProcurement" id="s_org_adorsys_geshotel_resto_domain_BillOfProcurement_dateOfProcurement" object="${billofprocurement}" z="j1zOGC+fKo62yF6ACqwsRzxAyzQ="/>
+    </page:show>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_booking_domain_Invoice" object="${invoice}" path="/invoices" z="Vm/VmIYdP8yCUzhmvrL6YYsWiC8=">
+        <field:display field="customer" id="s_org_adorsys_geshotel_booking_domain_Invoice_customer" object="${invoice}" z="VL0Ted6fWqvCd5uSX+jgXg7+ylE="/>
+        <field:display field="invoiceAmount" id="s_org_adorsys_geshotel_booking_domain_Invoice_invoiceAmount" object="${invoice}" z="AlMQrFKtEcc0dzcTDdvkgQ3eMjM="/>
+        <field:display field="valueAdddedTax" id="s_org_adorsys_geshotel_booking_domain_Invoice_valueAdddedTax" object="${invoice}" z="SQXb8TL/rcOazvZ4AU0aPCameF4="/>
+        <field:display field="otherTaxes" id="s_org_adorsys_geshotel_booking_domain_Invoice_otherTaxes" object="${invoice}" z="ilzKoolJIudnAVBwUkma5qtNEpA="/>
+        <field:display field="amountDue" id="s_org_adorsys_geshotel_booking_domain_Invoice_amountDue" object="${invoice}" z="Ig6NWkg3pnd7fwpiq7qz5qckAEg="/>
+        <field:display field="payementState" id="s_org_adorsys_geshotel_booking_domain_Invoice_payementState" object="${invoice}" z="qQHxkzF2N0NDTzGXnfz+7KjTfPQ="/>
+        <field:display field="invoiceState" id="s_org_adorsys_geshotel_booking_domain_Invoice_invoiceState" object="${invoice}" z="5A73OXP7w9I1o/fKLcSmL3iRvJc="/>
+        <field:display field="originator" id="s_org_adorsys_geshotel_booking_domain_Invoice_originator" object="${invoice}" z="XyoCSH9Tzm8f/7A9IQTIN/AooIs="/>
+        <field:display date="true" dateTimePattern="${invoice_dateofclose_date_format}" field="dateOfClose" id="s_org_adorsys_geshotel_booking_domain_Invoice_dateOfClose" object="${invoice}" z="7P1i3C/iaXo6LUtqayFnWqPlMzs="/>
+        <field:display date="true" dateTimePattern="${invoice_dateofcreate_date_format}" field="dateOfCreate" id="s_org_adorsys_geshotel_booking_domain_Invoice_dateOfCreate" object="${invoice}" z="bQImjzh2iSjrMuPqeVWu+fNQ98k="/>
+        <field:display field="reste" id="s_org_adorsys_geshotel_booking_domain_Invoice_reste" object="${invoice}" z="UQ6ymDhuyM2MFMb3XAsC9rb1f2k="/>
+        <field:display field="amountPaid" id="s_org_adorsys_geshotel_booking_domain_Invoice_amountPaid" object="${invoice}" z="b2AqDfzhTtWcr8kKewZ04q2v8Kk="/>
+        <field:display field="montantService" id="s_org_adorsys_geshotel_booking_domain_Invoice_montantService" object="${invoice}" z="HO9dbtid1FQSPD8AXcPrqup0Dyw="/>
+    </page:show>
+</div>

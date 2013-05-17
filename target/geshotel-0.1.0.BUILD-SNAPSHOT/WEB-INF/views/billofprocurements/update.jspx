@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_resto_domain_BillOfProcurement" modelAttribute="billOfProcurement" path="/billofprocurements" versionField="Version" z="39vvApB2ETk4zQALo2NDUn5O/mc=">
+        <field:input field="sellKey" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_sellKey" required="true" z="V1KUd8VAEPuzAtG0HwYo1ws5FCo="/>
+        <field:simple field="saleItems" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_saleItems" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale Item" z="G88DT02EB+6OjRSjwb8DrGOkmqM="/>
+        <field:input field="totalAmount" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_totalAmount" validationMessageCode="field_invalid_number" z="QBIJQhGqUoAgLbgDnwzNYf9Km9g="/>
+        <field:input field="tax" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_tax" validationMessageCode="field_invalid_number" z="oRyDzIrlTrFOVNh1X7ln+Obfx00="/>
+        <field:input field="discount" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_discount" validationMessageCode="field_invalid_number" z="jjV/WZWfhFhktvg7s/yRzkhTjJ4="/>
+        <field:input field="amountDue" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_amountDue" validationMessageCode="field_invalid_number" z="zoGgmkBu6hxREEPSVVaPNdQJRzg="/>
+        <field:input field="note" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_note" z="qiKQmLUvqxkGu0bqtaTeZjAgBl8="/>
+        <field:input field="restaurantName" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_restaurantName" z="KF43Z411XjJtNyllBHwq05KKZ7Q="/>
+        <field:input field="broker" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_broker" z="YFBO9dT65qEf/CVQKkXdKH4z3uk="/>
+        <field:datetime dateTimePattern="${billOfProcurement_dateofprocurement_date_format}" field="dateOfProcurement" id="c_org_adorsys_geshotel_resto_domain_BillOfProcurement_dateOfProcurement" z="cMKKObXkugWtzh7zroqTM1FTKWc="/>
+    </form:update>
+</div>

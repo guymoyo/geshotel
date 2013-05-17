@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_CashRegister" items="${cashregisters}" z="O8MBw9lo4JUnVNRcJ3R3WHhR+iY=">
+        <table:table data="${cashregisters}" id="l_org_adorsys_geshotel_resto_domain_CashRegister" path="/cashregisters" z="x43bAbloeK7TEnaEKa3eKr9Ng6A=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterKey" property="cashRegisterKey" z="Z85Yb8YlO4rHdNxFqLm8RI5Osy8="/>
+            <table:column date="true" dateTimePattern="${cashRegister_dateofopening_date_format}" id="c_org_adorsys_geshotel_resto_domain_CashRegister_dateOfOpening" property="dateOfOpening" z="JtYVXT4LmczE1i4zp34frMd2DLM="/>
+            <table:column date="true" dateTimePattern="${cashRegister_dateofclosing_date_format}" id="c_org_adorsys_geshotel_resto_domain_CashRegister_dateOfClosing" property="dateOfClosing" z="jkKII6XoZ8G92g5W0U/OBqd5H3o="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashierAccount" property="cashierAccount" z="KG9pGUhIwkXx8hQOqrybKi6FJ8Q="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterState" property="cashRegisterState" z="uDeLFyd6kqdT7Amrr0VuVSdzEh8="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_CashRegister_cashFund" property="cashFund" z="HLm0KjrMSlX9cLacFQLRKfk8EJc="/>
+        </table:table>
+    </page:list>
+</div>

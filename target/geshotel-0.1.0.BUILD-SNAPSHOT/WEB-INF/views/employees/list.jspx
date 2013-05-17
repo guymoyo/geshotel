@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_domain_Employee" items="${employees}" z="LWYMc7PWXg/HkC6X0Er4WGYN+Iw=">
+        <table:table data="${employees}" id="l_org_adorsys_geshotel_domain_Employee" path="/employees" z="Vane02+9JkNndDWm7dv8j0mKB64=">
+            <table:column id="c_org_adorsys_geshotel_domain_Employee_fullName" property="fullName" z="W68onIeDvD96kuRnqw6tmb1HinE="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Employee_identifier" property="identifier" z="HsHyjGNL+wjc7f4GlMBuvuQreQc="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Employee_service" property="service" z="qOHiC+Qpp0uzEilXiFmd3HXSuE8="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Employee_gender" property="gender" z="PHSyicDNzat/w21vNBUT6vHf/rI="/>
+            <table:column date="true" dateTimePattern="${employee_borndate_date_format}" id="c_org_adorsys_geshotel_domain_Employee_bornDate" property="bornDate" z="eFcBiWfrGIuoC/fqOesz5Mhxdx8="/>
+        </table:table>
+    </page:list>
+</div>

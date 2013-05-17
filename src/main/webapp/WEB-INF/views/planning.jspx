@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:security="http://www.springframework.org/security/tags"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+ 	
+ 	
+ 	<spring:url value="/resources/images" var="img" ></spring:url>
+ 	<spring:url value="/resources" var="resource" ></spring:url>
+ 	<spring:url value="/planning" var="planning" ></spring:url>
+ 	<spring:url value="/reservations" var="reservation"></spring:url>
+	<spring:url value="/invoices" var="invoice"></spring:url>
+	
+	<input type="hidden" value="${planning}" id="planningUrl" />
+	
+
+	   	<c:if test="${not empty dashboard}">
+	   	
+			<table class="classTable">
+				<thead>
+					<th style="background-color: white;" >
+					<fmt:formatDate  type="date" pattern="yyyy-MM-dd" value="${dashboard.dateStart}" var="start" />
+						<a href="${planning}/previous?from=${start}&amp;category=${dashboard.category.id}">
+							<img alt="" src="${img}/2leftarrow.png" />
+						</a>
+					</th>
+					<c:forEach var="entete" items="${dashboard.cellsHeader}">
+							<th  style="background-color: gray;text-align: center;">
+								<fmt:formatDate  type="date" pattern="EEE d MMM" value="${entete}" />		
+							</th>
+					</c:forEach>
+					<th style="background-color: white;" >
+					<fmt:formatDate  type="date" pattern="yyyy-MM-dd" value="${dashboard.dateStart}" var="start" />
+					<a href="${planning}/next?from=${start}&amp;category=${dashboard.category.id}">
+						<img alt="" src="${img}/2rightarrow.png" />
+					</a>
+					</th>
+				</thead>
+				<tbody>
+					 <c:forEach var="ligne" items="${dashboard.cellsLine}">
+						<tr>
+							<td style="width: 10px;background-color: gray;color: white;text-shadow: 0 1px 1px #333333;">
+								<span id="room${ligne.room.roomNumber}">
+									 <c:out  value="${ligne.room.roomNumber}"/>
+								</span>
+							 <div dojoType="dijit.Tooltip"  connectId="room${ligne.room.roomNumber}" label="${ligne.room}" ></div> 
+							</td>
+							<c:forEach var="cellule" items="${ligne.cellules}">								
+									<td colspan="${cellule.colospan}" style="background-color: white;
+											text-align: center;vertical-align: middle;padding: 1px;" >										
+											<div style="width:100%;padding: 0px;height: 20px;margin: auto;">	
+												<c:if test="${not empty cellule.reservation}">	
+													<c:choose>
+														<c:when test="${cellule.reservation.reservationState eq'NONCONFIRME'}">
+															<c:set var="class" value="nonconf"></c:set>
+														</c:when>
+														<c:when test="${cellule.reservation.reservationState eq'CONFIRME'}">
+															<c:set var="class" value="conf"></c:set>
+														</c:when>
+														<c:when test="${cellule.reservation.reservationState eq'OCCUPE'}">
+															<c:set var="class" value="occ"></c:set>
+														</c:when>
+													</c:choose>	
+								<!-- cellule avec reservation confirme ou non -->
+													<div id="${cellule.reservation.id}" style="height: 19px;width: 100%;text-align: center;" class="book ${class}">
+																<span>
+									 								<c:out  value="${cellule.reservation.customer.lastName}"/>
+									 							</span>
+																																											
+														
+															<ul  style="list-style-type: none;margin: 0px;margin-left: -30px; visibility: hidden;display: inline;" class="list">
+																<fmt:formatDate  type="date" pattern="yyyy-MM-dd" value="${cellule.day}" var="day" />
+																<li style="float: left;margin-left: 2px">
+																	<a href="${reservation}/detail?reservationId=${cellule.reservation.id}">
+																		<img src="${img}/setting.png" alt="detail" title="detail" />
+																	</a>
+																</li>
+																<c:if test="${cellule.reservation.reservationState eq'OCCUPE'}">
+																	<li style="float: right;margin-right: 2px">
+																		<a href="${invoice}/facture?reservationId=${cellule.reservation.id}">
+																			<img src="${img}/kexi.png" alt="facture" title="facture" />
+																		</a>
+																	</li>
+																</c:if>															
+															</ul>
+											
+													</div>	
+																						
+												</c:if>
+								<!-- cellulle vide -->				
+												<c:if test="${empty cellule.reservation}">
+													<fmt:formatDate  type="date" pattern="yyyy-MM-dd" value="${cellule.day}" var="day" />
+													<div id="${day}${ligne.room.id}" class="free" style="text-align: center;padding-top: 3px;">
+														<a href="${reservation}/new?whichDay=${day}&amp;roomId=${ligne.room.id}" style="visibility: hidden;">
+															<img src="${img}/cal.png" alt="creer" title="creer une reservation" />
+														</a>
+													</div>
+												</c:if>
+											</div>
+									</td>		
+							</c:forEach>
+							<td style="width: 10px;background-color: gray;color: white;text-shadow: 0 1px 1px #333333;">
+								<span id="room${ligne.room.roomNumber}">
+									 <c:out  value="${ligne.room.roomNumber}"/>
+								</span>
+								<div dojoType="dijit.Tooltip"  connectId="room${ligne.room.roomNumber}" label="${ligne.room}" ></div>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>	
+			<div style="margin-left: 780px;clear: both;margin-top: 20px;" >
+				<div style="float: left;margin-left: 10px;color:white;" class="nonconf" >R</div>
+				<div style="float: left;margin-left: 10px;color:white;" class="conf" >C</div>
+				<div style="float: left;margin-left: 10px;color:white;" class="occ" >O</div>
+			</div>
+			</c:if>
+			
+			<div style="display:none;visibility: hidden;" class="aide" id="aide" >
+				<a href="#" id="close" >x</a>
+				<ul>
+					<li>Vous pouvez recherchez un client directement dans la zone de recherche</li>
+					<li>et visualiser ces reservations et son compte.</li>
+					<li>Cliquez dans une case vide pour creer une reservation</li>
+					<li>Visualiser les chambres par categorie,en selectionnant la categorie plus haut</li>
+					<li>Cliquez sur <img src="${img}/setting.png"/> pour aller dans le detail de la reservation</li>
+					<li>et sur <img src="${img}/kexi.png" /> pour aller dans la facture</li>
+				</ul>
+			</div>
+ 	
+</div>

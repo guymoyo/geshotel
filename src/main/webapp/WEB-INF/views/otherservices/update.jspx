@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_booking_domain_OtherService" modelAttribute="otherService" path="/otherservices" versionField="Version" z="FX0gaTu9BX40lSVg/G7aDjn7qCk=">
+        <field:input field="name" id="c_org_adorsys_geshotel_booking_domain_OtherService_name" z="tcWQ9UJSK8NqgKFzQgzGi49zu1A="/>
+        <field:input field="amount" id="c_org_adorsys_geshotel_booking_domain_OtherService_amount" required="true" validationMessageCode="field_invalid_number" z="CJPsncdlCc/sY2MAeZOzqgNCxuE="/>
+        <field:input field="serviceDesc" id="c_org_adorsys_geshotel_booking_domain_OtherService_serviceDesc" z="9InuECzB0CUabEff2GWdykOMT6g="/>
+    </form:update>
+</div>

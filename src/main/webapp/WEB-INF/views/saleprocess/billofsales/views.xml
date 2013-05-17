@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="billofsales/list">
+        <put-attribute name="body" value="/WEB-INF/views/billofsales/list.jspx"/>
+    </definition>
+<definition extends="resto" name="billofsales/show">
+        <put-attribute name="body" value="/WEB-INF/views/billofsales/show.jspx"/>
+    </definition>
+<definition extends="resto" name="billofsales/create">
+        <put-attribute name="body" value="/WEB-INF/views/billofsales/create.jspx"/>
+    </definition>
+<definition extends="resto" name="billofsales/update">
+        <put-attribute name="body" value="/WEB-INF/views/billofsales/update.jspx"/>
+    </definition>
+<definition extends="default" name="billofsales/findBillOfSalesBySellKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/billofsales/findBillOfSalesBySellKeyEquals.jspx"/>
+    </definition>
+</tiles-definitions>

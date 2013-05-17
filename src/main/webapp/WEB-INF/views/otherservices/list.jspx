@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_booking_domain_OtherService" items="${otherservices}" z="z5YZBiW1D6QelbOzzHvzkYu2Dro=">
+        <table:table data="${otherservices}" id="l_org_adorsys_geshotel_booking_domain_OtherService" path="/otherservices" z="jkUMoF9jsWLSg2uBleeqGr1DG98=">
+            <table:column id="c_org_adorsys_geshotel_booking_domain_OtherService_name" property="name" z="No0Y5zMqq9et1ahCQO9couUEQA8="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_OtherService_amount" property="amount" z="OoevJpXT5vb6lKmEyfRAtfZuB9o="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_OtherService_serviceDesc" property="serviceDesc" z="tXjeX7swZaGcePlwiVWsW4VUi2Y="/>
+        </table:table>
+    </page:list>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="procurements/list">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/list.jspx"/>
+    </definition>
+<definition extends="resto" name="procurements/show">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/show.jspx"/>
+    </definition>
+<definition extends="resto" name="procurements/create">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/create.jspx"/>
+    </definition>
+<definition extends="resto" name="procurements/update">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/update.jspx"/>
+    </definition>
+<definition extends="resto" name="procurements/findProcurementsByIsLatestProcurementNot">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/findProcurementsByIsLatestProcurementNot.jspx"/>
+    </definition>
+<definition extends="resto" name="procurements/findProcurementsByProcurementState">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/findProcurementsByProcurementState.jspx"/>
+    </definition>
+<definition extends="default" name="procurements/findProcurementsByUserAccountAndProcurementState">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/findProcurementsByUserAccountAndProcurementState.jspx"/>
+    </definition>
+<definition extends="default" name="procurements/findProcurementsByProcurementKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/procurements/findProcurementsByProcurementKeyEquals.jspx"/>
+    </definition>
+</tiles-definitions>

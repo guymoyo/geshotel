@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_resto_domain_KitchenOrderItem" modelAttribute="kitchenOrderItem" path="/kitchenorderitems" render="${empty dependencies}" z="DVqCMSeoYdfGBeWsgKUVj1sW12A=">
+        <field:input field="kitchenOrderItemKey" id="c_org_adorsys_geshotel_resto_domain_KitchenOrderItem_kitchenOrderItemKey" z="6IbLGRlvfy0mMVVo0KdoObFqd1o="/>
+        <field:select field="kitchenOrder" id="c_org_adorsys_geshotel_resto_domain_KitchenOrderItem_kitchenOrder" itemValue="id" items="${kitchenorders}" path="/kitchenorders" required="true" z="GtdBjE3m+Z2VLHW0mxKfNyRdBow="/>
+        <field:select field="product" id="c_org_adorsys_geshotel_resto_domain_KitchenOrderItem_product" itemValue="id" items="${products}" path="/products" required="true" z="MQQYFNIsXCHzkaxpcSsvCYISyXY="/>
+        <field:input field="qty" id="c_org_adorsys_geshotel_resto_domain_KitchenOrderItem_qty" required="true" validationMessageCode="field_invalid_number" z="8M8VkB0BZYbD0B5HvL0GCyhmQKA="/>
+        <field:datetime dateTimePattern="${kitchenOrderItem_dateofordering_date_format}" field="dateOfOrdering" id="c_org_adorsys_geshotel_resto_domain_KitchenOrderItem_dateOfOrdering" z="MpSSRAmkS7yJILJddTYGOWKhe9E="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_resto_domain_KitchenOrderItem" render="${not empty dependencies}" z="/5nL/qAXrBNJ/JmjAX8cLvIRGqU="/>
+</div>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_domain_Customer" object="${customer}" path="/customers" z="cZDmApz+LfjK+p/2tjDEuW7VddE=">
+        <field:display field="firstName" id="s_org_adorsys_geshotel_domain_Customer_firstName" object="${customer}" z="UvKtlen0EyyxDfdafeDLeN6RgL0="/>
+        <field:display field="lastName" id="s_org_adorsys_geshotel_domain_Customer_lastName" object="${customer}" z="J3t1eaB1SX8L8ULLbBNiGi7URhY="/>
+        <field:display field="fullName" id="s_org_adorsys_geshotel_domain_Customer_fullName" object="${customer}" z="bYvhyJkzMkp/bycPjhagzvLEST0="/>
+        <field:display field="gender" id="s_org_adorsys_geshotel_domain_Customer_gender" object="${customer}" z="XrbE2XWJ0WPLq9UmL1+Bh/bCjSc="/>
+        <field:display field="identityNumber" id="s_org_adorsys_geshotel_domain_Customer_identityNumber" object="${customer}" z="DUCFOJYY9C0FbbLOLa5Gyy8qtQg="/>
+        <field:display date="true" dateTimePattern="${customer_borndate_date_format}" field="bornDate" id="s_org_adorsys_geshotel_domain_Customer_bornDate" object="${customer}" z="TyttB0r0BQke3IKaa85N6tL7X7E="/>
+        <field:display field="bornPlace" id="s_org_adorsys_geshotel_domain_Customer_bornPlace" object="${customer}" z="F3LtXamuC4sGoV+o3Us5UYoRMwc="/>
+        <field:display field="phoneNumber" id="s_org_adorsys_geshotel_domain_Customer_phoneNumber" object="${customer}" z="a700UeY/b6RuLh/jkJ8FSga1JZI="/>
+        <field:display field="email" id="s_org_adorsys_geshotel_domain_Customer_email" object="${customer}" z="PbSOXXapdP9ek94EsoqHzH1faeE="/>
+        <field:display field="nationality" id="s_org_adorsys_geshotel_domain_Customer_nationality" object="${customer}" z="fV9/3uG2wsFDtAN0b/VxyBcLSdY="/>
+        <field:display field="profession" id="s_org_adorsys_geshotel_domain_Customer_profession" object="${customer}" z="5IR1kCk6+SYXQvk2DepOekLNvlM="/>
+        <field:display field="blackList" id="s_org_adorsys_geshotel_domain_Customer_blackList" object="${customer}" z="1yPzHlLmLqLZR7lbJVwUz1J01bE="/>
+        <field:display field="discounts" id="s_org_adorsys_geshotel_domain_Customer_discounts" object="${customer}" z="5ZMa+stSc99KPfhaS51TogHDiUU="/>
+    </page:show>
+</div>

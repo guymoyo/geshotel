@@ -1,0 +1,116 @@
+<div id="menu" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:security="http://www.springframework.org/security/tags" 
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" class="cache" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />    
+    
+    
+    
+    <fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${from}" var="day"/>
+    <!-- <div style="text-align: center;vertical-align:middle; ">
+	  	<form action="${planning}"  >
+	  		<input dojoType="dijit.form.DateTextBox" id="from" required="true" name="from"
+				constraints="{ datePattern: 'yyyy-MM-dd' }"
+				value="${day}"
+				invalidMessage ="date invalide"
+				intermediateChanges="true"
+				datePattern="yyyy-MM-dd"/>
+	  		<select name="category" id="category" >
+	  			<option value="">Tout</option>
+	  			<c:forEach var="cat" items="${category}">
+	  				<option value="${cat.id}"  >${cat.title}</option>
+	  			</c:forEach>
+	  		</select>
+	  		<input type="submit" value="ok"/>
+	  	
+	  	</form>
+  	</div>  --> 
+  	
+  	<spring:message code="last_name" var="lastname" />
+  	<spring:message code="first_name" var="firstname" />
+  	<spring:message code="payment_state" var="paymentstate" />
+  	<spring:message code="rooms" var="rooms" />
+  	<spring:message code="user_accounts" var="useraccounts" />
+  	<spring:message code="user_account_identifier" var="user_identifier"/>
+  	<spring:message code="payment_period" var="paymentperiod" />
+  	<spring:message code="cashier_and_paymentperiod" var="cashierAndPaymentPeriod" />
+  	
+  	
+  		
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+      
+     <security:authorize ifAnyGranted="ROLE_MANAGER" >   
+        <menu:category id="c_roomcategory" z="rfaPx+pI729c79D4k/2HSYhN5Is=">
+            <menu:item id="i_roomcategory_new" messageCode="global_menu_new" url="/roomcategorys?form" z="pBrZ+fil/+kzGQojwcmvUXkRh3Q="/>
+            <menu:item id="i_roomcategory_list" messageCode="global_menu_list1" url="/roomcategorys?page=1&amp;size=${empty param.size ? 10 : param.size}" z="SKLCPeBv37gfLmXUgbZK5i7CLAQ="/>
+        </menu:category>
+        <menu:category id="c_room" z="e3e6qTdks0EVUaGbVSSNbM0HcXc=">
+            <menu:item id="i_room_new" messageCode="global_menu_new" url="/rooms?form" z="fvAkKg908k/4/1ftKfhIuAeNmjE="/>
+            <menu:item id="i_room_list" messageCode="global_menu_list1" label="${rooms}" url="/rooms?page=1&amp;size=${empty param.size ? 10 : param.size}" z="M5XFOS8myAtDzhNTcTwqAph0QtQ="/>
+        </menu:category>
+        <menu:category id="c_useraccount" z="Yb8cyPB5AwOfYXCcrEpGXNT9C+k=">
+            <menu:item id="i_useraccount_new" messageCode="global_menu_new" url="/useraccounts?form" z="dm6iErpLQmgISoPCTS3yLiH8XFA="/>
+            <menu:item id="i_useraccount_list" messageCode="global_menu_list" label="${useraccounts}" url="/useraccounts?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nijRCp2PPYuD2D3D7hljcdDK4vs="/>
+            <menu:item id="fi_useraccount_identifierequals" label="${user_identifier}" messageCode="global_menu_find" url="/useraccounts?find=ByIdentifierEquals&amp;form" z="c6HUk3DZ9p+eqTraiX6jvxCOPKo="/>
+        </menu:category>
+        <menu:category id="configuration" label="Configuration" z="user-managed"> 
+            <menu:item id="hotel" messageCode="" label="hotel" url="/hotels/configuration"/>
+        </menu:category>
+        
+    </security:authorize>
+    <security:authorize ifAnyGranted="ROLE_RECEPTION" > 
+    	 <menu:category id="c_customer" z="Wa+bVSiDyYo/wX1nGU1B/z+OKhE=">
+            <menu:item id="i_customer_new" messageCode="global_menu_new" url="/customers?form" z="d9+YIotZHp6KZLGKwwnMVzPvh8k="/>
+            <menu:item id="i_customer_list" messageCode="global_menu_list" url="/customers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yo9cUtyc7EUvbxwQ7EoeqXWaVJM="/>
+            <menu:item id="fi_customer_lastnamelike" label="${lastname}" messageCode="global_menu_find" url="/customers?find=ByLastNameLike&amp;form" z="WWlJTdKUtkebB5VnmhYYqVt+MvE="/>
+            <menu:item id="fi_customer_firstnamelike" label="${firstname}" messageCode="global_menu_find" url="/customers?find=ByFirstNameLike&amp;form" z="3Ev12vlXF9t+7b8CSDVlLkD1c+E="/>
+        </menu:category>
+        <menu:category id="c_reservation" z="QOKmLQs8mRLEvu7n5roIvJzPgHc=">
+            <menu:item id="i_reservation_list" messageCode="global_menu_list1" url="/reservations?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6zE/15aHij6RKEydLc48wX5Bg80="/>
+       		<menu:item id="fi_reservation_creationdatebetween" messageCode="" label="Fiche Police" url="/reservations?find=ByCreationDateBetween&amp;form" z="KFe6TnrRTV6iKJ/U54bHCgTR9UU="/>
+       		<menu:item id="i_reservation_new" messageCode="" label="Main Courante" url="/reservations/mainCourante" z="user_managed"/>
+        </menu:category>
+        <menu:category id="c_invoice" z="J8t31gESmLmp6i5o6ds0/j0AMNA=">
+             <menu:item id="fi_invoice_invoicestate" messageCode="global_menu_find" url="/invoices?find=ByInvoiceState&amp;form" z="IGAvaF8EGLSkeqjeCjY4lNp3d94="/>
+       		 <menu:item id="fi_invoice_payementstate" label="${paymentstate}" messageCode="global_menu_find" url="/invoices?find=ByPayementState&amp;form" z="b+IkizKryj2WErgxV12BKhCTKnk="/>
+       		 <menu:item id="fi_invoice_customer" messageCode="global_menu_find" url="/invoices?find=ByCustomer&amp;form" z="HR3WH5ibML/YOMVDU0dbG1UV18U="/>
+        </menu:category>
+        <menu:category id="c_payment"	 z="KXvP3nk7swdtwqF1yirxi8G+72w=">
+            <menu:item id="collect" label="Montant collecte par moi" messageCode="" url="/payments/collect" z="user-managed"/>
+        </menu:category>
+    </security:authorize>
+    	
+     <security:authorize ifAnyGranted="ROLE_ADMIN" > 
+         <menu:category id="c_payment" z="KXvP3nk7swdtwqF1yirxi8G+72w=">
+            <menu:item id="fi_payment_datepayemmentbetween" label="${paymentperiod}" messageCode="global_menu_find" url="/payments?find=ByDatePayemmentBetween&amp;form" z="WFwmBtIc95kBDnkF+aWsisaugmg="/>
+            <menu:item id="fi_payment_casheiranddatepayemmentbetween" label="${cashierAndPaymentPeriod}" messageCode="global_menu_find" url="/payments?find=ByCasheirAndDatePayemmentBetween&amp;form" z="jpf8k3Osa98oMMsIG0cLFxkIo4I="/>
+            <menu:item id="fi_payment_casheir" messageCode="global_menu_find" url="/payments?find=ByCasheir&amp;form" z="YzSOJK8W2wK5NG3gcE8RbTBJ0us="/>
+            
+            <!-- by admin -->
+            <menu:item id="collect" label="Montant en caisse " messageCode="" url="/payments/collectAll" z="user-managed"/>
+        </menu:category>
+        
+        <menu:category id="stat" label="Statistique" z="user-managed">
+            <menu:item id="statVenteForm" messageCode="" label="statistique de vente" url="/stats/venteForm" z="user-managed"/>
+       		<menu:item id="overview" messageCode="" label="Vue d'ensemble" url="/stats/overviewForm" z="user-managed"/>
+        </menu:category>  
+      </security:authorize>
+     
+      
+      <security:authorize access="isAuthenticated()" > 
+        <menu:category id="switch" label="Option" z="user-managed">
+            <menu:item id="resto" messageCode="" label="Restaurant" url="/resto" z="user-managed"/>
+             <menu:item id="password_reset_item" messageCode="" label="Changer le mot de passe" url="/passwordresets?form" z="user-managed"/>
+        </menu:category>
+      </security:authorize>
+    </menu:menu>
+</div>

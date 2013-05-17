@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_ProductType" object="${producttype}" path="/producttypes" z="sNo3CuFnyWZUClP2j1o/eB9AjcU=">
+        <field:display field="productTypeKey" id="s_org_adorsys_geshotel_resto_domain_ProductType_productTypeKey" object="${producttype}" z="RBXp/9VnLaUJxPD/qSoq2HUSlC4="/>
+        <field:display field="title" id="s_org_adorsys_geshotel_resto_domain_ProductType_title" object="${producttype}" z="/ehWSQon2whw1v56jUFmS75m/gc="/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ProductType_description" object="${producttype}" z="cnjdGh+5zoIU4Ze2XOu3cLP03YU="/>
+        <field:display date="true" dateTimePattern="${productType_dateofstore_date_format}" field="dateOfStore" id="s_org_adorsys_geshotel_resto_domain_ProductType_dateOfStore" object="${producttype}" z="rJj8TnqpYj9GOz6okMZIo5zH5uw="/>
+        <field:display field="discounts" id="s_org_adorsys_geshotel_resto_domain_ProductType_discounts" object="${producttype}" z="iqvCx4TZtQCLZFF7CGG7moltf14="/>
+        <field:display field="productTypeState" id="s_org_adorsys_geshotel_resto_domain_ProductType_productTypeState" object="${producttype}" z="EKeOMrl5eBVF1yGLUFnrDqs5Rvo="/>
+        <field:display field="productGroup" id="s_org_adorsys_geshotel_resto_domain_ProductType_productGroup" object="${producttype}" z="S4eRotere++Oc4oNxtGqkVTG9Jk="/>
+    </page:show>
+</div>

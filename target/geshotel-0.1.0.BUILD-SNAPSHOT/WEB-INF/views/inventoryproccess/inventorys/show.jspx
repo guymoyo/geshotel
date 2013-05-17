@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:url value="/inventoryprocess" var="form_action" />
+
+	<util:panel title="Fill inventorys fields" id="3fno3sd">
+
+		<div></div>
+
+			<div>
+				<table>
+					<thead>
+						<th>Designation</th>
+						<th>Price</th>
+						<th>Initial Stock</th>
+						<th>Entry</th>
+						<th>Sales</th>
+						<th>Final Stock</th>
+					</thead>
+					<tbody>
+					<c:forEach items="${inventoryprocess.inventoryItems}" var="inventoryItem" varStatus="i">
+							<tr>
+								<td> ${inventoryItem.designation } </td>
+								<td> ${inventoryItem.price } </td>
+								<td> ${inventoryItem.initialStock }</td>
+								<td> ${inventoryItem.entry }</td>
+								<td> ${inventoryItem.sales }</td>
+								<td> ${inventoryItem.finalStock }</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			<div>
+			toto
+				<spring:url value="/inventoryprocess/${inventoryprocess.inventory.id }/test" var="test_inventory_link" />
+				<span>
+					<a href="${test_inventory_link }">Test Inventory</a>
+					<c:if test="${not empty message }">
+						<c:out value="${message }" />
+					</c:if>
+				</span>
+			</div>
+
+	</util:panel>
+</div>

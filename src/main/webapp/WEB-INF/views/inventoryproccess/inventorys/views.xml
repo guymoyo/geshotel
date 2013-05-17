@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="inventoryprocess/inventorys/list">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/list.jspx"/>
+    </definition>
+<definition extends="resto" name="inventoryprocess/inventorys/show">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/show.jspx"/>
+    </definition>
+<definition extends="resto" name="inventoryprocess/inventorys/create">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/create.jspx"/>
+    </definition>
+<definition extends="resto" name="inventoryprocess/inventorys/update">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/update.jspx"/>
+    </definition>
+<definition extends="resto" name="inventoryprocess/inventorys/showCurrentInventory">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/showCurrentInventory.jspx"/>
+    </definition>
+<definition extends="resto" name="inventoryprocess/inventorys/showClosedInventory">
+        <put-attribute name="body" value="/WEB-INF/views/inventoryproccess/inventorys/showClosedInventory.jspx"/>
+    </definition>
+</tiles-definitions>

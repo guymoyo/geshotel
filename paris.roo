@@ -1,0 +1,120 @@
+
+project --topLevelPackage org.parisEnLigne --projectName parisenligne
+persistence setup --provider HIBERNATE --database H2_IN_MEMORY --userName sa --password sa
+
+enum type --class ~.domain.RoleName
+enum constant --name ROLE_ADMIN
+enum constant --name ROLE_MANAGER
+enum constant --name ROLE_Casheir
+
+enum type --class ~.domain.Gender
+enum constant --name Male
+enum constant --name Female
+enum constant --name Neutral
+
+enum type --class ~.domain.Etat
+enum constant --name SUCCES
+enum constant --name ECHEC
+
+entity --class ~.domain.UserAccount
+field string --fieldName identifier --notNull --sizeMin 3 --unique 
+field string --fieldName password --sizeMin 5 --notNull --unique 
+field enum --fieldName roles --type ~.domain.RoleName --notNull 
+field date --fieldName entryDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy hh:mm:ss" --persistenceType JPA_TIMESTAMP --notNull 
+
+entity --class ~.domain.Societe
+field string --fieldName Name
+field string --fieldName Address
+field string --fieldName CodePostal
+field string --fieldName City
+field string --fieldName Email
+field string --fieldName PhoneNumber
+field string --fieldName Fax
+field string --fieldName WebPage
+field number --fieldName TVA --type java.math.BigDecimal
+
+entity --class ~.domain.Customer
+field string --fieldName firstName
+field string --fieldName lastName --notNull
+field string --fieldName fullName
+field number --fieldName account --type java.math.BigDecimal
+field enum --fieldName gender --type ~.domain.Gender
+field string --fieldName identityNumber --notNull true --unique
+field string --fieldName phoneNumber
+field string --fieldName email 
+field string --fieldName nationality
+field string --fieldName profession 
+field boolean --fieldName blackList 
+
+entity --class ~.domain.Equip
+field string --fieldName name
+field string --fieldName description --sizeMax 255
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.League
+field string --fieldName name
+field string --fieldName description --sizeMax 255
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.SportType
+field string --fieldName name
+field string --fieldName description --sizeMax 255
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.Rencontre
+field reference --fieldName equipeA --type ~.domain.Equip --cardinality MANY_TO_ONE
+field reference --fieldName equipeB --type ~.domain.Equip --cardinality MANY_TO_ONE
+field date --fieldName dateOfCreation --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field string --fieldName lieu
+field reference --fieldName sporttype --type ~.domain.SportType --cardinality MANY_TO_ONE
+field reference --fieldName league --type ~.domain.League --cardinality MANY_TO_ONE
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+	
+entity --class ~.domain.CategoryParis
+field string --fieldName name
+field string --fieldName description --sizeMax 255
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.Event
+field string --fieldName name
+field string --fieldName description --sizeMax 255
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.Paris
+field reference --fieldName rencontre --type ~.domain.Rencontre --cardinality MANY_TO_ONE
+field reference --fieldName categoryParis --type ~.domain.CategoryParis --cardinality MANY_TO_ONE
+field reference --fieldName event --type ~.domain.Event --cardinality MANY_TO_ONE
+field date --fieldName dateOfCreation --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field date --fieldName dateOfClose --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field number --fieldName cote --type java.math.BigDecimal --notNull
+field enum --fieldName etat --type ~.domain.Etat
+field reference --fieldName createdBy --type ~.domain.UserAccount --cardinality MANY_TO_ONE
+
+entity --class ~.domain.Panier
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE
+field date --fieldName dateOfCreation --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field number --fieldName montant --type java.math.BigDecimal --notNull
+field number --fieldName gaintotal --type java.math.BigDecimal --notNull
+
+entity --class ~.domain.Choix
+field reference --fieldName paris --type ~.domain.Paris --cardinality MANY_TO_ONE
+field number --fieldName montantParis --type java.math.BigDecimal --notNull
+field number --fieldName gain --type java.math.BigDecimal --notNull
+field reference --fieldName panier --type ~.domain.Panier --cardinality MANY_TO_ONE
+
+entity --class ~.domain.Deposit
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE
+field number --fieldName montant --type java.math.BigDecimal --notNull
+field date --fieldName dateOfCreation --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field string --fieldName description --sizeMax 255
+
+entity --class ~.domain.Retrait
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE
+field number --fieldName montant --type java.math.BigDecimal --notNull
+field date --fieldName dateOfCreation --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+field string --fieldName description --sizeMax 255
+
+web mvc setup
+web mvc all --package ~.web
+security setup
+logging setup --level WARN

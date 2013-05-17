@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" 
+ xmlns:spring="http://www.springframework.org/tags"
+ xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+ xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <spring:url value="/resources" var="resource"/> 
+ 	<spring:url value="/invoices" var="inv"></spring:url>
+ 
+ <SCRIPT type="text/javascript">
+ 	dojo.ready(function(){
+ 		$("#code").barcode("12345678901${invoice.id}", "ean13", {barWidth:1, barHeight:26});    
+ 	});
+ </SCRIPT>
+ 
+  <util:panel title="Invoice" id="Invoice">
+		<c:if test="${invoice.invoiceState ne 'Ferme' }">
+         <button dojoType="dijit.form.Button" type="button" id="close"  onclick="window.location='${inv}/close?id=${invoice.id}'" >close</button>
+        </c:if>
+         
+         <button dojoType="dijit.form.Button" type="button" id="print" >Imprimer</button>
+        
+         <button dojoType="dijit.form.Button" type="button" id="showpay">payment</button>
+ <c:if test="${ not empty warn}">
+                <fieldset style="border-color: orange;">
+                    <legend style="color: red;">warn</legend>
+	       		${warn} <br/>
+                </fieldset>
+            </c:if>       
+  <div style="border-width: 1px;border-color: #CCCCC;border-style: solid;padding: 10px;width: 680px;margin:auto;margin-top: 10px;" id="facture" class="print facture">
+  	<div >
+  		<div style="float: left;margin-left: 30px;">
+  			<p>
+  				${hotel.name}<br/>
+  				${hotel.address}<br/>
+  				${hotel.city }<br/>
+  				${hotel.phoneNumber}<br/>
+  			</p>
+  		</div>
+  		<!-- <div style="float: left;margin-left: 130px;margin-top: 40px;" id="code" >
+  			bar code
+  		</div> -->
+  		<div style="margin-left: 70px;float: right;">
+  		<img  src="${resource}/images/${hotel.logo}" alt="logo" style="max-width: 120px;max-width: 120px;margin-right: 40px;" />
+  	</div>
+  	</div>
+  	
+  	<div style="clear: both;" ></div>
+  	<br/>
+  	<div style="margin-top: 10px;">
+  		<div style="float: left;margin-left: 30px;">
+  			<p>
+  				${customer.fullName}<br/>
+  				${customer.identityNumber}<br/>
+  				${customer.phoneNumber}<br/>		
+  			</p>
+  		</div>
+  		<div style="float: left;margin-left: 450px;margin-top: -40px;">
+  			<table class="bord">
+  			<fmt:formatNumber type="number" var="reste" value="${invoice.reste}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+  				<tr><td>Facture #</td><td width="130px;">${invoice.id}</td></tr>
+  				<tr><td>Date </td><td>${invoice.dateOfCreate}</td></tr>
+  				<tr><td>Reste</td><td style="background-color: orange;" >${reste}</td></tr>
+  			</table>
+  		</div>
+  	</div>
+  	<div style="clear: both;" ></div><br/>
+  	<div style="border-color: #99999;border-bottom-width: 1px;border-bottom-style: solid;padding-bottom: 30px">
+  		<table class="bord" >
+		  <tbody>
+		   <tr>
+		      <th>Item</th>
+		      <th>Description</th>
+		      <th>Prix unitaire</th>
+		      <th>Quantite</th>
+		      <th>Prix</th>
+		  </tr> 
+		 </tbody>
+			<c:forEach  items="${reservations }" var="itemR">	   
+				  <tr>
+				      <td>Nuite</td>
+				<fmt:formatNumber type="number" var="totalAmountR" value="${itemR.totalAmount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+				      <td width="360px"><div class="des"> de ${itemR.checkInDate} a ${itemR.checkOutDate}</div></td>
+				      <td>${itemR.amount}</td>
+				      <td>${itemR.numDays }</td>
+				      <td>${totalAmountR}</td>
+				  </tr>
+			</c:forEach>
+			
+			<c:forEach items="${items}" var="item">	   
+				  <tr>
+				      <td>${item.itemName }</td>
+		<fmt:formatNumber type="number" var="itemT" value="${item.amount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+				      <td width="400px" ><div class="des" >${item.itemDesc }</div></td>
+				      <td>${item.unitPrice}</td>
+				      <td>${item.qty }</td>
+				      <td>${itemT}</td>
+				  </tr>
+			</c:forEach>
+	    </table>
+  	</div>
+  	<br/><br/>
+  	<div style="margin-left: 470px;">
+  		<table  class="bord" >
+  		<fmt:formatNumber type="number" var="invoiceAmount" value="${invoice.invoiceAmount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+  				<tr><td>Sub Total</td><td>${invoiceAmount }</td></tr>
+  				<tr><td><div class="des">Taxe</div></td><td><div class="des">${invoice.valueAdddedTax}</div></td></tr>
+  				<fmt:formatNumber type="number" var="amountDue" value="${invoice.amountDue}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+  				<tr><td>Total</td><td style="background-color: green;">${amountDue}</td></tr>
+  				<fmt:formatNumber type="number" var="amountPaid" value="${invoice.amountPaid}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+  				<tr><td><div class="des">Montant paye</div></td><td><div class="des">${amountPaid}</div></td></tr>
+  				<fmt:formatNumber type="number" var="reste" value="${invoice.reste}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+  				<tr bgcolor="black" ><td>Reste</td><td  style="background-color: orange;" >${reste}</td></tr> 
+  		</table>
+  	</div>
+ </div>
+ <div style="margin-top: 10px;" class="cache">
+ 	  <page:list id="pl_org_adorsys_geshotel_domain_Payment" items="${payments}" z="user-managed">
+        <table:table data="${payments}" id="l_org_adorsys_geshotel_domain_Payment" delete="false" create="false" update="false"  path="/payments" z="user-managed">
+            <table:column date="true" dateTimePattern="${payment_datepayemment_date_format}" id="c_org_adorsys_geshotel_domain_Payment_datePayemment" property="datePayemment" z="oh1ewzYyCqCLrQt0At9MeOd2MT0="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_Amount" property="amount" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_invoice" property="invoice" z="user-managed" render="false" />
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_payementType" property="payementType" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_note" property="note" z="user-managed"/>
+            <table:column id="c_org_adorsys_geshotel_domain_Payment_casheir" property="casheir" z="user-managed"/>
+        </table:table>
+    </page:list>
+ </div>
+ </util:panel>
+ 	<div data-dojo-type="dijit.Dialog" style="width:600px;display: none;" data-dojo-props="title:'payement invoice'" id="pay" class="cache">
+ 	<spring:url value="/payments/pay" var="pay"></spring:url>
+     <form  action="${pay}" id="form" method="get">
+      <input type="hidden" name="invoice" value="${invoice.id}"/>
+      montant<br/> <input type="text" name="montant" dojoType="dijit.form.ValidationTextBox" 
+      		 regExp="[0-9]+" required="true" invalidMessage="Invalid." trim="true" id="montant"/><br/><br/>
+      type<br/><select dojoType="dijit.form.Select" style="width: 150px;" name="type" id="type">
+      			<option selected="selected" value="CASH">CASH</option>
+      			<option value="COMPTE" >COMPTE</option>
+      			<option value="CARD" >CARD</option>
+      			<option value="CHEQUE" >CHEQUE</option>
+      			<option value="VIREMENT" >VIREMENT</option>
+      		</select>  <br/><br/>
+      note<br/><input type="text" name="note" dojoType="dijit.form.TextBox" id="note" /><br/><br/>
+      <button dojoType="dijit.form.Button" type="submit" id="subPay" name="subPay">save</button>
+      <button dojoType="dijit.form.Button" type="button" id="hidePay" name="hidePay">cancel</button>
+      </form>
+    </div>
+      
+</div>

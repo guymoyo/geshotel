@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <h2 style="color: green;" >Closed Sales </h2>
+    
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_Sale"
+		items="${sales}" z="W1CMh0AhyAKuPiuaqEY9ub5Ca0A=">
+		<table:table data="${sales}"
+			id="l_org_adorsys_geshotel_resto_domain_Sale"
+			path="/saleprocess/sales" z="dB5M+nlJiAJuiIYRQlOp+oFu/FA=">
+			<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_saleKey"
+				property="saleKey" z="jBJydEKfGiusZfqxMAPeJNmy6mI=" />
+			<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_saleItem"
+				property="saleItem" z="7OGuksYYp9389R2Vpq/cfPVKs/0=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_Sale_totalAmount"
+				property="totalAmount" z="j6VQe4/foXRuZI37/HqZ/xFq4fA=" />
+			<table:column id="c_org_adorsys_geshotel_resto_domain_Sale_tax"
+				property="tax" z="qFtvFC2nNA998mOfTy3LA9iApEM=" />
+			<table:column date="true"
+				dateTimePattern="${sale_recorddate_date_format}"
+				id="c_org_adorsys_geshotel_resto_domain_Sale_recordDate"
+				property="recordDate" z="+lVIed1sYn1iLaV4isDwqd+UBUs=" />
+			<table:column
+				id="c_org_adorsys_geshotel_resto_domain_Sale_userNameDescription"
+				property="userNameDescription" z="FNFjdwWQjR+zFTzVzyalkVsMF0s=" />
+		</table:table>
+	</page:list>
+	<spring:message code="message_show_closed" var="message_show_closed" />
+    <span style="color: maroon;" >${message_show_closed }</span>
+</div>

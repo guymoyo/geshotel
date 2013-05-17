@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_BarRestauPayment" items="${barrestaupayments}" z="04R5CW/C1lZ3qrXxoip/apKQXRg=">
+        <table:table data="${barrestaupayments}" id="l_org_adorsys_geshotel_resto_domain_BarRestauPayment" path="/barrestaupayments" z="nQyGqnJiGTqa8UlIpq2hMKJcDd8=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_sale" property="sale" z="cSTgpdhMTG56MIf6VPHKG4xMFVA="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountDue" property="amountDue" z="vfg/5G3+f+dWxjFh9sKmCXcjD/A="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountIn" property="amountIn" z="axNvkIfH1TBSu4thbaqN3jPC26k="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_amountOut" property="amountOut" z="3+4CAYNGTG7wkL5qRM2hTPAF78I="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BarRestauPayment_note" property="note" z="sn/7bJCXoqc98j7G9hlm/7FypHU="/>
+        </table:table>
+    </page:list>
+</div>

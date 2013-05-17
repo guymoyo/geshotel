@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" style="margin-top: -12px" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <spring:url value="/resources" var="resource"/>
+    <spring:url value="/reservations" var="reser"/>.
+    <spring:url value="/reservations/calculReduction" var="link"/>
+    <input type="hidden" value="${link }" id="reductionLink" />
+    <spring:url value="/planning" var="planning"/>
+    <script src="${resource}/moyoJS/booking.js" type="text/javascript"/>
+    <util:panel id="" title="Reservation : step 2">
+        <div class="submit" style="margin-left: 680px;">
+            <fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${reservation.checkInDate}" var="day"/>
+            <form action="${reser}/new" style="float: left;margin-left: 20px;">
+                <input name="roomId" type="hidden" value="${reservation.room.id}"/>
+                <input name="whichDay" type="hidden" value="${day}"/>
+                <input type="submit" value="Retour"/>
+            </form>
+            <form action="${planning}" style="float: left;margin-left: 20px;">
+                <input type="submit" value="Annuler"/>
+            </form>
+        </div>
+        <br/>
+        <c:if test="${ not empty error1}">
+            <fieldset style="border-color: orange;">
+	       		${error1} <br/>
+            </fieldset>
+        </c:if>
+        <c:if test="${ not empty error2}">
+            <fieldset style="border-color: orange;">
+	       		${error2} <br/>
+            </fieldset>
+        </c:if>
+        <form:create id="fc_org_adorsys_geshotel_booking_domain_Reservation" modelAttribute="reservation" panel="false" path="/reservations" render="${empty dependencies}" z="user-managed">
+            <!--  <field:select field="room" id="c_org_adorsys_geshotel_booking_domain_Reservation_room" itemValue="id" items="${rooms}" path="/rooms" render="false" required="false" z="user-managed"/> 
+			<field:select field="customer" id="c_org_adorsys_geshotel_booking_domain_Reservation_customer" itemValue="id" items="${customers}" path="/customers" render="false" z="user-managed"/>
+			 <field:input field="numDays" id="c_org_adorsys_geshotel_booking_domain_Reservation_numDays" z="g91cUxJ23J3ctmmesvwauTxZJqA="/>
+		-->
+            <div style="float: left;">
+                <fieldset>
+                    <legend>Choisisez la periode</legend>
+                    <field:datetime dateTimePattern="${reservation_checkindate_date_format}" field="checkInDate" id="c_org_adorsys_geshotel_booking_domain_Reservation_checkInDate" required="true" z="5/z7gUJVakht1Ns7t79H908p6UY="/>
+                    <field:datetime dateTimePattern="${reservation_checkoutdate_date_format}" field="checkOutDate" id="c_org_adorsys_geshotel_booking_domain_Reservation_checkOutDate" required="true" z="+uwJiWpK6b+Py9WvtzbZ4LLbZ50="/>
+                    <field:spinner field="" id=""/>
+                </fieldset>
+                <field:hidden field="room.id" id="c_org_adorsys_geshotel_booking_domain_Reservation_room"/>
+                <field:hidden field="customer.id" id="c_org_adorsys_geshotel_booking_domain_Reservation_customer"/>
+                <field:input field="amount" id="c_org_adorsys_geshotel_booking_domain_Reservation_amount" render="false" required="true" validationMessageCode="field_invalid_number" z="user-managed"/>
+                <fieldset>
+                    <legend>Applique une reduction</legend>
+                    <field:input field="discount" id="c_org_adorsys_geshotel_booking_domain_Reservation_discount" validationMessageCode="field_invalid_number" z="user-managed"/>
+                    <field:input disabled="false" field="reduction" id="c_org_adorsys_geshotel_booking_domain_Reservation_reduction" validationMessageCode="field_invalid_number" z="user-managed"/>
+                </fieldset>
+                <fieldset>
+                    <legend>Autre</legend>
+                    <field:input field="numOfPeople" id="c_org_adorsys_geshotel_booking_domain_Reservation_numOfPeople" z="/51vkvGkzMsQxXKSeAH8393yDrs="/>
+                    <field:input field="otherValue" id="c_org_adorsys_geshotel_booking_domain_Reservation_otherValue" validationMessageCode="field_invalid_number" z="AnrZYrssjQRfkNpQdVNSlkW3USg="/>
+                    <field:textarea field="complement" id="c_org_adorsys_geshotel_booking_domain_Reservation_complement" z="MYUDcwwIv7IG3cWq07eo9mLgR+Y="/>
+                </fieldset>
+            </div>
+            <div style="float: left;margin-left: 30px; width: 450px;">
+                <fieldset>
+                    <legend>Chambre</legend>
+                    <p>${room}</p>
+                </fieldset>
+                <fieldset>
+                    <legend>Client</legend>
+                    <p>${customer}</p>
+                </fieldset>
+                <fieldset>
+                    <spring:url value="/reservations/listing" var="listing"/>
+                    <legend>Historique Client</legend>
+                   <!--  <p>Derniere Reservation: ${list}</p> --> 
+                    <a href="${listing}?customer=${customer.id}">liste des reservations</a>
+                </fieldset>
+            </div>
+            <div style="clear: both;"/>
+            <field:hidden field="reservationState" id="c_org_adorsys_geshotel_booking_domain_Reservation_reservationState"/>
+            <!-- <field:select field="reservationState" id="c_org_adorsys_geshotel_booking_domain_Reservation_reservationState" items="${reservationstates}" path="reservationstates" render="false" z="user-managed"/> -->
+            <field:select field="invoiceItem" id="c_org_adorsys_geshotel_booking_domain_Reservation_invoiceItem" itemValue="id" items="${invoiceitems}" path="/invoiceitems" render="false" z="user-managed"/>
+            <field:datetime dateTimePattern="${reservation_creationdate_date_format}" field="creationDate" id="c_org_adorsys_geshotel_booking_domain_Reservation_creationDate" render="false" required="false" z="user-managed"/>
+            <field:select field="receipt" id="c_org_adorsys_geshotel_booking_domain_Reservation_receipt" itemValue="id" items="${useraccounts}" path="/useraccounts" render="false" z="user-managed"/>
+            <field:select field="invoice" id="c_org_adorsys_geshotel_booking_domain_Reservation_invoice" itemValue="id" items="${invoices}" path="/invoices" render="false" z="user-managed"/>
+            <field:input field="totalAmount" id="c_org_adorsys_geshotel_booking_domain_Reservation_totalAmount" render="false" validationMessageCode="field_invalid_number" z="user-managed"/>
+            <field:input field="numDays" id="c_org_adorsys_geshotel_booking_domain_Reservation_numDays" render="false" z="user-managed"/>
+            <field:input field="deposit" id="c_org_adorsys_geshotel_booking_domain_Reservation_deposit" render="false" validationMessageCode="field_invalid_number" z="user-managed"/>
+        </form:create>
+        <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_booking_domain_Reservation" render="${not empty dependencies}" z="user-managed"/>
+        <fmt:formatDate pattern="yyyy-MM-dd" type="date" value="${reservation.checkInDate}" var="day"/>
+    </util:panel>
+    <div style="display:none;visibility: hidden;" class="aide" id="aide" >
+				<a href="#" id="close" >x</a>
+				<ul>
+					<li>Vous pouvez consultez la liste des reservations du client</li>
+					<li>et de ce voir ses factures impayees, en cliquant sur liste reservations</li>
+					<li>Rassurez vous de selectionner la plage de date du client sans collision avec une autre</li>
+					<li>Vous pouvez retournez a la selection du client en cliquant sur le bouton retour</li>
+				</ul>
+			</div>
+</div>

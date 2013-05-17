@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_BrTable" items="${brtables}" z="9htp93qJHnDCchype0Tj00Dh0Js=">
+        <table:table data="${brtables}" id="l_org_adorsys_geshotel_resto_domain_BrTable" path="/brtables" z="3NLZdf8+nvIdAWwk8/6fHdAaoic=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BrTable_brTableKey" property="brTableKey" z="VOtKtz875viowMzgLyrQW+gJzBc="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BrTable_tableNumber" property="tableNumber" z="EPWtawutKbpbP2kMlzrTMjxQFiM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_BrTable_description" property="description" z="BD9AAoc82fyr4iqr9dvOerwrza0="/>
+        </table:table>
+    </page:list>
+</div>

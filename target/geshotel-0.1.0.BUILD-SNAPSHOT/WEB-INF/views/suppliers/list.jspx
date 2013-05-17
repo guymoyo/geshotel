@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_Supplier" items="${suppliers}" z="e5BqQYEwr8vL2xGLaBIkTLDaBPs=">
+        <table:table data="${suppliers}" id="l_org_adorsys_geshotel_resto_domain_Supplier" path="/suppliers" z="oja7TRsSz+ke2iSi7USeSxQmZeo=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Supplier_supplierKey" property="supplierKey" z="SoX/lP9qRBPuva6QU6w0bWS9lbU="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Supplier_identifier" property="identifier" z="Ow1VYPwd3pD3Drq47L9FF0KmJG8="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Supplier_designation" property="designation" z="iNB9PscRwA0k/QATV19WtJtJzzM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Supplier_phoneNumber" property="phoneNumber" z="r2PCQOxfrif8NtjnPrDe2Yu+HFo="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Supplier_address" property="address" z="HyKH3Kxv4nbt1FezJFFRkWYkmd4="/>
+            <table:column date="true" dateTimePattern="${supplier_dateofcreation_date_format}" id="c_org_adorsys_geshotel_resto_domain_Supplier_dateOfCreation" property="dateOfCreation" z="YZLpNogJrQhlP1uuM+m2bNw8BZI="/>
+        </table:table>
+    </page:list>
+</div>

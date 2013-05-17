@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <div class="page_show_wrapper">
+		<page:show id="ps_org_adorsys_geshotel_resto_domain_Procurement" update="false" delete="false"
+    		object="${procurement}" path="/procurementprocess/procurements"
+    		z="pojMxbjeIhoAP/KeTsCJiVgnYpk=">
+    		<field:display field="procurementKey"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_procurementKey"
+    			object="${procurement}" z="ewWs20qByxPUKPkMhD2cRG2Pz0c=" />
+    		<field:display date="true"
+    			dateTimePattern="${procurement_dateofprocurement_date_format}"
+    			field="dateOfProcurement"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_dateOfProcurement"
+    			object="${procurement}" z="DKq5ZrahAUjBY3OMJpcNrFreh0A=" />
+    		<field:display field="amount"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_amount"
+    			object="${procurement}" z="8fIiwpjNVdayyontytE2EWB+UxU=" />
+    		<field:display field="isLatestProcurement"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_isLatestProcurement"
+    			object="${procurement}" z="Nh6Rv/4GcBiNzjopwvzILcymPlY=" />
+    		<field:display field="procurementState"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_procurementState"
+    			object="${procurement}" z="k6gjpCzTMT6BNp9Bo4WdkMlmpQg=" />
+    		<field:display field="userAccount"
+    			id="s_org_adorsys_geshotel_resto_domain_Procurement_userAccount"
+    			object="${procurement}" z="y5W9mwpqexcXz8JyPGRxhvLKD3U=" />
+    	</page:show>
+    </div>
+    <br /> 
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_ProcurementItem" items="${procurementitems}" openPane="true" z="mlTBzmWcYeewLipLYv3e3jZ6AWo=">
+        <table:table data="${procurementitems}" id="l_org_adorsys_geshotel_resto_domain_ProcurementItem" path="/procurementitems" z="fZE2eTSwxpgHAGkeSUTRRFodwsw=">
+<!--             <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_procurementItemKey" property="procurementItemKey" z="DebA/ispZO71bu3WAdEJGYMpjkk="/> -->
+<!--             <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_customer" property="customer" z="VcY1QS8SPpRDcQ8AC8/cj17/Lt4="/> -->
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_product" property="product" z="5dfYU65xv6cSUpiJarAM6vmCas8="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_qty" property="qty" z="Slg4zRRe9eNeBXZjvZS0l6rdvwk="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_unitPrice" property="unitPrice" z="hnc70MGW/Zlu9K4V/gDu/RjKQgA="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ProcurementItem_amount" property="amount" z="nJrHuO1wQbYKToluo8XdxYjQaxI="/>
+        </table:table>
+    </page:list>
+    <div style="margin-top: 17px; ">
+    <spring:url value="/procurementprocess/procurements/see?procurementKey=${procurement.procurementKey }" var="see_procurementdetails_link" />
+<!--     	<input id="find_all_procurement_items_buttons" type="submit"  style="font-size: 15px; font-family: sans-serif;"  value="Voir Les Details" /> -->
+    	<div id="procurement_items_find_results" style="position: static; top: 10px; visibility: hidden;" >
+    		<table>
+    			<thead>
+    				<th>Product</th>
+    				<th> Qty</th>
+    				<th>Unit Price</th>
+    				<th> Total Amount </th>
+    				<th>Date</th>
+    				<th> Provider</th>
+    			</thead>
+    			<tbody id="result">
+    				<tr><td>data</td> </tr>
+    			</tbody>
+    		</table>
+    	</div>
+    </div>
+    <spring:url value="/procurementprocess/procurementitems/see?procurementKey=${procurement.procurementKey }" var="find_all_procurment_items" />
+    <spring:url value="/procurementprocess/providers/details?providerKey=" var="see_provider_key" />
+    <script type="text/javascript" >
+    	function loadProcurementItems(procurement_items_result_container){
+    		dojo.xhrGet({
+    			url : "${find_all_procurment_items}",
+    			handleAs:"json",
+    			load : function(result){
+    				console.log(result);
+//     				var procurement_items_result_container = dojo.byId("procurement_items_find_results");
+    				var htmlResult="";
+    				for(data in result){
+    					htmlResult += '<div> <tr> <td style="border : none;"> '+result[data].product.title+'</td> <td style="border : none;">'
+    					+result[data].qty +' </td> <td style="border : none;" >'
+    					+result[data].unitPrice+' </td> <td style="border : none;" > '
+    					+result[data].amount +'</td> <td style="border : none;">'
+    					+result[data].procurement.dateOfProcurement +' </td> <td style="border : none;"> <a href="${see_provider_key}'+result[data].supplier.supplierKey+'"> '
+    					+result[data].supplier.designation +'</a> </td> </tr> </div>'; 
+    				}
+    				htmlResult += '<div>  <tr> <td> Number Of Product</td> <td colspan="5"> '+result.length+' </td> </tr> </div>' ;
+    				document.getElementById('result').innerHTML = htmlResult;
+    			},
+    			error : function (error){
+    				console.log(error);
+    			}
+    		});
+    	}
+    	/* dojo.ready(function(){
+    		var button = dojo.byId("find_all_procurement_items_buttons");
+    		console.log("connecting ...");
+    		dojo.connect(button,"onclick",function(evt){
+    			console.log("Connected");
+				var procurement_items_result_container = dojo.byId("procurement_items_find_results");
+				var display = dojo.style(procurement_items_result_container).visibility ;
+				if(display == 'hidden'){
+    				loadProcurementItems(procurement_items_result_container);
+    				dojo.style(procurement_items_result_container,{visibility : 'visible',});
+				}else{
+					dojo.style(procurement_items_result_container,{visibility : 'hidden',});
+				};
+    		});
+    	}); */
+    </script>
+</div>

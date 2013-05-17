@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_booking_domain_Invoice" modelAttribute="invoice" path="/invoices" versionField="Version" z="jY6fn06nqcFiTM5G0HatoqRro9k=">
+        <field:select field="customer" id="c_org_adorsys_geshotel_booking_domain_Invoice_customer" itemValue="id" items="${customers}" path="/customers" z="rQX4PyPTyhrqYUnP8Pdjp7RMVSA="/>
+        <field:input field="invoiceAmount" id="c_org_adorsys_geshotel_booking_domain_Invoice_invoiceAmount" validationMessageCode="field_invalid_number" z="qaA7+A2Tx7HWfGx8qZUD0ox5xpo="/>
+        <field:input field="valueAdddedTax" id="c_org_adorsys_geshotel_booking_domain_Invoice_valueAdddedTax" validationMessageCode="field_invalid_number" z="/Mdhhcc56JqRSzz1DX/Ez0fuD7w="/>
+        <field:input field="otherTaxes" id="c_org_adorsys_geshotel_booking_domain_Invoice_otherTaxes" validationMessageCode="field_invalid_number" z="I82u80BVpZenad1ZzN0vxWogj9w="/>
+        <field:input field="amountDue" id="c_org_adorsys_geshotel_booking_domain_Invoice_amountDue" validationMessageCode="field_invalid_number" z="+uL4oS5gB0Yt0IG1+QDOb33fjZY="/>
+        <field:select field="payementState" id="c_org_adorsys_geshotel_booking_domain_Invoice_payementState" items="${payementstates}" path="payementstates" z="wPPeDlnes/PM0WRVWqzqEhu5nKw="/>
+        <field:select field="invoiceState" id="c_org_adorsys_geshotel_booking_domain_Invoice_invoiceState" items="${invoicestates}" path="invoicestates" z="mElnCRkx8ig8qkPNain0E8gidQE="/>
+        <field:select field="originator" id="c_org_adorsys_geshotel_booking_domain_Invoice_originator" itemValue="id" items="${useraccounts}" path="/useraccounts" z="lsaCFk7eTMk0PlPF4G/yhCwwI/s="/>
+        <field:datetime dateTimePattern="${invoice_dateofclose_date_format}" field="dateOfClose" id="c_org_adorsys_geshotel_booking_domain_Invoice_dateOfClose" z="OAmVw9mmYIDYIfXRkC5mQpoIHoA="/>
+        <field:datetime dateTimePattern="${invoice_dateofcreate_date_format}" field="dateOfCreate" id="c_org_adorsys_geshotel_booking_domain_Invoice_dateOfCreate" z="iz/FXolTV76YRbW6TBqu/LoJRm8="/>
+        <field:input field="reste" id="c_org_adorsys_geshotel_booking_domain_Invoice_reste" validationMessageCode="field_invalid_number" z="r7dGle3Wqwz9NDONW65eAeDfuQE="/>
+        <field:input field="amountPaid" id="c_org_adorsys_geshotel_booking_domain_Invoice_amountPaid" validationMessageCode="field_invalid_number" z="qtilv+fmg3ngg5wxni6Ow6NOBIE="/>
+        <field:input field="montantService" id="c_org_adorsys_geshotel_booking_domain_Invoice_montantService" validationMessageCode="field_invalid_number" z="vsug3big/s8GrL10LW3PHapqb98="/>
+    </form:update>
+</div>

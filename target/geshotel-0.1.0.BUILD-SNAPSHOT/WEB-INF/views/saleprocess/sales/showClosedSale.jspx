@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:c="http://java.sun.com/jsp/jstl/core"
+xmlns:spring="http://www.springframework.org/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:form="http://www.springframework.org/tags/form"
+ xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+   	<div>
+    	<h1 >Sale Details</h1>
+    	<div> <label>Tax Value</label> <label>${taxValue }</label> </div>
+    </div>
+    <br />
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_Sale" list="false"  object="${sale}" path="/saleprocess" z="bJ/qJycxrLPbjyWUAJflqizcx7I=">
+        <field:display field="saleKey" id="s_org_adorsys_geshotel_resto_domain_Sale_saleKey" object="${sale}" z="mFEJDYfjTsvXZH6F7mb08pfgwso="/>
+        <field:display field="saleItem" id="s_org_adorsys_geshotel_resto_domain_Sale_saleItem" object="${sale}" z="7qQuxC08r1XYck0f+laYQNP3Q8Q="/>
+        <field:display field="totalAmount" id="s_org_adorsys_geshotel_resto_domain_Sale_totalAmount" object="${sale}" z="zpQd8Gyz4t3KCUuvAyEqysFxbow="/>
+        <field:display field="tax" id="s_org_adorsys_geshotel_resto_domain_Sale_tax" object="${sale}" z="3bppGMzdxzWJnkGKq5BUgtRAeGs="/>
+        <field:display date="true" dateTimePattern="${sale_recorddate_date_format}" field="recordDate" id="s_org_adorsys_geshotel_resto_domain_Sale_recordDate" object="${sale}" z="IHxD00U3FKZhFtyqFL2KWkjyz+Q="/>
+        <field:display field="note" id="s_org_adorsys_geshotel_resto_domain_Sale_note" object="${sale}" z="rncsasC5NerQvLxpEZ+IBQKrQSo="/>
+        <field:display field="brTable" id="s_org_adorsys_geshotel_resto_domain_Sale_brTable" object="${sale}" z="z0JwmwqATX/SUu5ROvK3QJYryFE="/>
+        <field:display field="customer" id="s_org_adorsys_geshotel_resto_domain_Sale_customer" object="${sale}" z="+1kE/yY+RGKvXNRGD0P74E23APE="/>
+        <field:display field="userNameDescription" id="s_org_adorsys_geshotel_resto_domain_Sale_userNameDescription" object="${sale}" z="lNIL7BhpH6X9srrnqcBukzl1+GE="/>
+        <field:display field="customerType" id="s_org_adorsys_geshotel_resto_domain_Sale_customerType" object="${sale}" z="BMnqyBGss8IK9rccFSF8O8HhQ2M="/>
+        <div>
+        	<spring:url value="/saleprocess/${sale.saleKey }/close" var="close_sale_link" />
+        	<spring:url value="/saleprocess/${sale.saleKey }/showInvoiceDetail" var="showInvoiceDetail_sale_link" />
+        	<spring:url value="/saleprocess/${sale.saleKey }/invoice" var="sale_invoice_link"/>
+        	<c:if test="${empty message }">
+	        	<a href="${close_sale_link }" >close this sale</a>
+        	</c:if>
+        	<c:if test="${not empty message }">
+        		<label style="color: green;" > <c:out value="${message }" /> </label>
+        		<label > <a href="${sale_invoice_link }" > Generate invoice </a> </label>
+        	</c:if>
+        	<div>
+        		<form:form method="POST" action="${close_sale_link }" commandName="customerTypeCmd" >
+        			<form:radiobuttons path="customerType" items="${customerTypeCmd.customerTypes }" />
+        			<div hidden="false" >
+        				<form:input path="activeRoom" id="active_room" />
+        				<form:input path="hostedCustomerIdentifier"
+        					id="hosted_customer_identifier" />
+        			</div>
+        			<input type="submit" value="close this sale"  />
+        		</form:form>
+        	</div>
+        </div>
+    </page:show>
+    
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_SaleItem" items="${saleitems}" z="Dd/U7HsKXHdtQf8DqJeO/aK073Y=">
+        <table:table data="${saleitems}" id="l_org_adorsys_geshotel_resto_domain_SaleItem" path="/saleitems" z="bQWA5BVBdCzuRh96gTY6oiOIIrM=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_saleItemKey" property="saleItemKey" z="hZF7PGD/PsSyHLJROJmwoVDQthM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_product" property="product" z="geeISSOchsr4dEMjueui1dbevhk="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_qty" property="qty" z="//H+Xi1tDPUVkan3jGOo0rgDT5w="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_unitPrice" property="unitPrice" z="X+efUg2imfP9ZcimKQhaknOjEQc="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_SaleItem_amount" property="amount" z="xYmOMa2hHDeRvj4PI0bLry+8KSk="/>
+            <table:column date="true" dateTimePattern="${saleItem_dateofsale_date_format}" id="c_org_adorsys_geshotel_resto_domain_SaleItem_dateOfSale" property="dateOfSale" z="We0Sauq9MSvfY04Ry0T5OSTQBt8="/>
+        </table:table>
+    </page:list>
+</div>

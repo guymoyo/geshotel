@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_CashRegister" object="${cashregister}" path="/cashregisters" z="ZaMdsg/ujWJdNPsmW7JTUUT51uc=">
+        <field:display field="cashRegisterKey" id="s_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterKey" object="${cashregister}" z="0CVhfb8Tw2CBy0bnI34DNs7M/6k="/>
+        <field:display date="true" dateTimePattern="${cashRegister_dateofopening_date_format}" field="dateOfOpening" id="s_org_adorsys_geshotel_resto_domain_CashRegister_dateOfOpening" object="${cashregister}" z="gNTjRK9tcXeJWEsicFOWykHSZA0="/>
+        <field:display date="true" dateTimePattern="${cashRegister_dateofclosing_date_format}" field="dateOfClosing" id="s_org_adorsys_geshotel_resto_domain_CashRegister_dateOfClosing" object="${cashregister}" z="uyJUBz/SQvsyLNlHmHp3NoDBXcI="/>
+        <field:display field="cashierAccount" id="s_org_adorsys_geshotel_resto_domain_CashRegister_cashierAccount" object="${cashregister}" z="PJ7JJNe+SCq2SI5ftYXqbK/EimY="/>
+        <field:display field="cashRegisterState" id="s_org_adorsys_geshotel_resto_domain_CashRegister_cashRegisterState" object="${cashregister}" z="J+GyfWna8/+IQ22hEozaGEtQT9g="/>
+        <field:display field="cashFund" id="s_org_adorsys_geshotel_resto_domain_CashRegister_cashFund" object="${cashregister}" z="E/WFfSyt1n6jK/kMhNGzZiRO/rc="/>
+    </page:show>
+</div>

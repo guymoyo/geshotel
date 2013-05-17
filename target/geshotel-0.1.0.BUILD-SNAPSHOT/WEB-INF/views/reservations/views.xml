@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="booking" name="reservations/list">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/list.jspx"/>
+    </definition>
+    <definition extends="booking" name="reservations/mainCourante">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/mainCourante.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/show">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/show.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/create">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/create.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/update">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/update.jspx"/>
+    </definition>
+    <definition extends="booking" name="reservations/customer">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/customer.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/findReservationsByInvoice">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/findReservationsByInvoice.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/findReservationsByCustomer">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/findReservationsByCustomer.jspx"/>
+    </definition>
+<definition extends="booking" name="reservations/findReservationsByCreationDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/reservations/findReservationsByCreationDateBetween.jspx"/>
+    </definition>
+</tiles-definitions>

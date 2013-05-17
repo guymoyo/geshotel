@@ -1,0 +1,764 @@
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-12 08:51:29
+project --topLevelPackage org.adorsys.geshotel --projectName geshotel
+persistence setup --provider HIBERNATE --database H2_IN_MEMORY --userName sa --password sa
+enum type --class ~.domain.RoleName
+enum constant --name ROLE_ADMIN
+enum constant --name ROLE_MANAGER
+enum constant --name ROLE_RECEPTION
+enum type --class ~.domain.Gender
+enum constant --name Male
+enum constant --name Female
+enum constant --name Neutral
+enum type --class ~.booking.domain.ReservationState
+enum constant --name NONCONFIRME
+enum constant --name CONFIRME
+enum constant --name OCCUPE
+enum type --class ~.domain.PayementType
+enum constant --name CASH
+enum constant --name CARD
+enum constant --name CHEQUE
+enum constant --name VIREMENT
+enum type --class ~.booking.domain.PayementState
+enum constant --name NotPay
+enum constant --name Advanced
+enum constant --name Pay
+enum type --class ~.booking.domain.InvoiceState
+enum constant --name Ouvert
+enum constant --name Ferme
+entity --class ~.domain.UserAccount
+field string --fieldName identifier --notNull --sizeMin 3 --unique 
+field string --fieldName password --sizeMin 5 --notNull --unique 
+field enum --fieldName roles --type ~.domain.RoleName --notNull 
+field date --fieldName entryDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy hh:mm:ss" --persistenceType JPA_TIMESTAMP --notNull 
+dod
+test integration 
+entity --class ~.domain.Hotel
+field string --fieldName Name
+field string --fieldName Address
+field string --fieldName CodePostal
+field string --fieldName City
+field string --fieldName Email
+field string --fieldName PhoneNumber
+field string --fieldName Fax
+field string --fieldName WebPage
+field number --fieldName TVA --type java.math.BigDecimal
+dod
+test integration 
+entity --class ~.booking.domain.RoomCategory
+field string --fieldName title
+field string --fieldName description
+field number --fieldName price --type java.math.BigDecimal --notNull
+field number --fieldName priceMin --type java.math.BigDecimal --notNull
+dod
+test integration 
+entity --class ~.domain.Customer
+field string --fieldName firstName
+field string --fieldName lastName --notNull
+field string --fieldName fullName
+field enum --fieldName gender --type ~.domain.Gender
+field string --fieldName identityNumber --notNull true --unique
+field date --fieldName bornDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy" --persistenceType JPA_TIMESTAMP
+field string --fieldName bornPlace 
+field string --fieldName phoneNumber
+field string --fieldName email 
+field string --fieldName nationality
+field string --fieldName profession 
+field boolean --fieldName blackList 
+dod
+test integration 
+entity --class ~.booking.domain.Room
+field reference --fieldName roomCategory --type ~.booking.domain.RoomCategory
+field string --fieldName roomNumber --notNull --unique
+field string --fieldName phoneNumber
+field string --fieldName coordinates
+field string --fieldName capacity
+field string --fieldName description --sizeMax 255
+dod
+test integration 
+entity --class ~.booking.domain.Invoice
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE
+field reference --fieldName guestRef --type ~.domain.Customer --cardinality MANY_TO_ONE
+field number --fieldName invoiceAmount --type java.math.BigDecimal --notNull
+field number --fieldName valueAdddedTax --type java.math.BigDecimal --notNull
+field number --fieldName otherTaxes --type java.math.BigDecimal --notNull
+field number --fieldName gratuity --type java.math.BigDecimal --notNull
+field number --fieldName amountDue --type java.math.BigDecimal --notNull
+field number --fieldName discount --type java.math.BigDecimal
+field enum --fieldName payementState --type ~.booking.domain.PayementState
+field enum --fieldName invoiceState --type ~.booking.domain.InvoiceState
+field reference --fieldName originator --type ~.domain.UserAccount
+field date --fieldName dateOfClose --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH :mm:ss" --persistenceType JPA_TIMESTAMP
+dod
+test integration 
+entity --class ~.booking.domain.InvoiceItem
+field string --fieldName itemNumber
+field number --fieldName qty --type java.math.BigDecimal --notNull
+field number --fieldName unitPrice --type java.math.BigDecimal --notNull
+field number --fieldName amount --type java.math.BigDecimal --notNull
+field string --fieldName itemDesc
+field reference --fieldName invoice --type ~.booking.domain.Invoice
+dod
+test integration 
+entity --class ~.booking.domain.OtherService
+field string --fieldName name
+field number --fieldName amount --type java.math.BigDecimal --notNull
+field string --fieldName serviceDesc
+dod
+test integration 
+entity --class ~.booking.domain.Reservation
+field date --fieldName checkInDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy" --notNull --persistenceType JPA_TIMESTAMP
+field date --fieldName checkOutDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy" --notNull --persistenceType JPA_TIMESTAMP
+field reference --fieldName room --type ~.booking.domain.Room --notNull
+field number --fieldName amount --type java.math.BigDecimal --notNull
+field number --fieldName reduction --type java.math.BigDecimal
+field string --fieldName complement --sizeMax 255
+field enum --fieldName reservationState --type ~.booking.domain.ReservationState
+field reference --fieldName invoiceItem --type ~.booking.domain.InvoiceItem --cardinality MANY_TO_ONE
+field reference --fieldName customer --type ~.domain.Customer --cardinality MANY_TO_ONE
+field reference --fieldName guest --type ~.domain.Customer --cardinality MANY_TO_ONE
+field date --fieldName creationDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm:ss" --notNull --persistenceType JPA_TIMESTAMP
+field reference --fieldName receipt --type ~.domain.UserAccount
+dod
+test integration 
+entity --class ~.resto.domain.ProductType 
+field string --fieldName productTypeKey --column productTypeKeyBk --notNull --unique 
+field string --fieldName title --notNull --unique 
+field string --fieldName description
+field date --fieldName dateOfStore --type java.util.Date --notNull 
+dod
+test integration 
+entity --class ~.resto.domain.Product
+field string --fieldName productKey --column productKeyBk --notNull --unique 
+field string --fieldName title --unique --notNull 
+field string --fieldName description
+field number --fieldName price --type java.math.BigDecimal --notNull 
+field reference --fieldName productType --type ~.resto.domain.ProductType --notNull 
+dod
+test integration
+entity --class ~.resto.domain.Provider
+field string --fieldName providerKey --column customerKeyBk --notNull --unique 
+field string --fieldName fullName
+field string --fieldName identifier --notNull --unique
+dod
+test integration 
+entity --class ~.resto.domain.CustomerIdentifierHistory
+field string --fieldName historyKey --column historyKeyBk --unique --notNull 
+field reference --fieldName customer --notNull true --type ~.domain.Customer
+field string --fieldName identifierValue --notNull --unique 
+field date --fieldName storingDate --notNull --type java.util.Date
+dod
+test integration 
+entity --class ~.resto.domain.BrTable
+field string --fieldName brTableKey --column brTableKeyBk --notNull --unique 
+field string --fieldName tableNumber --notNull --unique 
+field string --fieldName description
+dod
+test integration 
+entity --class ~.resto.domain.SaleItem
+field string --fieldName saleItemKey --notNull --unique 
+field reference --fieldName customer --type ~.domain.Customer --notNull 
+field reference --fieldName product --type ~.resto.domain.Product --notNull 
+field reference --fieldName brTable --type ~.resto.domain.BrTable --notNull 
+field number --fieldName qty --type java.math.BigDecimal
+field number --fieldName unitPrice --type java.math.BigDecimal
+field number --fieldName amount --type java.math.BigDecimal
+field date --fieldName dateOfSale --type java.util.Date --notNull 
+field string --fieldName seller  
+dod
+test integration 
+entity --class ~.resto.domain.BillOfSale
+field string --fieldName sellKey --column sellKeyBk --notNull --unique 
+field set --fieldName saleItems --type ~.resto.domain.SaleItem --cardinality ONE_TO_MANY 
+field number --fieldName totalAmount --type java.math.BigDecimal
+field number --fieldName tax --type java.math.BigDecimal
+field number --fieldName discount --type java.math.BigDecimal
+field number --fieldName amountDue --type java.math.BigDecimal
+field string --fieldName note 
+field string --fieldName restaurantName
+field string --fieldName seller
+field date --fieldName dateOfSale --type java.util.Date
+dod
+test integration 
+entity --class ~.resto.domain.ProcurementItem
+field string --fieldName procurementItemKey --notNull --unique 
+field reference --fieldName customer --type ~.domain.Customer --notNull 
+field reference --fieldName product --type ~.resto.domain.Product --notNull 
+field number --fieldName qty --type java.math.BigDecimal
+field number --fieldName unitPrice --type java.math.BigDecimal
+field number --fieldName amount --type java.math.BigDecimal
+field date --fieldName dateOfProcurement --type java.util.Date
+dod
+test integration 
+entity --class ~.resto.domain.BillOfProcurement
+field string --fieldName sellKey --column sellKeyBk --notNull --unique 
+field set --fieldName saleItems --type ~.resto.domain.SaleItem --cardinality ONE_TO_MANY 
+field number --fieldName totalAmount --type java.math.BigDecimal
+field number --fieldName tax --type java.math.BigDecimal
+field number --fieldName discount --type java.math.BigDecimal
+field number --fieldName amountDue --type java.math.BigDecimal
+field string --fieldName note 
+field string --fieldName restaurantName
+field string --fieldName broker
+field date --fieldName dateOfProcurement --type java.util.Date
+dod
+test integration 
+entity --class ~.domain.Payment  
+field date --fieldName datePayemment --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy hh:mm:ss" --persistenceType JPA_TIMESTAMP --notNull
+field number --fieldName Amount --type java.math.BigDecimal --notNull --comment "montant du paiement"
+field reference --fieldName invoice --type ~.booking.domain.Invoice --notNull
+field reference --fieldName billOfSale --type ~.resto.domain.BillOfSale --notNull
+field reference --fieldName billOfProcurement --type ~.resto.domain.BillOfProcurement --notNull
+field enum --fieldName payementType --type ~.domain.PayementType
+field reference --fieldName casheir --type ~.domain.UserAccount
+dod
+test integration 
+web mvc setup
+web mvc all --package ~.web
+security setup
+logging setup --level WARN
+// script --file hebergement.roo
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-12 08:58:22
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-12 11:35:05
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-12 16:05:56
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-12 16:06:26
+entity --class ~.resto.domain.ProductGroup
+field string --fieldName productGroupKey --column productGroupKeyBk --notNull --unique 
+field string --fieldName title --notNull 
+field string --fieldName description
+dod
+test integration 
+entity --class ~.resto.domain.ParentGroup
+field string --fieldName parentGroupKey --column parentGroupKeyBk --notNull --unique 
+field string --fieldName productGroupKey --notNull --unique 
+field string --fieldName productGroupParentKey --notNull --unique 
+field string --fieldName description
+dod
+test integration 
+controller all --package ~.web
+focus --class ~.resto.domain.Product
+field set --fieldName groups --type ~.resto.domain.ProductGroup
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-12 23:09:42
+focus --class ~.resto.domain.ProductGroup
+field set --fieldName types --type ~.resto.domain.ProductType
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-13 15:02:18
+focus --class ~.resto.domain.ParentGroup
+finder list 
+focus --class ~.resto.domain.ProductGroup
+finder list 
+finder add --finderName findProductGroupsByProductGroupKeyEquals
+focus --class ~.resto.domain.ParentGroup
+finder list 
+finder add --finderName findParentGroupsByParentGroupKeyEquals
+finder a --finderName findParentGroupsByProductGroupParentKeyEquals
+finder add --finderName findParentGroupsByProductGroupKeyEquals
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-16 11:19:16
+focus --class ~.resto.domain.ProductGroup
+finder list 
+finder add --finderName findProductGroupsByTitleEquals
+focus --class ~.domain.UserAccount
+finder list 
+finder add --finderName findUserAccountsByIdentifierEquals
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-22 15:07:37
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-22 15:24:24
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-23 08:07:37
+focus --class ~.resto.domain.BillOfSale
+finder list 
+finder add --finderName findBillOfSalesBySellKeyEquals
+q// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-26 17:16:09
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-27 08:15:46
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-27 08:24:15
+entity --class ~.resto.domain.Discount
+field string --fieldName title --notNull 
+field number --fieldName percentage --type java.math.BigDecimal --decimalMin "0.00"
+field number --fieldName amount --type java.math.BigDecimal --decimalMin  "00.0"
+field date --fieldName validFrom --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm" --notNull
+field date --fieldName validTo --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm" --notNull --future 
+field string --fieldName description
+// [failed] field string --fieldName user --notNull 
+field string --fieldName recordingDetails --notNull 
+dod
+test integration 
+controller scaffold --class ~.web.DiscountController
+focus --class ~.resto.domain.Product
+field set --fieldName discounts --type ~.resto.domain.Discount
+focus --class ~.resto.domain.ProductType
+field set --fieldName discounts --type ~.resto.domain.Discount
+focus --class ~.domain.Customer
+field set --fieldName discounts --type ~.resto.domain.Discount 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-28 08:56:36
+focus --class ~.resto.domain.Sale
+// [failed] finder list 
+entity --class ~.resto.domain.Sale
+field string --fieldName saleKey --notNull --unique 
+field set --fieldName saleItem --type ~.resto.domain.SaleItem
+field number --fieldName totalAmount --notNull --type java.math.BigDecimal
+field number --fieldName tax --type java.math.BigDecimal
+field date --fieldName recordDate --type java.util.Date --notNull 
+field reference --fieldName userAccount --type ~.domain.UserAccount --notNull 
+field string --fieldName note --notNull 
+dod
+test integration 
+controller scaffold --class ~.web.SaleController 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-29 07:39:56
+entity --class ~.domain.PeriodConf
+field date --fieldName validFrom --type java.util.Date --dateTimeFormatPattern "HH:mm"
+field date --fieldName validTo --type java.util.Date --dateTimeFormatPattern "HH:mm" --notNull 
+controller scaffold --class ~.web.PeriodConfController
+dod
+test integration 
+entity --class ~.domain.Service
+field string --fieldName title --notNull 
+field set --fieldName periods --type ~.domain.PeriodConf
+dod
+test integration 
+controller scaffold --class ~.web.ServiceController
+entity --class ~.domain.Employee
+field string --fieldName fullName --notNull 
+field string --fieldName identifier --notNull --unique 
+field reference --fieldName service --type ~.domain.Service --notNull 
+field enum --fieldName gender --type ~.domain.Gender
+field date --fieldName bornDate --type java.util.Date --notNull 
+dod
+test integration 
+controller scaffold --class ~.web.EmployeeController
+//field reference --fieldName period --type ~.resto.domain.PeriodConf
+focus --class ~.domain.UserAccount
+field reference --fieldName periodConf --type ~.domain.PeriodConf
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-17 12:51:24
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-17 14:31:34
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-19 09:08:33
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-19 09:29:15
+focus --class ~.booking.domain.Room
+finder list 
+finder add findRoomsByRoomCategory
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-19 10:35:19
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-20 15:27:20
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-21 15:02:57
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-22 15:32:42
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-23 09:56:04
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-26 16:16:16
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-26 17:28:01
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-27 09:23:29
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-29 16:08:00
+focus --class ~.domain.UserAccount
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-29 23:48:30
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-30 11:31:16
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-30 12:18:25
+// [failed] entity --class ~.resto.domain.Inventory 
+// [failed] field string --fieldName title --notNull 
+entity --class ~.resto.domain.Inventory
+field string --fieldName title 
+field date --fieldName inventoryDate --type java.util.Date --dateTimeFormatPattern "dd-MM-yyyy HH:mm" --notNull 
+field boolean --fieldName isClosed --notNull 
+field reference --fieldName periodConf --type ~.resto.domain.PeriodConf
+field reference --fieldName userAccount --type ~.domain.UserAccount --notNull 
+entity --class ~.resto.domain.InventoryItem 
+field string --fieldName designation --notNull 
+field number --fieldName price --type java.math.BigDecimal --notNull 
+field number --fieldName entry --type java.math.BigDecimal
+field number --fieldName sales --type java.math.BigDecimal
+field number --fieldName initialStock --type java.math.BigDecimal
+field number --fieldName finalStock --type java.math.BigDecimal --notNull 
+field boolean --fieldName isClosed 
+field reference --fieldName inventory --type ~.resto.domain.Inventory --notNull 
+field reference --fieldName product --type ~.resto.domain.Product
+dod
+test integration 
+controller scaffold --class ~.web.InventoryItemController
+focus --class ~.resto.domain.Inventory
+controller scaffold --class ~.web.InventoryController
+focus --class ~.resto.domain.Product
+field number --fieldName qty --type java.math.BigDecimal --min 0
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-31 01:13:22
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-31 08:36:34
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-31 08:41:59
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-03-31 08:42:06
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-03-31 20:50:34
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-01 21:57:19
+focus --class ~.resto.domain.InventoryItem
+finder list 
+finder add findInventoryItemsByInventory
+finder add --finderName findInventoryItemsByDesignationEquals
+focus --class ~.resto.domain.Product
+finder list 
+finder add --finderName findProductsByTitleEquals
+focus --class ~.resto.domain.SaleItem
+field reference --fieldName sale --type ~.resto.domain.Sale
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-02 01:31:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-02 08:06:53
+focus --class ~.resto.domain.SaleItem
+finder list 
+finder add --finderName findSaleItemsBySale
+focus --class ~.resto.domain.Sale
+finder list 
+finder add --finderName findSalesBySaleKeyEquals
+focus --class ~.resto.domain.Product
+finder list 
+finder add --finderName findProductsByProductKeyEquals
+focus --class ~.resto.domain.ProductGroup
+finder list 
+finder add --finderName findProductGroupsByTitleEquals
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-03 17:26:27
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-04 16:14:45
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-05 08:16:43
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-05 08:19:41
+focus --class ~.resto.domain.Sale
+field reference --fieldName brTable --type ~.resto.domain.BrTable
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-09 03:37:18
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-09 08:36:00
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-09 09:30:54
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-09 09:31:03
+focus --class ~.resto.domain.Sale
+field reference --fieldName customer --type ~.domain.Customer
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-10 20:49:25
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-11 09:20:07
+focus --class ~.resto.domain.Product
+finder list 
+finder add --finderName findProductsByQty
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-11 23:49:10
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-12 10:11:02
+focus --class ~.resto.domain.Product
+field number --fieldName employeePrice --type java.math.BigDecimal
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-13 09:06:59
+focus --class ~.booking.domain.Invoice
+finder list 
+finder add --finderName findInvoicesByInvoiceState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-13 18:14:27
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-13 21:34:45
+focus --class ~.booking.domain.Invoice
+finder list 
+finder add --finderName findInvoicesByCustomer
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-14 00:25:19
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-14 08:14:24
+enum type --class ~.resto.domain.CustomerType 
+enum constant --name SIMPLE_CUSTOMER,HOSTED_CUSTOMER,EMPLOYEE
+entity --class ~.resto.domain.BarRestauInvoice
+field string --fieldName barRestauInvoiceKey --column barRestauInvoiceKeyBk --notNull --unique 
+field reference --fieldName sale --type ~.resto.domain.Sale --notNull 
+field date --fieldName creationDate --type java.util.Date --notNull 
+field string --fieldName invoicePath 
+field string --fieldName note
+dod
+test integration 
+// [failed] field enum --fieldName customerType --type ~.resto.domain.CustomerType
+field enum --fieldName customerType --type ~.resto.domain.CustomerType
+field enum --fieldName invoiceState --type ~.booking.domain.InvoiceState
+focus --class ~.resto.domain.Sale
+field enum --fieldName customerType --type ~.resto.domain.CustomerType
+entity --class ~.resto.domain.BarRestauPayment
+field reference --fieldName sale --type ~.resto.domain.Sale
+field number --fieldName amountDue --type java.math.BigDecimal
+field number --fieldName amountIn --type java.math.BigDecimal
+field number --fieldName amountOut --type java.math.BigDecimal
+field string --fieldName note 
+dod
+test integration 
+controller all --package ~.web
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-15 21:49:15
+focus --class ~.resto.domain.BarRestauInvoice
+field string --fieldName invoiceNumber --notNull --unique 
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-16 01:21:08
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-17 22:28:53
+focus --class ~.resto.domain.BarRestauInvoice
+finder list 
+finder add --finderName findBarRestauInvoicesByBarRestauInvoiceKeyEquals
+finder add --finderName findBarRestauInvoicesByCreationDateBetween
+finder add --finderName findBarRestauInvoicesByInvoiceNumberEquals
+finder add --finderName findBarRestauInvoicesBySale
+finder add --finderName findBarRestauInvoicesByInvoiceState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-18 15:09:31
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-18 18:37:54
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-20 10:07:51
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-20 12:32:38
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-20 17:10:22
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-22 23:31:38
+focus --class ~.resto.domain.Inventory
+finder list 
+finder add --finderName findInventorysByInventoryDateBetween
+finder add --finderName findInventorysByIsClosedNot
+finder add --finderName findInventorysByPeriodConf
+finder add --finderName findInventorysByTitleEquals
+finder list --depth 2
+finder add --finderName findInventorysByInventoryDateBetweenAndIsClosedNot
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-23 00:18:56
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-23 12:55:48
+focus --class ~.resto.domain.InventoryItem
+finder list 
+finder list --depth 2
+finder add --finderName findInventoryItemsByInventoryAndDesignationEquals
+focus --class ~.resto.domain.Inventory
+finder list --depth 2
+// [failed] entity --class ~.resto.domain.ProcurementItem
+entity --class ~.resto.domain.Procurement
+field string --fieldName procurementKey --column procurementKeyBk --notNull --unique 
+field date --fieldName dateOfProcurement --type java.util.Date
+field number --fieldName amount --type java.math.BigDecimal
+dod
+test integration 
+focus --class ~.resto.domain.ProcurementItem
+field reference --fieldName procurement --type ~.resto.domain.Procurement
+focus --class ~.resto.domain.Procurement
+controller scaffold --class ~.resto.domain.Procurement
+controller scaffold --class ~.web.ProcurementController --entity ~.resto.domain.Procurement
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-24 14:30:46
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-26 09:08:55
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-26 11:07:36
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-26 11:07:48
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-27 09:05:04
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-27 09:30:20
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-04-27 10:57:16
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-04-27 10:57:21
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-01 06:13:35
+focus --class ~.domain.Customer
+focus --class ~.booking.domain.Invoice
+finder list 
+finder add --finderName findInvoicesByInvoiceState
+finder add --finderName findInvoicesByCustomer
+focus --class ~.resto.domain.Sale
+hint json
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-02 00:35:56
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-02 08:10:00
+focus --class ~.domain.Customer
+focus --class ~.booking.domain.Room
+// [failed] finder list 
+finder list 
+finder add --finderName findRoomsByRoomNumberNotEquals
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-02 17:11:23
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-03 11:46:55
+focus --class ~.resto.domain.Procurement
+field boolean --fieldName isLatestProcurement
+finder list 
+finder add --finderName findProcurementsByIsLatestProcurementNot
+focus --class ~.resto.domain.ProcurementItem
+finder list 
+finder add --finderName findProcurementItemsByProcurement
+finder list --depth 2
+finder add --finderName findProcurementItemsByProcurementAndProduct
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-04 08:12:10
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-04 11:40:35
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-04 11:40:46
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-04 12:47:31
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-04 12:47:36
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-05 03:11:23
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-08 09:26:36
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-08 15:37:11
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-09 07:56:03
+enum type --class ~.resto.domain.BarRestauState
+enum constant --name OPENED,MOVING,SUSPENDED,CLOSED
+focus --class ~.resto.domain.Procurement
+// [failed] field enum --fieldName state --type ~.resto.domain.BarRestauState
+field enum --fieldName procurementState --type ~.resto.domain.BarRestauState
+entity --class ~.resto.domain.Supplier
+field string --fieldName supplierKey --column supplierKeyBk --unique 
+field string --fieldName identifier --notNull --unique 
+field string --fieldName designation --notNull 
+field string --fieldName phoneNumber --notNull 
+field string --fieldName address --notNull 
+field date --fieldName dateOfCreation --type java.util.Date
+dod
+test integration 
+focus --class ~.resto.domain.ProcurementItem 
+field reference --fieldName supplier --type ~.resto.domain.Supplier --notNull 
+entity --class ~.resto.domain.KitchenOrder
+field string --fieldName kitchenOrderKey --column kitchenOrderKeyBk --unique 
+field date --fieldName dateOfOrdering --type java.util.Date
+field reference --fieldName seller --type ~.resto.domain.Sale
+// [failed] field reference --fieldName seller --type ~.domain.UserAccount
+field reference --fieldName sale --type ~.resto.domain.Sale
+dod
+test integration 
+controller scaffold --class ~.web.KitchenOrderController 
+focus --class ~.resto.domain.Supplier
+controller scaffold --class ~.web.SupplierController
+entity --class ~.resto.domain.KitchenOrderItem
+field string --fieldName kitchenOrderItemKey --unique --column kitchenOrderItemKeyBk
+field reference --fieldName kitchenOrder --type ~.resto.domain.KitchenOrder --notNull 
+field reference --fieldName product --type ~.resto.domain.Product --notNull 
+field number --fieldName qty --type java.math.BigDecimal --notNull 
+field date --fieldName dateOfOrdering --type java.util.Date 
+dod
+test integration 
+controller scaffold --class ~.web.KitchenOrderItemController
+focus --class ~.resto.domain.KitchenOrder
+field enum --fieldName kitchenOrderItemState --type ~.resto.domain.BarRestauState
+entity --class ~.resto.domain.CashRegister
+field string --fieldName cashRegisterKey --column cashRegisterKeyBk --unique 
+field date --fieldName dateOfOpening --type java.util.Date --notNull 
+field date --fieldName dateOfClosing --type java.util.Date
+field reference --fieldName cashierAccount --type ~.domain.UserAccount --notNull 
+field enum --fieldName cashRegisterState --type ~.resto.domain.BarRestauState
+field number --fieldName cashFund --type java.math.BigDecimal --notNull 
+dod
+test integration 
+controller scaffold --class ~.web.CashRegisterController
+focus --class ~.resto.domain.BarRestauPayment
+field reference --fieldName cashRegister --type ~.resto.domain.CashRegister --notNull 
+controller all --package ~.web
+focus --class ~.resto.domain.KitchenOrder
+field reference --fieldName sellerAccount --type ~.domain.UserAccount
+focus --class ~.resto.domain.Procurement
+finder list 
+finder add --finderName findProcurementsByProcurementState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-09 17:52:16
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-10 10:04:37
+focus --class ~.resto.domain.KitchenOrder
+finder list 
+finder list --depth 2
+finder add --finderName findKitchenOrdersBySaleAndKitchenOrderItemState
+finder add --finderName findKitchenOrdersBySale
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-10 16:01:13
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-10 16:01:18
+focus --class ~.resto.domain.KitchenOrderItem
+finder list 
+finder add --finderName findKitchenOrderItemsByKitchenOrder
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-11 08:47:03
+focus --class ~.resto.domain.KitchenOrder
+finder list 
+finder add --finderName findKitchenOrdersByKitchenOrderKeyEquals
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-12 09:30:59
+// [failed] focus --class ~.resto.domain.Inventory
+field enum --fieldName inventoryState --type ~.resto.domain.BarRestauState
+focus --class ~.resto.domain.Sale
+field enum --fieldName saleState --type ~.resto.domain.BarRestauState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-12 12:49:08
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-14 09:50:10
+focus --class ~.resto.domain.Sale
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-15 18:35:13
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-15 23:36:27
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-16 08:09:11
+focus --class ~.resto.domain.CashRegister
+finder list 
+finder list --depth 2 --filter BarRestauState
+finder add --finderName findCashRegistersByCashRegisterStateAndCashierAccount
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-17 09:14:37
+// [failed] focus --class ~.resto.domain.CashRegister
+finder list 
+finder add --finderName findCashRegistersByCashRegisterKeyEquals
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-18 08:37:55
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-18 15:24:48
+// [failed] focus --class ~.resto.domain.BarRestauPayment
+finder list 
+finder add --finderName findBarRestauPaymentsByCashRegister
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-19 07:52:19
+focus --class ~.resto.domain.Sale
+finder list --depth 3 --filter findSalesByRecordDateBetweenAndSale
+finder list --depth 2 --filter findSalesByRecordDateBetweenAndSaleState
+finder add --finderName findSalesByRecordDateBetweenAndSaleState
+finder list --depth 3 --filter findSalesByRecordDateBetweenAndSaleStateAndCusto
+finder add --finderName findSalesByRecordDateBetweenAndSaleStateAndCustomerType
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-19 10:31:25
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-22 08:35:33
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-22 08:38:16
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-22 08:40:44
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-23 11:17:00
+focus --class ~.resto.domain.Procurement
+// [failed] field reference --fieldName userAccount --type ~.domain.UserAccount
+field reference --fieldName userAccount --type ~.domain.UserAccount
+finder list
+finder list 
+finder list --depth 2 --filter findProcurementsByUserAccountAndProcurementState
+finder add --finderName findProcurementsByUserAccountAndProcurementState
+focus --class ~.resto.domain.ProcurementItem
+finder list 
+focus --class ~.resto.domain.Inventory
+finder list 
+finder list --depth 2 --filter findInventorysByUserAccountAndBarRestauState
+finder list --depth 2 --filter findInventorysByUserAccountAndInventoryState
+finder add --finderName findInventorysByUserAccountAndInventoryState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-23 15:56:29
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-23 15:56:43
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-24 09:15:17
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-25 15:00:38
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-26 10:45:32
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-26 13:21:52
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-28 09:00:41
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-28 09:09:49
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-28 12:37:10
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-28 14:14:03
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-29 09:27:21
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-29 09:46:45
+focus --class ~.resto.domain.Inventory
+dod
+test integration 
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-05-29 17:09:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-05-31 09:42:08
+focus --class ~.resto.domain.BarRestau
+// [failed] finder list 
+focus --class ~.resto.domain.Product
+field enum --fieldName productState --type ~.resto.domain.BarRestauState
+finder list 
+field enum --fieldName productState --type ~.resto.domain.BarRestauState
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-06-01 00:22:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-01 08:07:12
+focus --class ~.resto.domain.ProductType
+field enum --fieldName productTypeState --type ~.resto.domain.BarRestauState
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-03 23:55:54
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-04 09:42:46
+focus --class ~.resto.domain.SaleItem
+finder list 
+finder add --finderName findSaleItemsBySaleItemKeyEquals
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-05 13:13:57
+q
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2012-06-05 13:21:29
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-05 13:21:57
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-08 12:51:52
+focus --class ~.resto.domain.Sale
+finder list 
+finder add --finderName findSalesBySaleState
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-06-08 14:40:52
+focus --class ~.resto.domain.Sale
+finder list 
+finder list --depth 2 --filter findSalesBySaleState
+finder list --depth 2 --filter findSalesBySaleStateAnd
+finder add --finderName findSalesBySaleStateAndRecordDateBetween
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-07-03 10:33:24
+addon list 
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-07-19 14:29:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-07-20 10:22:38
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-07-26 10:29:07
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-11-22 14:57:39
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2012-11-23 14:40:17
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log opened at 2013-05-16 18:24:54
+// Spring Roo 1.1.5.RELEASE [rev d3a68c3] log closed at 2013-05-16 18:45:39

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_resto_domain_SaleItem" modelAttribute="saleItem" path="/saleitems" render="${empty dependencies}" z="lY6LrumvHNhmUrv0m9EJhO51c+U=">
+        <field:input field="saleItemKey" id="c_org_adorsys_geshotel_resto_domain_SaleItem_saleItemKey" required="true" z="sKsVs6xlc03XGzIofWRXqcSxNE8="/>
+        <field:select field="product" id="c_org_adorsys_geshotel_resto_domain_SaleItem_product" itemValue="id" items="${products}" path="/products" required="true" z="eF+vDqulXgmm1nP7OOXDk2Jo2GI="/>
+        <field:input field="qty" id="c_org_adorsys_geshotel_resto_domain_SaleItem_qty" validationMessageCode="field_invalid_number" z="4tFo5+YvaUlJJ/SHUNFoZRFXqkY="/>
+        <field:input field="unitPrice" id="c_org_adorsys_geshotel_resto_domain_SaleItem_unitPrice" validationMessageCode="field_invalid_number" z="0BrPGwjZEPoi35IgBxPR/sJ975U="/>
+        <field:input field="amount" id="c_org_adorsys_geshotel_resto_domain_SaleItem_amount" validationMessageCode="field_invalid_number" z="eSDD3Kq3KP0MXeGN5nsXF71Ot2I="/>
+        <field:datetime dateTimePattern="${saleItem_dateofsale_date_format}" field="dateOfSale" id="c_org_adorsys_geshotel_resto_domain_SaleItem_dateOfSale" required="true" z="1ANixHD/v+flUBenxqEu8Lz7Gmk="/>
+        <field:input field="seller" id="c_org_adorsys_geshotel_resto_domain_SaleItem_seller" z="WDkrXDW0jXd26C8xd2g/FjdP0xo="/>
+        <field:select field="sale" id="c_org_adorsys_geshotel_resto_domain_SaleItem_sale" itemValue="id" items="${sales}" path="/sales" z="CLnhXViY5lb+Pr2IbA/CcNvTgKw="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_resto_domain_SaleItem" render="${not empty dependencies}" z="Q42K4AnULRnqD7klFF9Z+oV4gsg="/>
+</div>

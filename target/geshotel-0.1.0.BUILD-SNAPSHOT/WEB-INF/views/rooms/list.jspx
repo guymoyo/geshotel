@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_booking_domain_Room" items="${rooms}" z="GoMmTv5F4tJ5iWmCxMRhVGcxCx0=">
+        <table:table data="${rooms}" id="l_org_adorsys_geshotel_booking_domain_Room" path="/rooms" z="6iR5Wpy5xDC75Zd/AyK4ewpa7fg=">
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_roomCategory" property="roomCategory" z="jqF9AXC5UJ2WI5Vl9FBS9/oTw1A="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_roomNumber" property="roomNumber" z="/pwBQafmgkXaE/RP0ihoZVB+Cpw="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_phoneNumber" property="phoneNumber" z="PTimoUMrgarbKIt8s+I8MJepg80="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_coordinates" property="coordinates" z="7oWB/93zbujusHQRNB1R4fmx+S8="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_capacity" property="capacity" z="yb16pYCVic4jqRpCnwaY/XfvINo="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Room_description" property="description" z="y0TmVkWdYvGjbY80HclnnVUVHl0="/>
+        </table:table>
+    </page:list>
+</div>

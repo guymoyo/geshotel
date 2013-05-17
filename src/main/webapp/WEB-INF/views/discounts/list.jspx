@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_Discount" items="${discounts}" z="HLkg/lcd9c+7X3Tnr04i/R/KRyA=">
+        <table:table data="${discounts}" id="l_org_adorsys_geshotel_resto_domain_Discount" path="/discounts" z="MPl1HPuhrV6xXySFVXYTKBVvoCA=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Discount_title" property="title" z="i1y2XRNAcMDVx9tUW4Kij8z/+IY="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Discount_percentage" property="percentage" z="wcMmJf98eMwVgnVpKMmfmr5bjgw="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Discount_amount" property="amount" z="PUw7ZfhybgsaXJHPXt30t0JC4YM="/>
+            <table:column date="true" dateTimePattern="${discount_validfrom_date_format}" id="c_org_adorsys_geshotel_resto_domain_Discount_validFrom" property="validFrom" z="wesC5D1HIIGPYZlR31bXsFNJ0y4="/>
+            <table:column date="true" dateTimePattern="${discount_validto_date_format}" id="c_org_adorsys_geshotel_resto_domain_Discount_validTo" property="validTo" z="Mejb9tA1F10WfHNuKsc7cyanZBE="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Discount_description" property="description" z="39SNT7X3u5Um4FIQDaTEZY4wF1U="/>
+        </table:table>
+    </page:list>
+</div>

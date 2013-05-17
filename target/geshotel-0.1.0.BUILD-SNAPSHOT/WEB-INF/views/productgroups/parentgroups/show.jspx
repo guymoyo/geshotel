@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	 xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	 xmlns:jsp="http://java.sun.com/JSP/Page" 
+	 xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	 
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+   
+   <util:panel title="show the parent group of this product" id="29nslnHOsi0">
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_ParentGroup" create="false" object="${parentgroup}" path="/productgroups/parentgroups" z="user-managed">
+        <field:display field="parentGroupKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_parentGroupKey" object="${parentgroup}" z="fZGmIzF1L8WUuj8dxOtZFt0E28g="/>
+        <field:display field="productGroupKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupKey" object="${parentgroup}" z="bLx0SaS0FR3a2LevJgm62R80jeI="/>
+        <field:display field="productGroupParentKey" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupParentKey" object="${parentgroup}" z="afirv/Cixr4wkAR3doQNGY/na00="/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ParentGroup_description" object="${parentgroup}" z="6RzBqmffu4OEanBBvvwYID86U3E="/>
+    </page:show>  
+   </util:panel>
+   
+<util:panel title="show the group of this product" id="i330ndenlvNOno">
+   <page:show id="ps_org_adorsys_geshotel_resto_domain_ProductGroup" object="${productgroup}" path="/productgroups" z="user-managed">
+        <field:display field="productGroupKey" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_productGroupKey" object="${productgroup}" z="user-managed"/>
+        <field:display field="title" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_title" object="${productgroup}" z="user-managed"/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_description" object="${productgroup}" z="user-managed"/>
+        <field:display field="types" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_types" object="${productgroup}" z="user-managed"/>
+    </page:show> 
+</util:panel>
+
+    <util:panel title="show the parent group of this product" id="38nsdlds93ho">
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_ProductGroup" object="${productgroupparent}" path="/productgroups" z="user-managed">
+        <field:display field="productGroupKey" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_productGroupKey" object="${productgroupparent}" z="user-managed"/>
+        <field:display field="title" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_title" object="${productgroupparent}" z="user-managed"/>
+        <field:display field="description" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_description" object="${productgroupparent}" z="user-managed"/>
+        <field:display field="types" id="s_org_adorsys_geshotel_resto_domain_ProductGroup_types" object="${productgroupparent}" z="user-managed"/>
+    </page:show>
+   </util:panel>
+    
+</div>

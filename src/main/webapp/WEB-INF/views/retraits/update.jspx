@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_booking_domain_Retrait" modelAttribute="retrait" path="/retraits" versionField="Version" z="uQKkh57ZdwSFcl+CK2xZy+sZ6/s=">
+        <field:input field="label" id="c_org_adorsys_geshotel_booking_domain_Retrait_label" z="CM/bvCV6u38LwiGSleB4URfhEYI="/>
+        <field:input field="retraitvalue" id="c_org_adorsys_geshotel_booking_domain_Retrait_retraitvalue" validationMessageCode="field_invalid_number" z="T6yIM5/gMyDDwD7xQvthToomTbk="/>
+        <field:datetime dateTimePattern="${retrait_dateretrait_date_format}" field="dateRetrait" id="c_org_adorsys_geshotel_booking_domain_Retrait_dateRetrait" required="true" z="jKTUnwSG9BGMZbsRxEJTau8W7tU="/>
+        <field:select field="userAccount" id="c_org_adorsys_geshotel_booking_domain_Retrait_userAccount" itemValue="id" items="${useraccounts}" path="/useraccounts" z="mYEVGjuj01AnXwjssW7G1ZJBR5A="/>
+        <field:select field="customer" id="c_org_adorsys_geshotel_booking_domain_Retrait_customer" itemValue="id" items="${customers}" path="/customers" required="true" z="TLmc2XLqb4p+wBA+Otyjg4EcOyQ="/>
+    </form:update>
+</div>

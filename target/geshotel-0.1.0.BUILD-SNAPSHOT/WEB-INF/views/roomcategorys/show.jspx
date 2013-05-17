@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_booking_domain_RoomCategory" object="${roomcategory}" path="/roomcategorys" z="3EwMeqlnyJV4SApERLk8U93tz9A=">
+        <field:display field="title" id="s_org_adorsys_geshotel_booking_domain_RoomCategory_title" object="${roomcategory}" z="B339TkwNb9a1IguocifiUcfA1eY="/>
+        <field:display field="description" id="s_org_adorsys_geshotel_booking_domain_RoomCategory_description" object="${roomcategory}" z="BaGa7sPcD/vNHhNsOOFIECZUlk0="/>
+        <field:display field="price" id="s_org_adorsys_geshotel_booking_domain_RoomCategory_price" object="${roomcategory}" z="iE9kFYjvjVfbonnRfMrXsvWTgPo="/>
+        <field:display field="priceMin" id="s_org_adorsys_geshotel_booking_domain_RoomCategory_priceMin" object="${roomcategory}" z="WNb95BhA3s83C9YWt0gb5qV5S3I="/>
+    </page:show>
+</div>

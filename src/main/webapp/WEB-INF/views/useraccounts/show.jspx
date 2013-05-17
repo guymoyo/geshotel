@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show create="false" delete="false" id="ps_org_adorsys_geshotel_domain_UserAccount" list="false" object="${useraccount}" path="/useraccounts" update="false" z="user-managed">
+        <field:display field="identifier" id="s_org_adorsys_geshotel_domain_UserAccount_identifier" object="${useraccount}" z="ktsCS2/uMD+xzZ7tq6+F+0jWzt4="/>
+        <field:display field="password" id="s_org_adorsys_geshotel_domain_UserAccount_password" object="${useraccount}" z="g+le2R4GrbtFNYTpG3zfXIlXDkM="/>
+        <field:display date="true" dateTimePattern="${userAccount_entrydate_date_format}" field="entryDate" id="s_org_adorsys_geshotel_domain_UserAccount_entryDate" object="${useraccount}" z="diNNQTZ5h3XWIbQuHa3tFcVtxOw="/>
+        <field:display field="lastName" id="s_org_adorsys_geshotel_domain_UserAccount_lastName" object="${useraccount}" z="El+2SehPLU+h/B3/+l1PjT6aK1g="/>
+        <field:display field="roleNames" id="s_org_adorsys_geshotel_domain_UserAccount_roleNames" object="${useraccount}" z="8YWH0OvaG3BXZO29qs6+g+Uw11A="/>
+        <field:display date="true" dateTimePattern="${userAccount_accountexpiration_date_format}" field="accountExpiration" id="s_org_adorsys_geshotel_domain_UserAccount_accountExpiration" object="${useraccount}" z="GjVk831nBLd/OV3qVLsLWciQBVE="/>
+        <field:display field="disableLogin" id="s_org_adorsys_geshotel_domain_UserAccount_disableLogin" object="${useraccount}" z="t5aGgEzBsomdG/aviMMxbpiXf5I="/>
+        <field:display field="accountLocked" id="s_org_adorsys_geshotel_domain_UserAccount_accountLocked" object="${useraccount}" z="IgnqC0OWd6t0RcuwEn86mK5V7z0="/>
+        <field:display date="true" dateTimePattern="${userAccount_credentialexpiration_date_format}" field="credentialExpiration" id="s_org_adorsys_geshotel_domain_UserAccount_credentialExpiration" object="${useraccount}" z="8um+EvVpJ1Mcsi03eAVWaMifTO4="/>
+        <field:display field="periodConf" id="s_org_adorsys_geshotel_domain_UserAccount_periodConf" object="${useraccount}" z="5nfmEkVGO22Gq9aDvTCpAUPoUW8="/>
+    </page:show>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_adorsys_geshotel_resto_domain_InventoryItem" modelAttribute="inventoryItem" path="/inventoryitems" versionField="Version" z="yaEgHY9SffZSUygKNYajyvGnmQs=">
+        <field:input field="designation" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_designation" required="true" z="uEkxCwixZFqOZhZoUly33soJMYw="/>
+        <field:input field="entry" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_entry" validationMessageCode="field_invalid_number" z="5Z+AuZCGnUF7e4MIJGehM8EMjdY="/>
+        <field:input field="initialStock" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_initialStock" validationMessageCode="field_invalid_number" z="G6gsJEURHcsyd53FV5FIrEyKBCI="/>
+        <field:input field="finalStock" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_finalStock" validationMessageCode="field_invalid_number" z="cTyENB7dMiyf5QTRkliJkiyobi0="/>
+        <field:select field="inventory" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_inventory" itemValue="id" items="${inventorys}" path="/inventorys" z="objzXcvZT+1HKPXXoWRefWpf3Kk="/>
+        <field:select field="product" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_product" itemValue="id" items="${products}" path="/products" z="YOajqn0y0rMEJIl1qLeZVp4CgOM="/>
+        <field:input field="sales" id="c_org_adorsys_geshotel_resto_domain_InventoryItem_sales" validationMessageCode="field_invalid_number" z="49fGu+AewvdjvXjf0cM/FP730So="/>
+    </form:update>
+</div>

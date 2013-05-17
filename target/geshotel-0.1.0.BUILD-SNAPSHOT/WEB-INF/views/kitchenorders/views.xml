@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="kitchenorders/list">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/list.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/show">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/show.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/create">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/create.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/update">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/update.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/findKitchenOrdersBySaleAndKitchenOrderItemState">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/findKitchenOrdersBySaleAndKitchenOrderItemState.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/findKitchenOrdersBySale">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/findKitchenOrdersBySale.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/findKitchenOrdersByKitchenOrderKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/findKitchenOrdersByKitchenOrderKeyEquals.jspx"/>
+    </definition>
+<definition extends="resto" name="kitchenorders/findKitchenOrdersByKitchenOrderItemState">
+        <put-attribute name="body" value="/WEB-INF/views/kitchenorders/findKitchenOrdersByKitchenOrderItemState.jspx"/>
+    </definition>
+</tiles-definitions>

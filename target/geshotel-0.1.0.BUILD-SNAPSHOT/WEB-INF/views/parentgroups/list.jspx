@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_ParentGroup" items="${parentgroups}" z="LPqNsdJHiXeySahXZ/cloWVuIlE=">
+        <table:table data="${parentgroups}" id="l_org_adorsys_geshotel_resto_domain_ParentGroup" path="/parentgroups" z="TvEbcbY3ctNPuO8YxH4e+xVAZjc=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ParentGroup_parentGroupKey" property="parentGroupKey" z="0WeYmBjcdqw4rjauUnS1us4xbvM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupKey" property="productGroupKey" z="iC89NCCf/cdlvqVofCgv338A+YU="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ParentGroup_productGroupParentKey" property="productGroupParentKey" z="PWfO3HQc/XBoghr/kSpdhxgy3jA="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_ParentGroup_description" property="description" z="Y+qwXtheOYqYu4wfaqtnWifxgZs="/>
+        </table:table>
+    </page:list>
+</div>

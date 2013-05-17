@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="resto" name="customeridentifierhistorys/list">
+        <put-attribute name="body" value="/WEB-INF/views/customeridentifierhistorys/list.jspx"/>
+    </definition>
+<definition extends="resto" name="customeridentifierhistorys/show">
+        <put-attribute name="body" value="/WEB-INF/views/customeridentifierhistorys/show.jspx"/>
+    </definition>
+<definition extends="resto" name="customeridentifierhistorys/create">
+        <put-attribute name="body" value="/WEB-INF/views/customeridentifierhistorys/create.jspx"/>
+    </definition>
+<definition extends="resto" name="customeridentifierhistorys/update">
+        <put-attribute name="body" value="/WEB-INF/views/customeridentifierhistorys/update.jspx"/>
+    </definition>
+</tiles-definitions>

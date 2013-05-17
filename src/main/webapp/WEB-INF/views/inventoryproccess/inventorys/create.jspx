@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:url value="/inventoryprocess" var="form_action" />
+	<spring:url value="/inventoyprocess/form" var="nextform" />
+	<util:panel title="Fill inventorys fields" id="3fno3sd">
+
+		<div></div>
+
+		<form:form action="${nextform }" commandName="inventoryprocess">
+			<form:select path="">
+				<c:forEach items="${producttypes }" var="producttype">
+					<form:option value="${producttype }" />
+				</c:forEach>
+			</form:select>
+			<input type="submit" value="FILL" />
+		</form:form>
+
+		<form:form action="${form_action }" commandName="inventoryprocess"
+			method="POST">
+			<div>
+				<table>
+					<thead>
+						<th>Designation</th>
+						<th>Price</th>
+						<th>Initial Stock</th>
+						<th>Entry</th>
+						<th>Sales</th>
+						<th>Final Stock</th>
+					</thead>
+					<tbody>
+						<c:forEach items="${inventoryprocess.inventoryItems}"
+							var="inventoryItem" varStatus="i">
+							<tr>
+								<td>${inventoryItem.designation }</td>
+								<td>${inventoryItem.price }</td>
+								<td><form:input
+										path="inventoryItems[${i.index}].initialStock" /></td>
+								<td><form:input path="inventoryItems[${i.index}].entry" />
+								</td>
+								<td><form:input path="inventoryItems[${i.index}].sales" />
+								</td>
+								<td><form:input
+										path="inventoryItems[${i.index}].finalStock" /></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<input type="submit" value="SAVE" />
+			</div>
+		</form:form>
+		<div>
+	<!-- 		<form:form action="${form_action }" commandName="inventoryprocess"
+				method="POST">
+				<div>
+					<table>
+						<thead>
+							<th>Designation</th>
+							<th>Price</th>
+							<th>Initial Stock</th>
+							<th>Entry</th>
+							<th>Sales</th>
+							<th>Final Stock</th>
+						</thead>
+						<tbody>
+							<c:forEach items="${inventoryprocess.specificInvItem}"
+								var="specificInvItem" varStatus="i">
+								<tr>
+									<td>${specificInvItem.designation }</td>
+									<td>${specificInvItem.price }</td>
+									<td><form:input
+											path="inventoryItems[${i.index}].initialStock" /></td>
+									<td><form:input path="inventoryItems[${i.index}].entry" />
+									</td>
+									<td><form:input path="inventoryItems[${i.index}].sales" />
+									</td>
+									<td><form:input
+											path="inventoryItems[${i.index}].finalStock" /></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div>
+					<input type="submit" value="SAVE" />
+				</div>
+			</form:form>  -->
+		</div>
+	</util:panel>
+</div>

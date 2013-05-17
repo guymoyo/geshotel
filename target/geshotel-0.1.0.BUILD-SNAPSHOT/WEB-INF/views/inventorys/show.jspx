@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_resto_domain_Inventory" object="${inventory}" path="/inventorys" z="TW+uSpagE08ykTw74y1mjmhQvOo=">
+        <field:display field="title" id="s_org_adorsys_geshotel_resto_domain_Inventory_title" object="${inventory}" z="xq5wZH6HV45NMBikPasuGqK5O8E="/>
+        <field:display date="true" dateTimePattern="${inventory_inventorydate_date_format}" field="inventoryDate" id="s_org_adorsys_geshotel_resto_domain_Inventory_inventoryDate" object="${inventory}" z="W4vr+Qz8YuUAk+tWsDlFQ3y1bK4="/>
+        <field:display field="isClosed" id="s_org_adorsys_geshotel_resto_domain_Inventory_isClosed" object="${inventory}" z="iSR1iJ6j4lGnChmtWE0NPxSFF0k="/>
+        <field:display field="periodConf" id="s_org_adorsys_geshotel_resto_domain_Inventory_periodConf" object="${inventory}" z="W64pwokcYhTE04dhZCyuYdl2770="/>
+        <field:display field="userAccount" id="s_org_adorsys_geshotel_resto_domain_Inventory_userAccount" object="${inventory}" z="P9104mfDu6UbNJ2bhfp2RGn8O8Q="/>
+        <field:display field="inventoryState" id="s_org_adorsys_geshotel_resto_domain_Inventory_inventoryState" object="${inventory}" z="kTKCoavQsTOeuUw3zKy40FbeuDU="/>
+    </page:show>
+</div>

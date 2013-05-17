@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_booking_domain_Invoice" items="${invoices}" z="4LsNAiNl0nCkB2t5l2pe6L7dj90=">
+        <table:table create="false" data="${invoices}" delete="false" id="l_org_adorsys_geshotel_booking_domain_Invoice" path="/invoices" update="false" z="user-managed">
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_customer" property="customer" z="hLdChuN4qbKpM/z4dg3tJx/qTGI="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_invoiceAmount" property="invoiceAmount" z="W35eryZIVZGCG8X/sPaN/VrMCwY="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_valueAdddedTax" property="valueAdddedTax" z="vHe7s0MiIpITXqCzCM4bkjEn8dA="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_otherTaxes" property="otherTaxes" z="/cIGGHLIHUHWqs6NBzJ/aBH8mh0="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_amountDue" property="amountDue" z="Y9sANLhWed6HOY7IjV9zX5eN+2c="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Invoice_amountPaid" property="amountPaid" z="7CJEvoXzffJPRGKSC9/pBX103cQ="/>
+        </table:table>
+    </page:list>
+</div>

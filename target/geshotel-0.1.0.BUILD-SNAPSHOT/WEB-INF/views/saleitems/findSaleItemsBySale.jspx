@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="BySale" id="ff_org_adorsys_geshotel_resto_domain_SaleItem" path="/saleitems" z="8yLyDBaweHKD9e2h8kvlWqXPko0=">
+        <field:select disableFormBinding="true" field="sale" id="f_org_adorsys_geshotel_resto_domain_SaleItem_sale" itemValue="id" items="${sales}" path="/sales" required="true" z="8WN/4rdUo/dQSYYf6pZAnuZ/UPk="/>
+    </form:find>
+</div>

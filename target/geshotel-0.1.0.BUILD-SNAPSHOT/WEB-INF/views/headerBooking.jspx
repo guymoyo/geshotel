@@ -1,0 +1,101 @@
+<div id="head" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+    xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:security="http://www.springframework.org/security/tags" 
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" class="cache" version="2.0">
+  <jsp:directive.page contentType="text/html;charset=UTF-8" />
+  <jsp:output omit-xml-declaration="yes" />  
+
+  <spring:url var="banner" value="/resources/images" />
+ <spring:url var="planning" value="/planning" />
+ <spring:url var="detailReservation_url" value="/reservations/detail" />
+ <spring:url var="searchCustomer" value="/customers/getCustomerByAjax" />
+ <input type="hidden" value="${searchCustomer}" id="search" />
+ <spring:url var="reserByCust_url" value="/reservations/ByCustomerAjax" />
+ 
+ <input type="hidden" value="${reserByCust_url}" id="reserByCust" />
+  <input type="hidden" value="${detailReservation_url}" id="detailReservation" />
+ 
+  <div style="float: left">
+  	<img style="margin-left: 40px;margin-top: 28px;" src="${banner}/logo.png" alt="logo" />
+  </div>
+  <div style="float: left;margin-left: 250px;margin-top: 10px;">
+   <spring:url value="/" var="home"/>
+  <span>
+    <a href="${home}">
+      <img src="${banner}/gohome.png"  alt="home" />
+    </a>
+  </span>
+  <c:if test="${pageContext['request'].userPrincipal == null}">
+    <c:out value=" | "/>
+    <span>
+      <spring:url value="/resources/j_spring_security_check" var="login"/>
+      <a href="${login}">
+        <img src="${banner}/endturn.png"  alt="log in" />
+      </a>
+    </span>
+  </c:if>
+  
+  <c:if test="${pageContext['request'].userPrincipal != null}">
+    <c:out value=" | "/>
+    <span>
+      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
+      <a href="${logout}">
+        <img src="${banner}/endturn.png"  alt="log out" />
+      </a>
+    </span>
+  </c:if>
+
+  <span id="language">
+    <c:out value=" | "/>
+    <spring:message code="global_language"/>
+    <c:out value=": "/>
+  <util:language label="English" locale="en"/>
+    <util:language label="France" locale="fr"/>
+    </span>
+    
+ </div>
+   <div style="float: left; margin-left: 100px;margin-top: 45px;">
+	  	<form action="${planning}"  >
+	  		<input dojoType="dijit.form.DateTextBox" id="from" required="true" name="from"
+				constraints="{ datePattern: 'yyyy-MM-dd' }"
+				value="${day}"
+				invalidMessage ="date invalide"
+				intermediateChanges="true"
+				datePattern="yyyy-MM-dd"/>
+			<br/>
+	  		<select name="category" id="category" style="width: 150px;margin-left: 1px;max-width: 150px" dojoType="dijit.form.Select" >
+	  			<option value="">Tout</option>
+	  			<c:forEach var="cat" items="${category}">
+	  				<option value="${cat.id}"  >${cat.title}</option>
+	  			</c:forEach>
+	  		</select>
+	  		
+	  		<button dojoType="dijit.form.Button" type="submit" id="ok" >ok</button>
+	  	</form>
+  	</div> 
+  	<spring:url var="configuration" value="/hotels/configuration" />
+  	<spring:url var="account" value="/useraccounts/account" />
+  	 <div style="float: left;">
+  	 	<div style="margin-top: 8px;margin-left: 60px;">
+    	<img src="${banner}/identity.png" /> <a href="#" style="margin-left: 15px;">${pageContext['request'].userPrincipal.name}</a>
+  	</div>		
+  		<div style="margin-top: 11px;">
+  			<label class="boo">Rechercher Client</label><img  src="${banner}/xmag.png" alt="person" /><br/>
+  			<input type="text" name="client" style="width: 180px;margin-bottom: 0px;" dojoType="dijit.form.ValidationTextBox" id="client"  />
+  			<ul style="width: 140px;z-index: 1;display: block;border-width: 1px;background-color: white;margin-left: 1px;display: none;position: absolute;padding-bottom: 5px;" class="findClient" id="clientUl" >
+  				
+  			</ul>
+  		</div>
+  		<!-- <img style="margin-left: 80px;margin-top: 32px;" src="${banner}/personal.png" alt="person" />
+  		${pageContext['request'].userPrincipal}toto -->
+  </div> 
+  
+</div> 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" 
+	xmlns:form="http://www.springframework.org/tags/form" 
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:spring="http://www.springframework.org/tags"	
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <util:panel title="Change Password" id="c_org_adorsys_voiturecam_web_PasswordReset_Panel">
+	    <form:form commandName="passwordReset"  action="/passwordresets">
+	    	<form:errors cssClass="errors" delimiter="&lt;p/&gt;"/>
+	    	
+	    	<field:input field="userName" label="User name" id="c_org_adorsys_voiturecam_web_PasswordReset_userName" required="true" z="user-managed" disabled="true" />			
+	        <field:input field="currentPassword" label="Current Password" id="c_org_adorsys_voiturecam_web_PasswordReset_currentPassword"  required="true" type="password" z="user-managed"/>
+	    	<field:input field="newPassword" label="New Password" id="c_org_adorsys_voiturecam_web_PasswordReset_newPassword"  required="true" type="password" z="user-managed"/>
+	    	<field:input field="confirmNewPassword" label="Confirm new Password" id="c_org_adorsys_voiturecam_web_PasswordReset_confirmNewPassword"  required="true" type="password" z="user-managed"/>
+	    	
+          	<script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
+	    	<input type="submit" value="Change Password" id="proceed"/>
+	    </form:form>
+    </util:panel>
+
+</div>

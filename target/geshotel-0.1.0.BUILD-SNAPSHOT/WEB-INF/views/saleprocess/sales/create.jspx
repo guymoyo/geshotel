@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_resto_domain_Sale" modelAttribute="sale" path="/saleprocess" render="${empty dependencies}" z="mu3a5pfBYqE6tmzx1xCjUlMffls=">
+        <field:input field="saleKey" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_saleKey" required="true" z="T0x+SSThRJtVgqHuOmjdPRwWUx8="/>
+        <field:select field="saleItem" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_saleItem" itemValue="id" items="${saleitems}" multiple="true" path="/saleitems" z="l7y4h0k9MXQT4p9fxO/b6YbH5IE="/>
+        <field:input field="totalAmount" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_totalAmount" required="true" validationMessageCode="field_invalid_number" z="/NMc6fEHfV67H8LI5UZJSTpWymc="/>
+        <field:datetime dateTimePattern="${sale_recorddate_date_format}" render="false" field="recordDate" id="c_org_adorsys_geshotel_resto_domain_Sale_recordDate" required="true" z="XJTusjIZcgBzFh78rVwYqfYrenc="/>
+        <field:select field="customerType" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_customerType" items="${customertypes}" path="customertypes" z="LvlNiKRgmV15TmuiGllzTgqMtQU="/>
+        <field:input field="note" id="c_org_adorsys_geshotel_resto_domain_Sale_note" z="BmdmU6spTVSvzxT9zTgSwXtbu1g="/>
+        <field:select field="brTable" id="c_org_adorsys_geshotel_resto_domain_Sale_brTable" itemValue="id" items="${brtables}" path="/brtables" z="FDphxNudfd8I7GpVqQ1buLdzdfg="/>
+        <field:select field="customer" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_customer" itemValue="id" items="${customers}" path="/customers" z="M1gn1DzrqyoVXdbaQ10ukjIbtgM="/>
+        <field:input field="userNameDescription" render="false" id="c_org_adorsys_geshotel_resto_domain_Sale_userNameDescription" z="LNtT98YCtMmxj7NnRM0ATDHJd9s="/>
+        <field:hidden field="tax"  id="c_org_adorsys_geshotel_resto_domain_Sale_tax" />
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_resto_domain_Sale" render="${not empty dependencies}" z="NAuhvU/sND/M7cIsKKB7ipl/kRQ="/>
+</div>

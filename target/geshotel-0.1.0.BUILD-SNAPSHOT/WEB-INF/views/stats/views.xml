@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="booking" name="stats/vente">
+        <put-attribute name="body" value="/WEB-INF/views/stats/vente.jspx"/>
+    </definition>
+    
+     <definition extends="booking" name="stats/venteForm">
+        <put-attribute name="body" value="/WEB-INF/views/stats/venteForm.jspx"/>
+    </definition>
+     <definition extends="booking" name="stats/stats">
+        <put-attribute name="body" value="/WEB-INF/views/stats/stats.jspx"/>
+    </definition>
+    
+     <definition extends="booking" name="stats/statForm">
+        <put-attribute name="body" value="/WEB-INF/views/stats/statForm.jspx"/>
+    </definition>
+
+</tiles-definitions>

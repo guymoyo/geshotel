@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_booking_domain_Retrait" items="${retraits}" z="U1oIVRzSR0Nw7ccSDmG4N21SZHk=">
+        <table:table data="${retraits}" id="l_org_adorsys_geshotel_booking_domain_Retrait" path="/retraits" z="l4UlQapiH+ZO30mvN8YgO9urhWk=">
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Retrait_label" property="label" z="Q2jPVqg0rcJVwXqnIl20IO60tOY="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Retrait_retraitvalue" property="retraitvalue" z="CLIiQ6Hdv3TJFZYCsAWLrCXerf4="/>
+            <table:column date="true" dateTimePattern="${retrait_dateretrait_date_format}" id="c_org_adorsys_geshotel_booking_domain_Retrait_dateRetrait" property="dateRetrait" z="fTc/plPuQd+QOPNxT5rjymvtYLk="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Retrait_userAccount" property="userAccount" z="ZrgSnyWsojT/0JA3zyiQpy5yxZI="/>
+            <table:column id="c_org_adorsys_geshotel_booking_domain_Retrait_customer" property="customer" z="u7dfxFCc3QXqwzm0jzE8o9KoPBw="/>
+        </table:table>
+    </page:list>
+</div>

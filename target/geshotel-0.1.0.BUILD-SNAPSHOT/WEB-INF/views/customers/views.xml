@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    
+<definition extends="booking" name="customers/show">
+        <put-attribute name="body" value="/WEB-INF/views/customers/show.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/create">
+        <put-attribute name="body" value="/WEB-INF/views/customers/create.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/update">
+        <put-attribute name="body" value="/WEB-INF/views/customers/update.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/findCustomersByIdentityNumberLike">
+        <put-attribute name="body" value="/WEB-INF/views/customers/findCustomersByIdentityNumberLike.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/findCustomersByLastNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/customers/findCustomersByLastNameLike.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/findCustomersByIdentityNumberEquals">
+        <put-attribute name="body" value="/WEB-INF/views/customers/findCustomersByIdentityNumberEquals.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/findCustomersByFirstNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/customers/findCustomersByFirstNameLike.jspx"/>
+    </definition>
+<definition extends="booking" name="customers/list">
+        <put-attribute name="body" value="/WEB-INF/views/customers/list.jspx"/>
+    </definition>
+</tiles-definitions>

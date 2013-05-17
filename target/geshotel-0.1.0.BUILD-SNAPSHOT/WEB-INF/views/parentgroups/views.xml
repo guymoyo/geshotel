@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="parentgroups/list">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/list.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/show">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/show.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/create">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/create.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/update">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/update.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/findParentGroupsByParentGroupKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/findParentGroupsByParentGroupKeyEquals.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/findParentGroupsByProductGroupParentKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/findParentGroupsByProductGroupParentKeyEquals.jspx"/>
+    </definition>
+<definition extends="default" name="parentgroups/findParentGroupsByProductGroupKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/parentgroups/findParentGroupsByProductGroupKeyEquals.jspx"/>
+    </definition>
+</tiles-definitions>

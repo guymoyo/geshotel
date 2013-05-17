@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_resto_domain_Procurement" items="${procurements}" z="ViJFn/e2ahufmZV1ibNmdDAyRGc=">
+        <table:table data="${procurements}" id="l_org_adorsys_geshotel_resto_domain_Procurement" path="/procurements" z="sfVdTWoRXUOJ0vI/4mCSJStQcNQ=">
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Procurement_procurementKey" property="procurementKey" z="TYz3BVLcBVD1EvqzWY2PZQgVX5o="/>
+            <table:column date="true" dateTimePattern="${procurement_dateofprocurement_date_format}" id="c_org_adorsys_geshotel_resto_domain_Procurement_dateOfProcurement" property="dateOfProcurement" z="9OnlPASOZ1yucpZOpgxZ5fM2x0g="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Procurement_amount" property="amount" z="LoA4El21O4YlPyIz2BQAWW26OxM="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Procurement_isLatestProcurement" property="isLatestProcurement" z="Cpfs1wVVwGQVUU6ROh0z4Vq2Ax4="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Procurement_procurementState" property="procurementState" z="3jzzObJ4sDcsqf+PZNHZ6vDb18k="/>
+            <table:column id="c_org_adorsys_geshotel_resto_domain_Procurement_userAccount" property="userAccount" z="WBHlEqQwLwm4Qaog3mjc3YM1iVg="/>
+        </table:table>
+    </page:list>
+</div>

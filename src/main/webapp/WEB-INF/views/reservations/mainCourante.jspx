@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+ xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+ xmlns:c="http://java.sun.com/jsp/jstl/core"
+ xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+ xmlns:security="http://www.springframework.org/security/tags"
+ xmlns:spring="http://www.springframework.org/tags"
+ xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <div class="print">
+        <util:panel title="Main Courante" id="mc" >
+        <spring:url value="/invoices" var="invoice_url" ></spring:url>
+        	<table>
+        		<tbody>
+        			<th>N<SUP>o</SUP> Chbre</th>
+        			<th>Noms</th>
+        			<th>Nbre de Pers</th>
+        			<th>Arrive</th>
+        			<th>Sortie</th>
+        			<th>Hebergement</th>
+        			<c:forEach items="${hotelServices}" var="service" >
+        				<th> ${service.title } </th>
+        			</c:forEach>
+        			<th>Total</th>
+        			<th>Avance</th>
+        			<th>Reste</th>
+        			<th>Facture</th>
+        		</tbody>
+        		<c:forEach items="${reservations}" var="r" >
+	        		<tr>
+	        			<td>${r.room.roomNumber }</td>
+	        			<td>${r.customer.fullName }</td>
+	        			<td>${r.numOfPeople }</td>
+	        			<td><fmt:formatDate  type="date" pattern="EEE d MMM" value="${r.checkInDate }" /></td>
+	        			<td><fmt:formatDate  type="date" pattern="EEE d MMM" value="${r.checkOutDate }" /></td>
+	        			<fmt:formatNumber type="number" var="total" value="${r.invoice.amountDue}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+	        			 <fmt:formatNumber type="number" var="service" value="${r.invoice.montantService}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+	        			<fmt:formatNumber type="number" var="RtotalAm" value="${r.totalAmount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+	        			<td>${RtotalAm}</td>
+	        			<c:forEach items="${hotelServices }" var="hotelService">
+	        				<td>
+	        					<c:forEach items="${r.groupAndSaleReports }" var="gasr" >
+	        							<c:set var="c1" value="${hotelService.title }" />
+	        							<c:set var="c2" value="${gasr.productGroup.title }" />
+	        							<c:choose>
+	        								<c:when test="${c1 eq c2 }">
+		        								${gasr.serviceAmount}
+	        								</c:when>
+	        								<c:otherwise>
+	        								<span>
+		        								00 </span>
+	        								</c:otherwise>
+	        							</c:choose>
+	        					</c:forEach>
+	        				</td>
+	        			</c:forEach>
+	        			<fmt:formatNumber type="number" var="paid" value="${r.invoice.amountPaid}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+	        			<fmt:formatNumber type="number" var="reste" value="${r.invoice.reste}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+	        			
+	        			<!-- <td>${service}</td> -->
+	        			<td>${total}</td>
+	        			<td>${ paid}</td>
+	        			<c:if test="${reste==0 }">
+	        				<c:set   var="color" value="red" ></c:set>
+	        			</c:if>
+	        			<c:if test="${reste!=0 }">
+	        				<c:set   var="color" value="" ></c:set>
+	        			</c:if>
+	        			<td background="${color}">${reste }</td>
+	        	<security:authorize ifAnyGranted="ROLE_RECEPTION" >		
+	        			<td><a href="${invoice_url}/facture?reservationId=${r.id}" >link</a></td>
+	        	</security:authorize>
+	        		</tr>
+	        	</c:forEach>
+        	</table>
+        	<div>
+		<div style="float: left;">
+			 <fieldset>
+                    <legend>Indice de Frequentation</legend>
+                    <h1>${indiceFrequentation }</h1>
+             </fieldset>
+		</div>
+		<div style="float: left;margin-left: 50px;">
+			<fieldset>
+                    <legend>Revenu Moyen par chambre</legend>
+                    <h1>${revenuMoyenChambre }</h1>
+             </fieldset>
+		</div>
+		<div style="float: left;margin-left: 50px;">
+			<fieldset>
+                    <legend>Taux d'occupation</legend>
+                    <h1>${to }</h1>
+             </fieldset>
+		</div>
+	</div>
+        </util:panel>
+    </div>
+    <input onclick="window.print();return false;" type="submit" value="Imprimer"/>
+</div>

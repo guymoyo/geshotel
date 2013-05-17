@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <jsp:include page="/WEB-INF/views/exception.jspx"/>
+    <form:update id="fu_org_adorsys_geshotel_resto_domain_Product" modelAttribute="product" path="/products" versionField="Version" z="AFjsGqLtaM8lC+x+h6rEo8xbEuo=">
+        <field:hidden field="productKey" id="c_org_adorsys_geshotel_resto_domain_Product_productKey"/>
+        <field:input field="title" id="c_org_adorsys_geshotel_resto_domain_Product_title" required="true" z="48QJJfRPzMgKsaHbmDUXLsNdjEA="/>
+        <field:input field="description" id="c_org_adorsys_geshotel_resto_domain_Product_description" z="Am3qjH57K7cbmJ7fIPJYKwXkf3U="/>
+        <field:input field="price" id="c_org_adorsys_geshotel_resto_domain_Product_price" required="true" validationMessageCode="field_invalid_number" z="+bF7404prnnCo9gQMOOTKEUE248="/>
+        <field:select field="productType" id="c_org_adorsys_geshotel_resto_domain_Product_productType" itemValue="id" items="${producttypes}" path="/producttypes" required="true" z="G/dFm55rdVt3A0yGuLSOvwwQBd0="/>
+        <field:select disabled="true" field="groups" id="c_org_adorsys_geshotel_resto_domain_Product_groups" itemValue="id" items="${productgroups}" multiple="true" path="/productgroups"/>
+        <field:select field="discounts" id="c_org_adorsys_geshotel_resto_domain_Product_discounts" itemValue="id" items="${discounts}" multiple="true" path="/discounts" z="1530jDtjCRxIzIP4zrRnLgJRa+I="/>
+        <field:hidden field="qty" id="c_org_adorsys_geshotel_resto_domain_Product_qty"/>
+        <field:input field="employeePrice" id="c_org_adorsys_geshotel_resto_domain_Product_employeePrice" validationMessageCode="field_invalid_number" z="MVA2xfd1hrce+JzKcxF7p0WLEIo="/>
+        <field:select field="productState" id="c_org_adorsys_geshotel_resto_domain_Product_productState" items="${barrestaustates}" path="barrestaustates" render="false" z="user-managed"/>
+    </form:update>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:find finderName="ByCreationDateBetween" id="ff_org_adorsys_geshotel_booking_domain_Reservation" path="/reservations" z="CCkQCQjhtWX7DAXqC6dPBKT1yzc=">
+        <field:datetime dateTimePattern="${reservation_mincreationdate_date_format}" disableFormBinding="true" field="minCreationDate" id="f_org_adorsys_geshotel_booking_domain_Reservation_minCreationDate" required="true" z="IAEQlLk6USecP6XYqCGiU3FI+0A="/>
+        <field:datetime dateTimePattern="${reservation_maxcreationdate_date_format}" disableFormBinding="true" field="maxCreationDate" id="f_org_adorsys_geshotel_booking_domain_Reservation_maxCreationDate" required="true" z="BFY5uWGyJuUpyMhPbyYSsIVdicY="/>
+    </form:find>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_adorsys_geshotel_domain_Customer" items="${customers}" z="4BFKvuT5E+fD6hRMdyhbq+OX6pQ=">
+        <table:table data="${customers}" id="l_org_adorsys_geshotel_domain_Customer" path="/customers" z="f6VF/5OJkjU8XZE9dUOFN5XY5AU=">
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_firstName" property="firstName" z="kVyenY/lv8feegjXNN0V8D6fF2Q="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_lastName" property="lastName" z="0JzNYybubY9HFOUBw0MHkGGEh+Y="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_fullName" property="fullName" z="h/ct+PiUNjkDN2eISPk1/RWXFd4="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_gender" property="gender" z="srHb2xaXV4poDiRTqNP0n1NC3eI="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_identityNumber" property="identityNumber" z="O42nQbmtPnMrJLyyCeyyGzKvvqc="/>
+            <table:column id="c_org_adorsys_geshotel_domain_Customer_maidenName" property="maidenName" z="9CjOmvBs9dR8TqjbAf1Hmzfje6k="/>
+        </table:table>
+    </page:list>
+</div>

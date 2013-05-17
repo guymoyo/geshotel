@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+	<div style="position: static; ">
+		<table>
+			<thead>
+				<th>Designation</th>
+				<th>Initial Stock</th>
+				<th>Entries</th>
+				<th>Sales</th>
+				<th>Final Stock</th>
+			</thead>
+			<tfoot>
+
+				<th>Designation</th>
+				<th>Initial Stock</th>
+				<th>Entries</th>
+				<th>Sales</th>
+				<th>Final Stock</th>
+			</tfoot>
+			<tbody>
+				<c:forEach items="${inventoryItems }"
+					var="inventoryItem">
+					<tr>
+						<td>${inventoryItem.designation }</td>
+						<td>${inventoryItem.initialStock }</td>
+						<td>${inventoryItem.entry }</td>
+						<td>${inventoryItem.sales }</td>
+						<td>${inventoryItem.finalStock }</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</div>
+
+	<spring:url value="/inventoryprocess?close=${inventory.id }"
+		var="close_inventory_key" />
+	<div style="height: 10px; width: inherit; padding-top: 5px;">
+		<c:if test="${not empty message }">
+			<div>
+				<label> <c:out value="${message }" />
+				</label>
+			</div>
+		</c:if>
+		<c:if test="${inventory.inventoryState == 'OPENED' }">
+			<div>
+				<span> <a href="${close_inventory_key }">Close this Inventory Process</a> </span>
+			</div>
+		</c:if>
+		<c:if test="${inventory.inventoryState == 'CLOSED' }">
+			<div>
+				<span> This inventory is almost close. Open another one.</span>
+			</div>
+		</c:if>
+		${inventory.inventoryState }
+	</div>
+</div>

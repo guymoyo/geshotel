@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_adorsys_geshotel_domain_Service" object="${service}" path="/services" z="iVFW3fZqpTp4iZKJyKO/7h14PqU=">
+        <field:display field="title" id="s_org_adorsys_geshotel_domain_Service_title" object="${service}" z="AkjpCYy6uug/RtFUlwqpYsBt9DM="/>
+        <field:display field="periods" id="s_org_adorsys_geshotel_domain_Service_periods" object="${service}" z="DjzO8qs/i6PWyWebxsOXud7wiZ4="/>
+    </page:show>
+</div>

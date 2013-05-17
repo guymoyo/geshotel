@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_org_adorsys_geshotel_resto_domain_BarRestauInvoice" modelAttribute="barRestauInvoice" path="/barrestauinvoices" render="${empty dependencies}" z="BvrryYeIfzRByF748CO4J0SzKNU=">
+        <field:input field="barRestauInvoiceKey" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_barRestauInvoiceKey" required="true" z="iB+aw3GE83McsrD1ShlVNcJfnvk="/>
+        <field:select field="sale" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_sale" itemValue="id" items="${sales}" path="/sales" required="true" z="Km9779JNBudE3nsrx1oWRBhhB9M="/>
+        <field:datetime dateTimePattern="${barRestauInvoice_creationdate_date_format}" field="creationDate" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_creationDate" required="true" z="aShzOuD1DIi0/bRrtObbVszcfYE="/>
+        <field:input field="invoicePath" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoicePath" z="xIzNJTM8l9mERMtG8VUepmt4ZTw="/>
+        <field:input field="note" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_note" z="s93a3QWCHQOqZ98EDys3HfRR65Q="/>
+        <field:select field="customerType" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_customerType" items="${customertypes}" path="customertypes" z="vPZyreJMhb85s4/5mFNJg2z6d1o="/>
+        <field:select field="invoiceState" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoiceState" items="${invoicestates}" path="invoicestates" z="QET7QmpRV6MU0HFGCqX6CmzZ6eo="/>
+        <field:input field="invoiceNumber" id="c_org_adorsys_geshotel_resto_domain_BarRestauInvoice_invoiceNumber" required="true" z="JFDFwQktSTb1ZO43puNH1318yI8="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_resto_domain_BarRestauInvoice" render="${not empty dependencies}" z="TUFGJYjYBVFrCBpl7p1wWHbjbBc="/>
+</div>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="barrestauinvoices/list">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/list.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/show">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/show.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/create">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/create.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/update">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/update.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/findBarRestauInvoicesByBarRestauInvoiceKeyEquals">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/findBarRestauInvoicesByBarRestauInvoiceKeyEquals.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/findBarRestauInvoicesByCreationDateBetween">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/findBarRestauInvoicesByCreationDateBetween.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/findBarRestauInvoicesByInvoiceNumberEquals">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/findBarRestauInvoicesByInvoiceNumberEquals.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/findBarRestauInvoicesBySale">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/findBarRestauInvoicesBySale.jspx"/>
+    </definition>
+<definition extends="default" name="barrestauinvoices/findBarRestauInvoicesByInvoiceState">
+        <put-attribute name="body" value="/WEB-INF/views/barrestauinvoices/findBarRestauInvoicesByInvoiceState.jspx"/>
+    </definition>
+</tiles-definitions>
