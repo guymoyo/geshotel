@@ -40,14 +40,30 @@ privileged aspect InvoiceDataOnDemand_Roo_DataOnDemand {
     
     public Invoice InvoiceDataOnDemand.getNewTransientInvoice(int index) {
         Invoice obj = new Invoice();
+        setAmountDue(obj, index);
+        setAmountPaid(obj, index);
         setCustomer(obj, index);
         setDateOfClose(obj, index);
         setDateOfCreate(obj, index);
+        setInvoiceAmount(obj, index);
         setInvoiceState(obj, index);
+        setMontantService(obj, index);
         setOriginator(obj, index);
         setOtherTaxes(obj, index);
         setPayementState(obj, index);
+        setReste(obj, index);
+        setValueAdddedTax(obj, index);
         return obj;
+    }
+    
+    public void InvoiceDataOnDemand.setAmountDue(Invoice obj, int index) {
+        BigDecimal amountDue = BigDecimal.valueOf(index);
+        obj.setAmountDue(amountDue);
+    }
+    
+    public void InvoiceDataOnDemand.setAmountPaid(Invoice obj, int index) {
+        BigDecimal amountPaid = BigDecimal.valueOf(index);
+        obj.setAmountPaid(amountPaid);
     }
     
     public void InvoiceDataOnDemand.setCustomer(Invoice obj, int index) {
@@ -65,9 +81,19 @@ privileged aspect InvoiceDataOnDemand_Roo_DataOnDemand {
         obj.setDateOfCreate(dateOfCreate);
     }
     
+    public void InvoiceDataOnDemand.setInvoiceAmount(Invoice obj, int index) {
+        BigDecimal invoiceAmount = BigDecimal.valueOf(index);
+        obj.setInvoiceAmount(invoiceAmount);
+    }
+    
     public void InvoiceDataOnDemand.setInvoiceState(Invoice obj, int index) {
         InvoiceState invoiceState = InvoiceState.class.getEnumConstants()[0];
         obj.setInvoiceState(invoiceState);
+    }
+    
+    public void InvoiceDataOnDemand.setMontantService(Invoice obj, int index) {
+        BigDecimal montantService = BigDecimal.valueOf(index);
+        obj.setMontantService(montantService);
     }
     
     public void InvoiceDataOnDemand.setOriginator(Invoice obj, int index) {
@@ -83,6 +109,16 @@ privileged aspect InvoiceDataOnDemand_Roo_DataOnDemand {
     public void InvoiceDataOnDemand.setPayementState(Invoice obj, int index) {
         PayementState payementState = PayementState.class.getEnumConstants()[0];
         obj.setPayementState(payementState);
+    }
+    
+    public void InvoiceDataOnDemand.setReste(Invoice obj, int index) {
+        BigDecimal reste = BigDecimal.valueOf(index);
+        obj.setReste(reste);
+    }
+    
+    public void InvoiceDataOnDemand.setValueAdddedTax(Invoice obj, int index) {
+        BigDecimal valueAdddedTax = BigDecimal.valueOf(index);
+        obj.setValueAdddedTax(valueAdddedTax);
     }
     
     public Invoice InvoiceDataOnDemand.getSpecificInvoice(int index) {

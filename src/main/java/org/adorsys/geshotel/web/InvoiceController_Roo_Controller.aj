@@ -15,6 +15,7 @@ import org.adorsys.geshotel.booking.domain.Invoice;
 import org.adorsys.geshotel.booking.domain.InvoiceState;
 import org.adorsys.geshotel.booking.domain.PayementState;
 import org.adorsys.geshotel.domain.Customer;
+import org.adorsys.geshotel.domain.Payment;
 import org.adorsys.geshotel.domain.UserAccount;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -115,6 +116,11 @@ privileged aspect InvoiceController_Roo_Controller {
     @ModelAttribute("customers")
     public Collection<Customer> InvoiceController.populateCustomers() {
         return Customer.findAllCustomers();
+    }
+    
+    @ModelAttribute("payments")
+    public Collection<Payment> InvoiceController.populatePayments() {
+        return Payment.findAllPayments();
     }
     
     @ModelAttribute("useraccounts")

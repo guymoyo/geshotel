@@ -11,6 +11,9 @@ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     
     <spring:url value="/resources" var="resource"/> 
  	<spring:url value="/invoices" var="inv"></spring:url>
+ 	
+ 	<!-- Lien d'impression de la facture -->
+ 	<spring:url value="/documents/print/facture/${invoice.id}" var="print_invoice" />
  
  <SCRIPT type="text/javascript">
  	dojo.ready(function(){
@@ -23,7 +26,7 @@ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
          <button dojoType="dijit.form.Button" type="button" id="close"  onclick="window.location='${inv}/close?id=${invoice.id}'" >close</button>
         </c:if>
          
-         <button dojoType="dijit.form.Button" type="button" id="print" >Imprimer</button>
+         <button dojoType="dijit.form.Button" type="button" id="print1" title="Imprimer la facture" onclick="window.location='${print_invoice}'">Imprimer</button>
         
          <button dojoType="dijit.form.Button" type="button" id="showpay">payment</button>
  <c:if test="${ not empty warn}">
@@ -46,8 +49,8 @@ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
   			bar code
   		</div> -->
   		<div style="margin-left: 70px;float: right;">
-  		<img  src="${resource}/images/${hotel.logo}" alt="logo" style="max-width: 120px;max-width: 120px;margin-right: 40px;" />
-  	</div>
+  		    <img  src="${resource}/images/${hotel.logo}" alt="logo" style="max-width: 120px;max-width: 120px;margin-right: 40px;" />
+  	    </div>
   	</div>
   	
   	<div style="clear: both;" ></div>
@@ -84,7 +87,7 @@ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
 			<c:forEach  items="${reservations }" var="itemR">	   
 				  <tr>
 				      <td>Nuite</td>
-				<fmt:formatNumber type="number" var="totalAmountR" value="${itemR.totalAmount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+				      <fmt:formatNumber type="number" var="totalAmountR" value="${itemR.totalAmount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
 				      <td width="360px"><div class="des"> de ${itemR.checkInDate} a ${itemR.checkOutDate}</div></td>
 				      <td>${itemR.amount}</td>
 				      <td>${itemR.numDays }</td>
@@ -95,7 +98,7 @@ xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
 			<c:forEach items="${items}" var="item">	   
 				  <tr>
 				      <td>${item.itemName }</td>
-		<fmt:formatNumber type="number" var="itemT" value="${item.amount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
+		              <fmt:formatNumber type="number" var="itemT" value="${item.amount}" maxFractionDigits="0" groupingUsed="false"></fmt:formatNumber>
 				      <td width="400px" ><div class="des" >${item.itemDesc }</div></td>
 				      <td>${item.unitPrice}</td>
 				      <td>${item.qty }</td>

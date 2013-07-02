@@ -125,9 +125,38 @@ public class Customer {
     }
 
     public boolean isCreated() {
-        boolean bool = true;
+        boolean bool = Boolean.FALSE;
         List<Customer> list = Customer.findCustomersByIdentityNumberEquals(this.identityNumber).getResultList();
-        if (list == null || list.isEmpty()) bool = false;
+        System.out.println("Liste: "+list);
+        if (list == null || list.isEmpty()) bool = Boolean.TRUE;
         return bool;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Account: ").append(getAccount()).append(", ");
+        sb.append("Address: ").append(getAddress()).append(", ");
+        sb.append("BlackList: ").append(getBlackList()).append(", ");
+        sb.append("BornDate: ").append(getBornDate()).append(", ");
+        sb.append("BornPlace: ").append(getBornPlace()).append(", ");
+        sb.append("CarNumber: ").append(getCarNumber()).append(", ");
+        sb.append("ComeFrom: ").append(getComeFrom()).append(", ");
+        sb.append("DelivredDate: ").append(getDelivredDate()).append(", ");
+        sb.append("Discounts: ").append(getDiscounts() == null ? "null" : getDiscounts().size()).append(", ");
+        sb.append("Email: ").append(getEmail()).append(", ");
+        sb.append("FirstName: ").append(getFirstName()).append(", ");
+        sb.append("FullName: ").append(getFullName()).append(", ");
+        sb.append("Gender: ").append(getGender()).append(", ");
+        sb.append("GoTo: ").append(getGoTo()).append(", ");
+        sb.append("IdentityNumber: ").append(getIdentityNumber()).append(", ");
+        sb.append("LastName: ").append(getLastName()).append(", ");
+        sb.append("MaidenName: ").append(getMaidenName()).append(", ");
+        sb.append("Nationality: ").append(getNationality()).append(", ");
+        sb.append("PhoneNumber: ").append(getPhoneNumber()).append(", ");
+        sb.append("Profession: ").append(getProfession()).append(", ");
+        sb.append("ResidenceCountry: ").append(getResidenceCountry()).append(", ");
+        sb.append("TransportMode: ").append(getTransportMode()).append(", ");
+        return sb.toString();
     }
 }

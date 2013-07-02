@@ -11,7 +11,7 @@
  </a>
  </div>
  
-  <div style="margin-left: 31%;margin-top: 50px;width: 450px;height: 150px;padding: 5px;padding-left: 70px;" class="login" id="logIn" >
+  <div style="margin-left: 31%;margin-top: 50px;width: 450px;height: auto;padding: 5px;padding-left: 70px;" class="login" id="logIn" >
     <c:if test="${not empty param.login_error}">
       <div class="errors">
         <p style="width: 100px;overflow: hidden;" >
@@ -54,15 +54,18 @@
           </c:set>
           Spring.addDecoration(new Spring.ElementDecoration({elementId : "j_password", widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "${sec_pwd_msg}", required : true}})); 
         </script>
-      </div>
-      <br />
+      </div><br/>
+      <div>
+         <input id="remember_me" name="_spring_security_remember_me" type="checkbox"/>
+         <label for="remember_me" class="inline">Se souvenir de moi</label>
+      </div><br/>
       <div class="submit">
         <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
         <spring:message code="button_submit" var="submit_label" htmlEscape="false" />
         <input id="proceed" type="submit" value="${fn:escapeXml(submit_label)}" />
         <spring:message code="button_reset" var="reset_label" htmlEscape="false" />
         <input id="reset" type="reset" value="${fn:escapeXml(reset_label)}" />
-      </div>
+      </div><br/>
     </form>
  </div>
  <a href="http://www.adorsys.cm" style="margin-left: 66%;text-decoration: none;" ><font color="orange" >by </font>Adorsys sa</a>

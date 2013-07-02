@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+xmlns:spring="http://www.springframework.org/tags" 
+xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
+    
     <div class="print">
         <page:list id="pl_org_adorsys_geshotel_booking_domain_Reservation" items="${reservations}" label="Fiche Police" z="user-managed">
             <table:table create="false" data="${reservations}" delete="false" id="l_org_adorsys_geshotel_booking_domain_Reservation" path="/reservations" update="false" z="user-managed">
@@ -16,5 +21,8 @@
             </table:table>
         </page:list>
     </div>
-    <input onclick="window.print();return false;" type="submit" value="Imprimer"/>
+    <!-- <input onclick="window.print();return false;" type="submit" value="Imprimer"/> -->
+    <spring:url value="/documents/print/listeReservations" var="printpdf_url" />
+    <spring:url value="/documents/print/listeReservations" var="printxls_url" />
+   <util:printdocument link="${printpdf_url}" printPDF="true" printXLS="true" />
 </div>

@@ -11,8 +11,10 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <div class="print">
+    
         <util:panel title="Main Courante" id="mc" >
         <spring:url value="/invoices" var="invoice_url" ></spring:url>
+        <security:authentication property="principal.username" />
         	<table>
         		<tbody>
         			<th>N<SUP>o</SUP> Chbre</th>
@@ -98,5 +100,7 @@
 	</div>
         </util:panel>
     </div>
-    <input onclick="window.print();return false;" type="submit" value="Imprimer"/>
+    
+    <spring:url value="/documents/print/maincourante" var="maincourante" />
+   <util:printdocument link="${maincourante}" printPDF="true" printXLS="false" />
 </div>

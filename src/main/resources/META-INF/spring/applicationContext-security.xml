@@ -10,6 +10,7 @@
     	<form-login  login-processing-url="/resources/j_spring_security_check"  login-page="/login" authentication-success-handler-ref="hotelAuthSuccessHandler" authentication-failure-url="/login?login_error=t"/>
         <logout  success-handler-ref="hotelAuthSuccessHandler" logout-url="/resources/j_spring_security_logout"/>
         <access-denied-handler error-page="/accessdenied"  />
+        <remember-me key="adhotelkey" token-validity-seconds="2419200" />
         <!-- Configure these elements to secure URIs in your application -->
         <intercept-url pattern="/choices/**" access="hasRole('ROLE_ADMIN')"/>
         <!-- <intercept-url pattern="/customers/**" access="hasAnyRole('ROLE_RESTO_MANAGER','ROLE_MANAGER')"/> -->

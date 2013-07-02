@@ -70,8 +70,8 @@
                 </fieldset>
                 <fieldset>
                     <legend>Etat</legend>
-                    <div class="${class}">
-                    	<field:display field="reservationState" id="s_org_adorsys_geshotel_booking_domain_Reservation_reservationState" object="${reservation}" z="utbObJL0F1USZQAjuR8FXwrYo48="/>
+                    <div class="${class}" style="color:white; text-shadow: silver;">
+                    	<field:display field="reservationState" id="s_org_adorsys_geshotel_booking_domain_Reservation_reservationState" object="${reservation}" z="user-managed"/>
                		</div>
                 </fieldset>
                 <fieldset>

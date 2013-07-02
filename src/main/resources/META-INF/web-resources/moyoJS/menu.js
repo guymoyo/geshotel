@@ -86,6 +86,7 @@ dojo.ready(function(){
 	anim.animate("configuration");
 	anim.animate("c_producttype");
 	anim.animate("c_customer");
+	anim.animate("c_print");
 	
 	anim.changeStyle("c_otherservice");
 	anim.changeStyle("c_room");
@@ -109,6 +110,7 @@ dojo.ready(function(){
 	anim.changeStyle("configuration");
 	anim.changeStyle("c_producttype");
 	anim.changeStyle("c_customer");
+	anim.changeStyle("c_print");
 });
 
 

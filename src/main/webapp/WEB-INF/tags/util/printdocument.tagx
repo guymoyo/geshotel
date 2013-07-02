@@ -1,0 +1,50 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" 
+xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
+xmlns:spring="http://www.springframework.org/tags"
+xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="printPDF" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Enable or disable the button of print pdf" />
+  <jsp:directive.attribute name="printXLS" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Enable or disable the button of print excel" />
+  <jsp:directive.attribute name="link" type="java.lang.String" required="true" rtexprvalue="true" description="The link url of the button" />
+ 
+ <c:set var="YES" value="true" />
+ <c:set var="NO" value="false" />
+ 
+ <style type="text/css">
+     .link_css{
+         text-decoration: none;
+         display: block;
+         margin-right: 5px;
+     }
+     .button_css{
+         color: #CCC;
+         text-shadow: 2px 2px #333;
+         height: 30px;
+         border-radius:7px;
+         cursor: pointer;
+     }
+ 
+ </style>
+ 
+  <div style="margin-top: 10px; margin: auto;">
+         <table style="border: none; width: 200px;">
+             <tr style="border: none;">
+		        <td style="border: none;">
+		            <c:if test="${printPDF eq YES}">
+		             <a href="${link}?media=pdf" class="link_css"> <input type="button" value="Imprimer pdf" class="button_css" style="float: left;"/> </a>
+                    </c:if>
+                </td>
+                <td style="border: none;">
+                    <c:if test="${printXLS eq YES}">
+		              <a href="${link}?media=xls" class="link_css"> <input type="button" value="Imprimer excel" class="button_css" style="float: right; margin-right: 750px;"/> </a>
+                    </c:if>
+                </td>
+             </tr>
+         </table>
+           
+           
+           
+  </div>
+  
+</jsp:root>

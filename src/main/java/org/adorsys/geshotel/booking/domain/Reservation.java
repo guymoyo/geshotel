@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.EntityManager;
 import javax.persistence.FetchType;
 import javax.persistence.PostLoad;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -67,13 +68,14 @@ public class Reservation {
     @ManyToOne
     private Customer customer;
 
-    @Transient
+    // Champ autrefois transcient
     private BigDecimal totalAmount = BigDecimal.ZERO;
 
     private int numDays;
 
-    @Transient
+    // champ autrefois transcient
     private int discount;
+    
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm:ss")
@@ -83,6 +85,12 @@ public class Reservation {
     private UserAccount receipt;
 
     private int numOfPeople = 1;
+    
+    @PrePersist
+    public void prePersist(){
+    	calculAmount();
+        calculTotalAmount();
+    }
 
     private BigDecimal deposit = BigDecimal.ZERO;
 

@@ -16,6 +16,7 @@
         <field:input field="reste" id="c_org_adorsys_geshotel_booking_domain_Invoice_reste" validationMessageCode="field_invalid_number" z="r7dGle3Wqwz9NDONW65eAeDfuQE="/>
         <field:input field="amountPaid" id="c_org_adorsys_geshotel_booking_domain_Invoice_amountPaid" validationMessageCode="field_invalid_number" z="qtilv+fmg3ngg5wxni6Ow6NOBIE="/>
         <field:input field="montantService" id="c_org_adorsys_geshotel_booking_domain_Invoice_montantService" validationMessageCode="field_invalid_number" z="vsug3big/s8GrL10LW3PHapqb98="/>
+        <field:simple field="paiements" id="c_org_adorsys_geshotel_booking_domain_Invoice_paiements" messageCode="entity_reference_not_managed" messageCodeAttribute="Payment" z="S9B5e2K9USBjf4XDZFBgirZ9ZTQ="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_adorsys_geshotel_booking_domain_Invoice" render="${not empty dependencies}" z="5xHUJSnXKItRkh15hG4iUlGWddk="/>
 </div>

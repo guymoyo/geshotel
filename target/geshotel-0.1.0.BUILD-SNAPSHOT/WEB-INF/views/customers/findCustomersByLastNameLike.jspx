@@ -2,7 +2,7 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
-    <form:find finderName="ByLastNameLike" id="ff_org_adorsys_geshotel_domain_Customer" path="/customers" z="xzjmmRE2iKz1izzFvHwr5EZp2Uc=">
+    <form:find finderName="ByLastNameLike" id="ff_org_adorsys_geshotel_domain_Customer" label="Nom client" path="/customers" z="user-managed">
         <field:input disableFormBinding="true" field="lastName" id="f_org_adorsys_geshotel_domain_Customer_lastName" required="true" z="c2M+3UIRarQITr/lsfiDs9M6DtU="/>
     </form:find>
 </div>

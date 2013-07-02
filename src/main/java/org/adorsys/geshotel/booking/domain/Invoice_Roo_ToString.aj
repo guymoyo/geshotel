@@ -20,6 +20,7 @@ privileged aspect Invoice_Roo_ToString {
         sb.append("MontantService: ").append(getMontantService()).append(", ");
         sb.append("Originator: ").append(getOriginator()).append(", ");
         sb.append("OtherTaxes: ").append(getOtherTaxes()).append(", ");
+        sb.append("Paiements: ").append(getPaiements() == null ? "null" : getPaiements().size()).append(", ");
         sb.append("PayementState: ").append(getPayementState()).append(", ");
         sb.append("Reste: ").append(getReste()).append(", ");
         sb.append("ValueAdddedTax: ").append(getValueAdddedTax()).append(", ");

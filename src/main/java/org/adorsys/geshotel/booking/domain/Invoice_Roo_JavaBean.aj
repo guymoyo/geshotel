@@ -5,9 +5,11 @@ package org.adorsys.geshotel.booking.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import org.adorsys.geshotel.booking.domain.InvoiceState;
 import org.adorsys.geshotel.booking.domain.PayementState;
 import org.adorsys.geshotel.domain.Customer;
+import org.adorsys.geshotel.domain.Payment;
 import org.adorsys.geshotel.domain.UserAccount;
 
 privileged aspect Invoice_Roo_JavaBean {
@@ -74,6 +76,14 @@ privileged aspect Invoice_Roo_JavaBean {
     
     public void Invoice.setMontantService(BigDecimal montantService) {
         this.montantService = montantService;
+    }
+    
+    public List<Payment> Invoice.getPaiements() {
+        return this.paiements;
+    }
+    
+    public void Invoice.setPaiements(List<Payment> paiements) {
+        this.paiements = paiements;
     }
     
     public PayementState Invoice.getPayementState() {

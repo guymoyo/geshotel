@@ -108,9 +108,17 @@
       
       <security:authorize access="isAuthenticated()" > 
         <menu:category id="switch" label="Option" z="user-managed">
-            <menu:item id="resto" messageCode="" label="Restaurant" url="/resto" z="user-managed"/>
+             <menu:item id="resto" messageCode="" label="Restaurant" url="/resto" z="user-managed"/>
              <menu:item id="password_reset_item" messageCode="" label="Changer le mot de passe" url="/passwordresets?form" z="user-managed"/>
         </menu:category>
+      </security:authorize>
+      
+      <!-- Menu des impressions -->
+      <security:authorize access="isAuthenticated()">
+          <menu:category id="c_print" label="Impressions" z="user-managed">
+              <menu:item id="fi_print_fiche_police" messageCode="" label="Fiche Police" url="/reservations/fichePolice?form" z="user-managed"/>
+              <menu:item id="fi_print_lettre_reservation" messageCode="" label="Lettre de reservation" url="/reservations/lettreReservation?form" z="user-managed"/>
+          </menu:category>
       </security:authorize>
     </menu:menu>
 </div>

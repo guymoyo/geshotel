@@ -58,7 +58,6 @@
 <aspect name="org.adorsys.geshotel.resto.domain.Sale_Roo_Configurable"/>
 <aspect name="org.adorsys.geshotel.resto.domain.ParentGroup_Roo_JavaBean"/>
 <aspect name="org.adorsys.geshotel.resto.domain.ProductType_Roo_Entity"/>
-<aspect name="org.adorsys.geshotel.domain.Customer_Roo_ToString"/>
 <aspect name="org.adorsys.geshotel.domain.Hotel_Roo_Configurable"/>
 <aspect name="org.adorsys.geshotel.web.RetraitController_Roo_Controller"/>
 <aspect name="org.adorsys.geshotel.resto.domain.Inventory_Roo_JavaBean"/>

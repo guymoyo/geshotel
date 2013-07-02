@@ -37,7 +37,7 @@ public class CustomerController {
 	
 	 @RequestMapping(method = RequestMethod.POST)
 	    public String create(@Valid Customer customer, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-	        if (bindingResult.hasErrors() || customer.isCreated()) {
+	        if (bindingResult.hasErrors() && customer.isCreated()) {
 	            uiModel.addAttribute("customer", customer);
 	            uiModel.addAttribute("error", new ErrorMessage("Client deja cree avec ce numero", "Customer ready created with this number").getMessage());
 	            addDateTimeFormatPatterns(uiModel);
@@ -49,5 +49,6 @@ public class CustomerController {
 	    }
 	 void addDateTimeFormatPatterns(Model uiModel) {
 	        uiModel.addAttribute("customer_borndate_date_format", "dd-MM-yyyy");
+	        uiModel.addAttribute("customer_delivreddate_date_format", "dd-MM-yyyy");
 	    }
 }

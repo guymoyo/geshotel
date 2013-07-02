@@ -1,12 +1,20 @@
 package org.adorsys.geshotel.booking.domain;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PostLoad;
+import javax.persistence.PostPersist;
+import javax.persistence.PrePersist;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -27,25 +35,27 @@ public class Invoice {
     @ManyToOne
     private Customer customer;
 
-    @Transient
+    // Debut des champs transient
+    
     private BigDecimal invoiceAmount = BigDecimal.ZERO;
 
-    @Transient
     private BigDecimal valueAdddedTax = BigDecimal.ZERO;
 
     private BigDecimal otherTaxes = BigDecimal.ZERO;
 
-    @Transient
     private BigDecimal amountDue = BigDecimal.ZERO;
 
-    @Transient
     private BigDecimal amountPaid = BigDecimal.ZERO;
 
-    @Transient
     private BigDecimal reste = BigDecimal.ZERO;
 
-    @Transient
     private BigDecimal montantService = BigDecimal.ZERO;
+    
+    @OrderBy("datePayemment DESC")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="invoice", fetch=FetchType.EAGER)
+    private List<Payment> paiements= new ArrayList<Payment>();
+    
+    // Fin des champs transcient
 
     @Enumerated
     private PayementState payementState;
@@ -72,8 +82,19 @@ public class Invoice {
         this.originator = originator;
         this.dateOfCreate = dateOfCreate;
     }
-
-    private void calculInvoiceAmount() {
+    
+    @PostLoad
+    public void postLoadFunction() {
+    	System.out.println("Debut du chargement");
+        calculInvoiceAmount();
+        calculTax();
+        calculAmountDue();
+        AmountPaid();
+        reste();
+    }
+    
+// Calcul du montant total de la facture
+    public void calculInvoiceAmount() {
         Invoice invoice = Invoice.findInvoice(this.getId());
         List<Reservation> list = Reservation.findReservationsByInvoice(invoice).getResultList();
         this.invoiceAmount = BigDecimal.ZERO;
@@ -90,7 +111,9 @@ public class Invoice {
         }
     }
 
-    private void calculTax() {
+    
+    // Calcul de la taxe
+    public void calculTax() {
         BigDecimal tva = BigDecimal.ZERO;
         try {
             tva = Hotel.findAllHotels().get(0).getTVA();
@@ -102,12 +125,14 @@ public class Invoice {
         this.valueAdddedTax = this.invoiceAmount.multiply(tva).divide(new BigDecimal(100));
     }
 
-    private void calculAmountDue() {
+    // Calcul du montant a payer de la facture
+    public void calculAmountDue() {
         this.amountDue = BigDecimal.ZERO;
         this.amountDue = this.amountDue.add(this.invoiceAmount).add(this.valueAdddedTax).add(this.otherTaxes);
     }
 
-    private void AmountPaid() {
+    // Calcul du montant paye de la facture
+    public void AmountPaid() {
         List<Payment> list = Payment.findPaymentsByInvoice(this).getResultList();
         this.amountPaid = BigDecimal.ZERO;
         if (list != null && !list.isEmpty()) {
@@ -117,16 +142,9 @@ public class Invoice {
         }
     }
 
-    private void reste() {
+    // Calcul du reste de la facture
+    public void reste() {
         this.reste = this.amountDue.add(this.amountPaid.negate());
     }
 
-    @PostLoad
-    public void postLoadFunction() {
-        calculInvoiceAmount();
-        calculTax();
-        calculAmountDue();
-        AmountPaid();
-        reste();
-    }
 }

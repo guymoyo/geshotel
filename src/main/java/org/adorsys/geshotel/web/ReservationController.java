@@ -19,6 +19,7 @@ import org.adorsys.geshotel.booking.domain.Invoice;
 import org.adorsys.geshotel.booking.domain.InvoiceState;
 import org.adorsys.geshotel.booking.domain.LabelChart;
 import org.adorsys.geshotel.booking.domain.PayementState;
+import org.adorsys.geshotel.booking.domain.Periode;
 import org.adorsys.geshotel.booking.domain.Reservation;
 import org.adorsys.geshotel.booking.domain.ReservationState;
 import org.adorsys.geshotel.booking.domain.Room;
@@ -227,14 +228,10 @@ public class ReservationController {
 	}
 
 	@RequestMapping("/occupe")
-	public String cloturer(
-			@RequestParam(value = "reservationId", required = false) Long id,
-			Model uiModel) {
+	public String cloturer(@RequestParam(value = "reservationId", required = false) Long id, Model uiModel) {
 		Reservation reservation = Reservation.findReservation(id);
 		if (reservation.getReservationState()!=ReservationState.OCCUPE) {
-			Invoice invoice = new Invoice(reservation.getCustomer(),
-					PayementState.NotPay, InvoiceState.Ouvert,
-					SecurityUtil.getBaseUser(), new Date());
+			Invoice invoice = new Invoice(reservation.getCustomer(), PayementState.NotPay, InvoiceState.Ouvert, SecurityUtil.getBaseUser(), new Date());
 			invoice.persist();
 			invoice.flush();
 			reservation.setInvoice(invoice);
@@ -386,7 +383,7 @@ public class ReservationController {
 		List<CustomReservationImg> customReservationImgs = this.transformReservations(reservations);
 		for (CustomReservationImg reservationImg : customReservationImgs) {
 			SaleProcess.findServicesReports(reservationImg.getCustomer(), InvoiceState.Ouvert,reservationImg);
-			System.out.println("\n Group And sale Reports : \t "+reservationImg.getGroupAndSaleReports());
+//			System.out.println("\n Group And sale Reports : \t "+reservationImg.getGroupAndSaleReports());
 		}
 		 Date day = new Date();
 		 tauxOccupation(uiModel, day );
@@ -498,6 +495,16 @@ public class ReservationController {
 			return ca/numReser;
 		}
 		
+	
+		// Formulaire d'edition de la fiche police
+		@RequestMapping(value="/fichePolice", params={"form"}, method=RequestMethod.GET)
+		public String fichePoliceForm(Model uiModel, HttpServletRequest httpServletRequest){
+			uiModel.addAttribute("mincreationdate_date_format", "dd-MM-yyyy");
+			uiModel.addAttribute("maxcreationdate_date_format", "dd-MM-yyyy");
+			uiModel.addAttribute("periode", new Periode());
+			return "fichePolice";
+		}
+		
 	 
 	void addDateTimeFormat(Model uiModel) {
 		uiModel.addAttribute("customer_borndate_date_format", "dd-MM-yyyy");
@@ -516,15 +523,12 @@ public class ReservationController {
 	
 	@ModelAttribute("hotel")
 	public String nameHotel() {
-		
 		String name;
 		try {
-			name = Hotel.findAllHotels().get(0).getName();
+			name = Hotel.findAllHotels().iterator().next().getName();
 		} catch (Exception e) {
 			name = "";
-			e.printStackTrace();
 		}
-		
 		return name;
 	}
 

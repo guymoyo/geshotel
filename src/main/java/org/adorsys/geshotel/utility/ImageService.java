@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.commons.io.FileSystemUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
@@ -80,8 +81,9 @@ public class ImageService {
 		}
 		long fileSize = file.getSize();
 		File fileDIr = new File( "./src/main/webapp/images/");
-		/*fileDIr.mkdirs();*/
+		/*File fileDIr = new File(ImageService.ROOT_DIR);*/
 		File diskFile = new File(fileDIr, fileName);
+		
 		FileOutputStream fileOutputStream = new FileOutputStream(diskFile);
 		IOUtils.copy(file.getInputStream(), fileOutputStream);
 		IOUtils.closeQuietly(fileOutputStream);

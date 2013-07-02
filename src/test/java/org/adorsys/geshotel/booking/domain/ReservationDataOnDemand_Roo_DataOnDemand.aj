@@ -57,6 +57,7 @@ privileged aspect ReservationDataOnDemand_Roo_DataOnDemand {
         setCreationDate(obj, index);
         setCustomer(obj, index);
         setDeposit(obj, index);
+        setDiscount(obj, index);
         setInvoice(obj, index);
         setNumDays(obj, index);
         setNumOfPeople(obj, index);
@@ -65,6 +66,7 @@ privileged aspect ReservationDataOnDemand_Roo_DataOnDemand {
         setReduction(obj, index);
         setReservationState(obj, index);
         setRoom(obj, index);
+        setTotalAmount(obj, index);
         return obj;
     }
     
@@ -106,6 +108,11 @@ privileged aspect ReservationDataOnDemand_Roo_DataOnDemand {
         obj.setDeposit(deposit);
     }
     
+    public void ReservationDataOnDemand.setDiscount(Reservation obj, int index) {
+        int discount = index;
+        obj.setDiscount(discount);
+    }
+    
     public void ReservationDataOnDemand.setInvoice(Reservation obj, int index) {
         Invoice invoice = invoiceDataOnDemand.getRandomInvoice();
         obj.setInvoice(invoice);
@@ -144,6 +151,11 @@ privileged aspect ReservationDataOnDemand_Roo_DataOnDemand {
     public void ReservationDataOnDemand.setRoom(Reservation obj, int index) {
         Room room = roomDataOnDemand.getRandomRoom();
         obj.setRoom(room);
+    }
+    
+    public void ReservationDataOnDemand.setTotalAmount(Reservation obj, int index) {
+        BigDecimal totalAmount = BigDecimal.valueOf(index);
+        obj.setTotalAmount(totalAmount);
     }
     
     public Reservation ReservationDataOnDemand.getSpecificReservation(int index) {
